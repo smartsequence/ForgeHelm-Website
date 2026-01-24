@@ -1,0 +1,697 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+	title="定價方案 | 智序資訊工作室" 
+	description="透明且彈性的服務方案，符合不同階段需求。所有方案均可開立合法發票，符合政府採購規範。"
+>
+	<!-- Hero 區塊 -->
+	<section class="hero">
+		<div class="container">
+			<h1>服務方案與計費</h1>
+			<p class="hero-subtitle">
+				我們提供透明且彈性的服務方案，以符合不同階段的需求。<br>
+				所有方案均可開立合法發票，符合政府採購規範。
+			</p>
+		</div>
+	</section>
+
+	<!-- 定價方案卡片 -->
+	<section class="section pricing-cards">
+		<div class="container">
+			<div class="plans-grid">
+				<!-- 試用方案 -->
+				<div class="plan-card">
+					<h3 class="plan-name">試用體驗方案</h3>
+					<div class="plan-price">
+						<span class="price">NT$ 0</span>
+					</div>
+					<ul class="plan-features">
+						<li>✓ 填寫評估問卷</li>
+						<li>✓ 預覽部分報告內容</li>
+						<li>✓ 體驗完整流程</li>
+						<li>✗ 無法下載 PDF</li>
+						<li>✗ 資料保存 7 天</li>
+					</ul>
+					<a href="/get-started?source=pricing&plan=trial" class="plan-btn">立即試用</a>
+					<p class="plan-note">適合初次了解服務的使用者</p>
+				</div>
+
+				<!-- 單次方案 -->
+				<div class="plan-card">
+					<h3 class="plan-name">單次報告服務</h3>
+					<div class="plan-price">
+						<span class="price">NT$ 990</span>
+						<span class="period">/ 一次</span>
+					</div>
+					<ul class="plan-features">
+						<li>✓ 完整風險評估報告一份</li>
+						<li>✓ 風險雷達圖</li>
+						<li>✓ PDF 下載</li>
+						<li>✓ 可開立發票</li>
+						<li>✓ 資料永久保存</li>
+					</ul>
+					<a href="/get-started?source=pricing&plan=once" class="plan-btn">立即購買</a>
+					<p class="plan-note">適合一次性評估需求</p>
+				</div>
+
+				<!-- 月度方案（推薦）-->
+				<div class="plan-card featured">
+					<div class="badge">最受歡迎</div>
+					<h3 class="plan-name">月度顧問方案</h3>
+					<div class="plan-price">
+						<span class="price">NT$ 2,490</span>
+						<span class="period">/ 月</span>
+					</div>
+					<ul class="plan-features">
+						<li>✓ 每月可產出 3 份報告</li>
+						<li>✓ 技術諮詢支援</li>
+						<li>✓ 客製化樣板調整</li>
+						<li>✓ 可開立發票</li>
+						<li>✓ 資料永久保存</li>
+					</ul>
+					<a href="/get-started?source=pricing&plan=monthly" class="plan-btn primary">立即購買</a>
+					<p class="plan-note">適合持續進行系統評估的團隊</p>
+				</div>
+
+				<!-- 年度方案 -->
+				<div class="plan-card">
+					<h3 class="plan-name">年度企業方案</h3>
+					<div class="plan-price">
+						<span class="price">NT$ 24,900</span>
+						<span class="period">/ 年</span>
+						<span class="save">省 17%</span>
+					</div>
+					<ul class="plan-features">
+						<li>✓ 每月可產出 5 份報告</li>
+						<li>✓ 優先技術支援</li>
+						<li>✓ 客製化樣板與培訓</li>
+						<li>✓ 可開立發票</li>
+						<li>✓ 專屬客戶經理</li>
+					</ul>
+					<a href="/get-started?source=pricing&plan=yearly" class="plan-btn">立即購買</a>
+					<p class="plan-note">適合大型企業或長期合作夥伴</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- 功能對照表 -->
+	<section class="section comparison">
+		<div class="container">
+			<h2 class="section-title">完整功能對照</h2>
+			
+			<div class="comparison-table-wrapper">
+				<table class="comparison-table">
+					<thead>
+						<tr>
+							<th class="feature-col">功能特性</th>
+							<th>試用方案</th>
+							<th>單次服務</th>
+							<th class="featured-col">月度方案 ⭐</th>
+							<th>年度方案</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="feature-name">風險評估問卷</td>
+							<td>✅</td>
+							<td>✅</td>
+							<td>✅</td>
+							<td>✅</td>
+						</tr>
+						<tr>
+							<td class="feature-name">風險雷達圖</td>
+							<td>預覽</td>
+							<td>✅</td>
+							<td>✅</td>
+							<td>✅</td>
+						</tr>
+						<tr>
+							<td class="feature-name">PDF 下載</td>
+							<td>❌</td>
+							<td>✅</td>
+							<td>✅</td>
+							<td>✅</td>
+						</tr>
+						<tr>
+							<td class="feature-name">每月報告數量</td>
+							<td>-</td>
+							<td>1</td>
+							<td>3</td>
+							<td>5</td>
+						</tr>
+						<tr>
+							<td class="feature-name">問卷記錄保存</td>
+							<td>7 天</td>
+							<td>永久</td>
+							<td>永久</td>
+							<td>永久</td>
+						</tr>
+						<tr>
+							<td class="feature-name">技術諮詢支援</td>
+							<td>❌</td>
+							<td>❌</td>
+							<td>✅</td>
+							<td>✅</td>
+						</tr>
+						<tr>
+							<td class="feature-name">客製化樣板</td>
+							<td>❌</td>
+							<td>❌</td>
+							<td>✅</td>
+							<td>✅</td>
+						</tr>
+						<tr>
+							<td class="feature-name">開立發票</td>
+							<td>❌</td>
+							<td>✅</td>
+							<td>✅</td>
+							<td>✅</td>
+						</tr>
+						<tr>
+							<td class="feature-name">優先客服</td>
+							<td>❌</td>
+							<td>❌</td>
+							<td>❌</td>
+							<td>✅</td>
+						</tr>
+						<tr>
+							<td class="feature-name">教育訓練</td>
+							<td>❌</td>
+							<td>❌</td>
+							<td>❌</td>
+							<td>✅</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</section>
+
+	<!-- 支援付款方式 -->
+	<section class="section payment">
+		<div class="container">
+			<h2 class="section-title">支援付款方式</h2>
+			
+			<div class="payment-grid">
+				<div class="payment-method">
+					<h3>🏦 台灣客戶</h3>
+					<p class="payment-name">綠界金流（ECPay）</p>
+					<ul>
+						<li>信用卡</li>
+						<li>ATM 轉帳</li>
+						<li>超商代碼</li>
+					</ul>
+				</div>
+
+				<div class="payment-method">
+					<h3>💳 國際客戶</h3>
+					<p class="payment-name">PayPal</p>
+					<ul>
+						<li>信用卡</li>
+						<li>PayPal 餘額</li>
+						<li>國際付款</li>
+					</ul>
+				</div>
+
+				<div class="payment-method">
+					<h3>🔒 安全保障</h3>
+					<p class="payment-name">加密與合規</p>
+					<ul>
+						<li>SSL 加密傳輸</li>
+						<li>PCI DSS 合規</li>
+						<li>不儲存信用卡資訊</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- FAQ 專區 -->
+	<section class="section faq" id="faq">
+		<div class="container">
+			<h2 class="section-title">常見問題</h2>
+			
+			<div class="faq-list">
+				<details class="faq-item">
+					<summary>Q1：是否可以開立正式發票？</summary>
+					<div class="faq-answer">
+						<p>是的，智序資訊工作室為正式登記之商號（統一編號：12345678），所有付費方案均可開立合法發票，符合政府採購與企業報帳需求。</p>
+					</div>
+				</details>
+
+				<details class="faq-item">
+					<summary>Q2：付款後何時可以收到報告？</summary>
+					<div class="faq-answer">
+						<p>完成問卷填寫後，系統將自動產生報告。一般情況下，報告會在當天內產出，您可以立即下載 PDF 檔案。</p>
+					</div>
+				</details>
+
+				<details class="faq-item">
+					<summary>Q3：我的資料會上傳到雲端嗎？資料安全如何保障？</summary>
+					<div class="faq-answer">
+						<p>您填寫的問卷資料會安全儲存於我們的伺服器，採用加密傳輸與儲存。我們不會蒐集您的客戶系統原始程式碼或敏感資料，僅針對問卷答案進行分析。所有資料處理符合個人資料保護法規範。</p>
+					</div>
+				</details>
+
+				<details class="faq-item">
+					<summary>Q4：可否接受企業包月或客製化合作？</summary>
+					<div class="faq-answer">
+						<p>可以。如果您有特殊需求（例如：大量報告、客製化分析維度、教育訓練等），歡迎透過<a href="/contact">聯絡表單</a>或 LINE 與我們洽詢，我們將提供專屬報價。</p>
+					</div>
+				</details>
+
+				<details class="faq-item">
+					<summary>Q5：試用方案與付費方案的差異？</summary>
+					<div class="faq-answer">
+						<p>試用方案可以體驗完整的問卷流程，並預覽部分報告內容，但無法下載完整 PDF 檔案。付費方案則可以下載完整報告，且資料永久保存。</p>
+					</div>
+				</details>
+
+				<details class="faq-item">
+					<summary>Q6：如果不滿意可以退款嗎？</summary>
+					<div class="faq-answer">
+						<p>依據消費者保護法，我們提供 7 天鑑賞期。如果您對報告品質不滿意，可在購買後 7 天內申請退款（需扣除已產生的報告成本）。</p>
+					</div>
+				</details>
+
+				<details class="faq-item">
+					<summary>Q7：月度方案的報告數量可以累積嗎？</summary>
+					<div class="faq-answer">
+						<p>當月未使用完的報告數量不會累積至下個月。如果您預期某月會產生較多報告，建議選擇年度方案或聯絡我們討論彈性方案。</p>
+					</div>
+				</details>
+
+				<details class="faq-item">
+					<summary>Q8：可以升級或降級方案嗎？</summary>
+					<div class="faq-answer">
+						<p>可以。您隨時可以升級至更高階方案。如需降級，請在當期結束前 7 天告知，將於下期生效。</p>
+					</div>
+				</details>
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA 區塊 -->
+	<section class="section cta-final">
+		<div class="container">
+			<div class="cta-content">
+				<h2>準備開始使用 Doc Engine？</h2>
+				<p>選擇適合您的方案，立即開始系統風險評估</p>
+				<div class="cta-buttons">
+					<a href="/get-started?source=pricing" class="btn btn-primary">立即購買方案</a>
+					<a href="/get-started?source=pricing-demo" class="btn btn-secondary">預覽範例報告</a>
+					<a href="/contact?type=enterprise" class="btn btn-tertiary">企業方案諮詢</a>
+				</div>
+			</div>
+		</div>
+	</section>
+</Layout>
+
+<style>
+	/* Hero 區塊 */
+	.hero {
+		background: linear-gradient(135deg, #1e40af 0%, #7c3aed 100%);
+		color: white;
+		padding: 4rem 0 3rem;
+		text-align: center;
+	}
+
+	.hero h1 {
+		font-size: 2.5rem;
+		margin-bottom: 1rem;
+	}
+
+	.hero-subtitle {
+		font-size: 1.125rem;
+		opacity: 0.95;
+		line-height: 1.75;
+	}
+
+	/* 定價卡片 */
+	.plans-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+		gap: 2rem;
+		margin-top: 2rem;
+	}
+
+	.plan-card {
+		background: white;
+		border: 2px solid #e5e7eb;
+		border-radius: 1rem;
+		padding: 2rem;
+		position: relative;
+		transition: all 0.2s ease;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.plan-card:hover {
+		transform: translateY(-4px);
+		box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+	}
+
+	.plan-card.featured {
+		border-color: var(--primary);
+		box-shadow: 0 4px 16px rgba(30, 64, 175, 0.2);
+	}
+
+	.badge {
+		position: absolute;
+		top: -12px;
+		right: 2rem;
+		background: linear-gradient(135deg, #1e40af 0%, #7c3aed 100%);
+		color: white;
+		padding: 0.25rem 1rem;
+		border-radius: 1rem;
+		font-size: 0.875rem;
+		font-weight: 600;
+	}
+
+	.plan-name {
+		font-size: 1.25rem;
+		margin-bottom: 1rem;
+		color: var(--gray-dark);
+	}
+
+	.plan-price {
+		margin-bottom: 1.5rem;
+	}
+
+	.price {
+		font-size: 2.5rem;
+		font-weight: 700;
+		color: var(--primary);
+	}
+
+	.period {
+		font-size: 1rem;
+		color: var(--gray-medium);
+		margin-left: 0.25rem;
+	}
+
+	.save {
+		display: block;
+		font-size: 0.875rem;
+		color: var(--success);
+		font-weight: 600;
+		margin-top: 0.25rem;
+	}
+
+	.plan-features {
+		list-style: none;
+		padding: 0;
+		margin: 0 0 2rem 0;
+		flex: 1;
+	}
+
+	.plan-features li {
+		padding: 0.5rem 0;
+		color: var(--gray-medium);
+		font-size: 0.9375rem;
+	}
+
+	.plan-btn {
+		display: block;
+		text-align: center;
+		padding: 0.875rem;
+		background: white;
+		border: 2px solid var(--primary);
+		color: var(--primary);
+		text-decoration: none;
+		border-radius: 0.5rem;
+		font-weight: 600;
+		transition: all 0.2s ease;
+		margin-bottom: 1rem;
+	}
+
+	.plan-btn:hover {
+		background: var(--primary);
+		color: white;
+	}
+
+	.plan-btn.primary {
+		background: linear-gradient(135deg, #1e40af 0%, #7c3aed 100%);
+		border-color: transparent;
+		color: white;
+	}
+
+	.plan-btn.primary:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 4px 12px rgba(30, 64, 175, 0.3);
+	}
+
+	.plan-note {
+		text-align: center;
+		font-size: 0.875rem;
+		color: var(--gray-medium);
+		margin: 0;
+	}
+
+	/* 功能對照表 */
+	.comparison {
+		background: #f9fafb;
+	}
+
+	.comparison-table-wrapper {
+		overflow-x: auto;
+	}
+
+	.comparison-table {
+		width: 100%;
+		border-collapse: collapse;
+		background: white;
+		border-radius: 1rem;
+		overflow: hidden;
+	}
+
+	.comparison-table th,
+	.comparison-table td {
+		padding: 1rem;
+		text-align: center;
+		border-bottom: 1px solid #e5e7eb;
+	}
+
+	.comparison-table thead th {
+		background: var(--primary);
+		color: white;
+		font-weight: 600;
+	}
+
+	.comparison-table thead .featured-col {
+		background: var(--secondary);
+	}
+
+	.comparison-table .feature-col,
+	.comparison-table .feature-name {
+		text-align: left;
+		font-weight: 500;
+		color: var(--gray-dark);
+	}
+
+	.comparison-table tbody tr:hover {
+		background: #f9fafb;
+	}
+
+	/* 支援付款方式 */
+	.payment-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		gap: 2rem;
+	}
+
+	.payment-method {
+		background: white;
+		padding: 2rem;
+		border-radius: 1rem;
+		border: 1px solid #e5e7eb;
+	}
+
+	.payment-method h3 {
+		font-size: 1.5rem;
+		margin-bottom: 1rem;
+	}
+
+	.payment-name {
+		font-weight: 600;
+		color: var(--primary);
+		margin-bottom: 1rem;
+	}
+
+	.payment-method ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.payment-method li {
+		padding: 0.5rem 0;
+		color: var(--gray-medium);
+	}
+
+	/* FAQ */
+	.faq {
+		background: #f9fafb;
+	}
+
+	.faq-list {
+		max-width: 900px;
+		margin: 0 auto;
+	}
+
+	.faq-item {
+		background: white;
+		border: 1px solid #e5e7eb;
+		border-radius: 0.5rem;
+		margin-bottom: 1rem;
+		overflow: hidden;
+	}
+
+	.faq-item summary {
+		padding: 1.5rem;
+		font-weight: 600;
+		cursor: pointer;
+		user-select: none;
+		color: var(--gray-dark);
+		list-style: none;
+	}
+
+	.faq-item summary::-webkit-details-marker {
+		display: none;
+	}
+
+	.faq-item summary:hover {
+		background: #f9fafb;
+	}
+
+	.faq-answer {
+		padding: 0 1.5rem 1.5rem;
+		color: var(--gray-medium);
+		line-height: 1.75;
+	}
+
+	.faq-answer p {
+		margin: 0;
+	}
+
+	.faq-answer a {
+		color: var(--primary);
+		text-decoration: none;
+	}
+
+	.faq-answer a:hover {
+		text-decoration: underline;
+	}
+
+	/* CTA */
+	.cta-final {
+		background: linear-gradient(135deg, #1e40af 0%, #7c3aed 100%);
+		color: white;
+		text-align: center;
+	}
+
+	.cta-content h2 {
+		color: white;
+		margin-bottom: 1rem;
+	}
+
+	.cta-content p {
+		font-size: 1.125rem;
+		opacity: 0.95;
+		margin-bottom: 2rem;
+	}
+
+	.cta-buttons {
+		display: flex;
+		gap: 1rem;
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+
+	.btn {
+		display: inline-block;
+		padding: 0.875rem 2rem;
+		border-radius: 0.5rem;
+		text-decoration: none;
+		font-weight: 600;
+		transition: all 0.2s ease;
+	}
+
+	.btn-primary {
+		background: white;
+		color: var(--primary);
+	}
+
+	.btn-primary:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+	}
+
+	.btn-secondary {
+		background: transparent;
+		color: white;
+		border: 2px solid white;
+	}
+
+	.btn-secondary:hover {
+		background: rgba(255, 255, 255, 0.1);
+	}
+
+	.btn-tertiary {
+		background: rgba(255, 255, 255, 0.1);
+		color: white;
+		border: 1px solid rgba(255, 255, 255, 0.3);
+	}
+
+	.btn-tertiary:hover {
+		background: rgba(255, 255, 255, 0.2);
+	}
+
+	/* 通用樣式 */
+	.section {
+		padding: 5rem 0;
+	}
+
+	.section-title {
+		text-align: center;
+		font-size: 2.25rem;
+		margin-bottom: 3rem;
+		color: var(--gray-dark);
+	}
+
+	/* 響應式設計 */
+	@media (max-width: 768px) {
+		.hero h1 {
+			font-size: 2rem;
+		}
+
+		.section {
+			padding: 3rem 0;
+		}
+
+		.section-title {
+			font-size: 1.75rem;
+			margin-bottom: 2rem;
+		}
+
+		.plans-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.price {
+			font-size: 2rem;
+		}
+
+		.cta-buttons {
+			flex-direction: column;
+			align-items: stretch;
+		}
+
+		.btn {
+			width: 100%;
+		}
+	}
+</style>

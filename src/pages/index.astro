@@ -1,49 +1,417 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import Layout from '../layouts/Layout.astro';
+import { SITE_TITLE, SITE_DESCRIPTION, STUDIO_TAX_ID } from '../consts';
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This template
-				serves as a lightweight, minimally-styled starting point for anyone looking to build a personal
-				website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to
-				<a href="https://docs.astro.build/">read the docs</a>
-				or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out
-				<a href="https://github.com/Charca/astro-blog-template">astro-blog-template</a>
-				by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-		</main>
-		<Footer />
-	</body>
-</html>
+<Layout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+	<!-- Hero 區塊 -->
+	<section class="hero">
+		<div class="container">
+			<div class="hero-content">
+				<h1>系統交付風險分析與評估專家</h1>
+				<p class="hero-subtitle">
+					Doc Engine 是專為系統團隊設計的風險評估報告服務，協助您診斷交付風險、促進系統交接與評估現代化改寫的可行性。
+				</p>
+				<div class="hero-cta">
+					<a href="/get-started?source=hero-primary" class="btn btn-primary">立即試閱報告</a>
+					<a href="/get-started?source=hero-trial" class="btn btn-secondary">開始免費試用</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- 四步驟流程 -->
+	<section class="section process">
+		<div class="container">
+			<h2 class="section-title">簡單四步驟，產出專業風險評估報告</h2>
+			
+			<div class="process-grid">
+				<div class="process-step">
+					<div class="step-number">1</div>
+					<h3>填寫評估問卷</h3>
+					<p>針對系統交付情境設計的結構化問卷，涵蓋技術債務、文件完整度、團隊成熟度等維度</p>
+				</div>
+
+				<div class="process-step">
+					<div class="step-number">2</div>
+					<h3>AI 智慧分析</h3>
+					<p>自動產生風險指紋與成熟度量化評分，識別潛在風險點與改善建議</p>
+				</div>
+
+				<div class="process-step">
+					<div class="step-number">3</div>
+					<h3>產出專業報告</h3>
+					<p>風險雷達圖視覺化呈現，詳細分析說明與改善建議，PDF 格式可直接下載使用</p>
+				</div>
+
+				<div class="process-step">
+					<div class="step-number">4</div>
+					<h3>多元應用場景</h3>
+					<p>適用於內部檢討會議、系統交接文件、改寫評估提案、對外簡報或補助案佐證</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA 卡片區 -->
+	<section class="section cta-cards">
+		<div class="container">
+			<div class="cards-grid">
+				<div class="card">
+					<div class="card-icon">📋</div>
+					<h3>預覽範例報告</h3>
+					<p>查看實際產出的風險評估報告格式與內容</p>
+					<a href="/get-started?source=card-preview" class="card-link">立即預覽 →</a>
+				</div>
+
+				<div class="card">
+					<div class="card-icon">💰</div>
+					<h3>查看服務方案</h3>
+					<p>透明的定價方案，符合不同階段需求</p>
+					<a href="/pricing" class="card-link">查看定價 →</a>
+				</div>
+
+				<div class="card">
+					<div class="card-icon">⚙️</div>
+					<h3>深入了解功能</h3>
+					<p>六大核心功能，完整解決系統風險評估需求</p>
+					<a href="/features" class="card-link">功能介紹 →</a>
+				</div>
+
+				<div class="card">
+					<div class="card-icon">❓</div>
+					<h3>常見問題</h3>
+					<p>發票開立、付款方式、資料安全等常見疑問</p>
+					<a href="/pricing#faq" class="card-link">查看 FAQ →</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- 信任標示區 -->
+	<section class="section trust">
+		<div class="container">
+			<h2 class="section-title">合法、安全、可信賴</h2>
+			
+			<div class="trust-grid">
+				<div class="trust-item">
+					<div class="trust-icon">✅</div>
+					<h3>可開立合法發票</h3>
+					<p>智序資訊工作室為正式登記商號<br>統一編號：{STUDIO_TAX_ID}<br>符合政府採購法規</p>
+				</div>
+
+				<div class="trust-item">
+					<div class="trust-icon">🔒</div>
+					<h3>支援多元付款方式</h3>
+					<p>綠界金流（台灣主流）<br>PayPal（國際支付）<br>SSL 安全加密傳輸</p>
+				</div>
+
+				<div class="trust-item">
+					<div class="trust-icon">🛡️</div>
+					<h3>資料隱私保護</h3>
+					<p>問卷資料安全儲存<br>不蒐集客戶系統原始碼<br>符合個資法規範</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- 引導導流區 -->
+	<section class="section cta-final">
+		<div class="container">
+			<div class="cta-final-content">
+				<h2>了解更多</h2>
+				<div class="cta-final-links">
+					<a href="/features" class="link-with-arrow">
+						深入了解 Doc Engine 功能特色 →
+					</a>
+					<a href="/pricing" class="link-with-arrow">
+						查看完整定價方案與 FAQ →
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+</Layout>
+
+<style>
+	/* Hero 區塊 */
+	.hero {
+		background: linear-gradient(135deg, #1e40af 0%, #7c3aed 100%);
+		color: white;
+		padding: 5rem 0;
+		text-align: center;
+	}
+
+	.hero-content {
+		max-width: 800px;
+		margin: 0 auto;
+	}
+
+	.hero h1 {
+		font-size: 3rem;
+		margin-bottom: 1.5rem;
+		font-weight: 700;
+	}
+
+	.hero-subtitle {
+		font-size: 1.25rem;
+		line-height: 1.75;
+		margin-bottom: 2.5rem;
+		opacity: 0.95;
+	}
+
+	.hero-cta {
+		display: flex;
+		gap: 1rem;
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+
+	.btn {
+		display: inline-block;
+		padding: 0.875rem 2rem;
+		border-radius: 0.5rem;
+		text-decoration: none;
+		font-weight: 600;
+		transition: all 0.2s ease;
+		font-size: 1.0625rem;
+	}
+
+	.btn-primary {
+		background: white;
+		color: #1e40af;
+	}
+
+	.btn-primary:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+	}
+
+	.btn-secondary {
+		background: transparent;
+		color: white;
+		border: 2px solid white;
+	}
+
+	.btn-secondary:hover {
+		background: rgba(255, 255, 255, 0.1);
+	}
+
+	/* 通用 Section 樣式 */
+	.section {
+		padding: 5rem 0;
+	}
+
+	.section-title {
+		text-align: center;
+		font-size: 2.25rem;
+		margin-bottom: 3rem;
+		color: var(--gray-dark);
+	}
+
+	/* 四步驟流程 */
+	.process {
+		background: #f9fafb;
+	}
+
+	.process-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		gap: 2rem;
+	}
+
+	.process-step {
+		background: white;
+		padding: 2rem;
+		border-radius: 1rem;
+		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+		transition: all 0.2s ease;
+	}
+
+	.process-step:hover {
+		transform: translateY(-4px);
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+	}
+
+	.step-number {
+		width: 3rem;
+		height: 3rem;
+		background: linear-gradient(135deg, #1e40af 0%, #7c3aed 100%);
+		color: white;
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 1.5rem;
+		font-weight: 700;
+		margin-bottom: 1rem;
+	}
+
+	.process-step h3 {
+		font-size: 1.25rem;
+		margin-bottom: 0.75rem;
+		color: var(--gray-dark);
+	}
+
+	.process-step p {
+		color: var(--gray-medium);
+		line-height: 1.6;
+	}
+
+	/* CTA 卡片區 */
+	.cards-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+		gap: 1.5rem;
+	}
+
+	.card {
+		background: white;
+		padding: 2rem;
+		border-radius: 1rem;
+		border: 1px solid #e5e7eb;
+		transition: all 0.2s ease;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.card:hover {
+		border-color: var(--primary);
+		box-shadow: 0 4px 12px rgba(30, 64, 175, 0.15);
+		transform: translateY(-2px);
+	}
+
+	.card-icon {
+		font-size: 2.5rem;
+		margin-bottom: 1rem;
+	}
+
+	.card h3 {
+		font-size: 1.125rem;
+		margin-bottom: 0.5rem;
+		color: var(--gray-dark);
+	}
+
+	.card p {
+		color: var(--gray-medium);
+		margin-bottom: 1.5rem;
+		flex: 1;
+	}
+
+	.card-link {
+		color: var(--primary);
+		text-decoration: none;
+		font-weight: 600;
+		transition: color 0.2s ease;
+	}
+
+	.card-link:hover {
+		color: var(--secondary);
+	}
+
+	/* 信任標示區 */
+	.trust {
+		background: #f9fafb;
+	}
+
+	.trust-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		gap: 2rem;
+	}
+
+	.trust-item {
+		text-align: center;
+		padding: 2rem;
+	}
+
+	.trust-icon {
+		font-size: 3rem;
+		margin-bottom: 1rem;
+	}
+
+	.trust-item h3 {
+		font-size: 1.25rem;
+		margin-bottom: 1rem;
+		color: var(--gray-dark);
+	}
+
+	.trust-item p {
+		color: var(--gray-medium);
+		line-height: 1.75;
+	}
+
+	/* 引導導流區 */
+	.cta-final {
+		background: linear-gradient(135deg, #1e40af 0%, #7c3aed 100%);
+		color: white;
+		text-align: center;
+	}
+
+	.cta-final-content h2 {
+		color: white;
+		margin-bottom: 2rem;
+	}
+
+	.cta-final-links {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		align-items: center;
+	}
+
+	.link-with-arrow {
+		color: white;
+		text-decoration: none;
+		font-size: 1.125rem;
+		font-weight: 500;
+		transition: all 0.2s ease;
+		padding: 0.5rem 0;
+	}
+
+	.link-with-arrow:hover {
+		transform: translateX(4px);
+		opacity: 0.9;
+	}
+
+	/* 響應式設計 */
+	@media (max-width: 768px) {
+		.hero {
+			padding: 3rem 0;
+		}
+
+		.hero h1 {
+			font-size: 2rem;
+		}
+
+		.hero-subtitle {
+			font-size: 1rem;
+		}
+
+		.section {
+			padding: 3rem 0;
+		}
+
+		.section-title {
+			font-size: 1.75rem;
+			margin-bottom: 2rem;
+		}
+
+		.process-grid,
+		.cards-grid,
+		.trust-grid {
+			grid-template-columns: 1fr;
+			gap: 1.5rem;
+		}
+
+		.hero-cta {
+			flex-direction: column;
+			align-items: stretch;
+		}
+
+		.btn {
+			width: 100%;
+			text-align: center;
+		}
+	}
+</style>
