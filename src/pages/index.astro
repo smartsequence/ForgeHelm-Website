@@ -305,7 +305,7 @@ import { SITE_TITLE, SITE_DESCRIPTION, STUDIO_TAX_ID } from '../consts';
 
 	.hero-content {
 		flex: 1;
-		max-width: 650px;
+		max-width: 750px; /* 從 650px 放寬到 750px，讓文字更舒展 */
 		text-align: left;
 	}
 
@@ -600,9 +600,25 @@ import { SITE_TITLE, SITE_DESCRIPTION, STUDIO_TAX_ID } from '../consts';
 
 	.process-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-		gap: 1.5rem;
+		/* 大螢幕直接顯示 4 欄，填滿容器 */
+		grid-template-columns: repeat(4, 1fr);
+		gap: 2rem;
 		width: 100%;
+	}
+
+	/* 平板響應式 */
+	@media (max-width: 1024px) {
+		.process-grid {
+			grid-template-columns: repeat(2, 1fr);
+			gap: 1.5rem;
+		}
+	}
+
+	/* 手機響應式 */
+	@media (max-width: 640px) {
+		.process-grid {
+			grid-template-columns: 1fr;
+		}
 	}
 
 	.process-step {
@@ -671,9 +687,25 @@ import { SITE_TITLE, SITE_DESCRIPTION, STUDIO_TAX_ID } from '../consts';
 
 	.cards-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-		gap: 1.5rem;
+		/* 大螢幕直接顯示 4 欄，填滿容器 */
+		grid-template-columns: repeat(4, 1fr);
+		gap: 2rem;
 		width: 100%;
+	}
+
+	/* 平板響應式 */
+	@media (max-width: 1024px) {
+		.cards-grid {
+			grid-template-columns: repeat(2, 1fr);
+			gap: 1.5rem;
+		}
+	}
+
+	/* 手機響應式 */
+	@media (max-width: 640px) {
+		.cards-grid {
+			grid-template-columns: 1fr;
+		}
 	}
 
 	.card {
@@ -761,9 +793,18 @@ import { SITE_TITLE, SITE_DESCRIPTION, STUDIO_TAX_ID } from '../consts';
 
 	.trust-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+		/* 大螢幕直接顯示 3 欄（3 個信任項目） */
+		grid-template-columns: repeat(3, 1fr);
 		gap: 2rem;
 		width: 100%;
+	}
+
+	/* 平板響應式 */
+	@media (max-width: 900px) {
+		.trust-grid {
+			grid-template-columns: 1fr;
+			gap: 1.5rem;
+		}
 	}
 
 	.trust-item {
