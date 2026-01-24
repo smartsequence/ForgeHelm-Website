@@ -15,6 +15,9 @@ const { title, description } = Astro.props;
 <html lang="zh-TW">
 	<head>
 		<BaseHead title={title} description={description} />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 	</head>
 	<body>
 		<Header />
@@ -27,20 +30,33 @@ const { title, description } = Astro.props;
 
 <style is:global>
 	:root {
-		/* 主色調 - 方案 B：現代科技藍 */
-		--primary: #0ea5e9;        /* 科技藍 sky-500 */
-		--secondary: #334155;      /* 深灰藍 slate-700 */
-		--accent: #10b981;         /* 綠色 emerald-500 */
+		/* Enterprise B2B Color Scheme */
+		--primary: #1E3A8A;        /* 深企業藍 blue-900 */
+		--primary-light: #3B82F6;  /* 淺藍 hover */
+		--secondary: #0F172A;      /* 近黑 slate-900 */
+		--accent: #10B981;         /* 成功綠 emerald-500 */
+		--gold: #F59E0B;           /* 金色徽章 amber-500 */
 		
-		/* 中性色 */
-		--gray-dark: #1f2937;
-		--gray-medium: #6b7280;
-		--gray-light: #f3f4f6;
+		/* Neutral Colors */
+		--bg-light: #F8FAFC;       /* 冷灰白 slate-50 */
+		--gray-dark: #0F172A;      /* 近黑 */
+		--gray-medium: #64748B;    /* 中灰 slate-500 */
+		--gray-light: #F1F5F9;     /* 淺灰 slate-100 */
 		
-		/* 語義色 */
-		--success: #10b981;
-		--warning: #f59e0b;
-		--error: #ef4444;
+		/* Semantic Colors */
+		--success: #10B981;
+		--warning: #F59E0B;
+		--error: #EF4444;
+		
+		/* Shadows - Subtle & Professional */
+		--shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+		--shadow-md: 0 4px 20px rgba(0, 0, 0, 0.08);
+		--shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
+		
+		/* Border Radius - Max 8px */
+		--radius-sm: 4px;
+		--radius-md: 6px;
+		--radius-lg: 8px;
 	}
 
 	* {
@@ -48,19 +64,23 @@ const { title, description } = Astro.props;
 	}
 
 	html {
-		font-family: 'Noto Sans TC', 'Inter', system-ui, sans-serif;
+		font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
+		scroll-behavior: smooth;
 	}
 
 	body {
 		margin: 0;
 		padding: 0;
+		padding-top: 80px; /* Fixed header offset */
 		min-height: 100vh;
 		display: flex;
 		flex-direction: column;
 		color: var(--gray-dark);
-		background: white;
+		background: var(--bg-light);
+		font-weight: 400;
+		letter-spacing: -0.01em;
 	}
 
 	main {
@@ -69,29 +89,41 @@ const { title, description } = Astro.props;
 
 	h1, h2, h3, h4, h5, h6 {
 		margin: 0;
-		font-weight: 600;
+		font-weight: 700;
 		line-height: 1.2;
+		letter-spacing: -0.02em;
+		color: var(--gray-dark);
 	}
 
 	h1 {
-		font-size: 2.5rem;
+		font-size: 2.75rem;
+		font-weight: 700;
 	}
 
 	h2 {
-		font-size: 2rem;
+		font-size: 2.25rem;
+		font-weight: 700;
 	}
 
 	h3 {
 		font-size: 1.5rem;
+		font-weight: 600;
 	}
 
 	p {
 		line-height: 1.75;
 		margin: 0;
+		font-weight: 400;
 	}
 
 	a {
 		color: var(--primary);
+		text-decoration: none;
+		transition: all 0.2s ease;
+	}
+
+	a:hover {
+		color: var(--primary-light);
 	}
 
 	.container {
@@ -101,10 +133,53 @@ const { title, description } = Astro.props;
 	}
 
 	.section {
-		padding: 4rem 0;
+		padding: 5rem 0;
+	}
+
+	/* Professional Button Styles */
+	.btn {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0.875rem 2rem;
+		border-radius: var(--radius-md);
+		font-weight: 600;
+		font-size: 0.9375rem;
+		transition: all 0.2s ease;
+		cursor: pointer;
+		border: none;
+		text-decoration: none;
+		letter-spacing: -0.01em;
+	}
+
+	.btn-primary {
+		background: var(--accent);
+		color: white;
+		box-shadow: var(--shadow-sm);
+	}
+
+	.btn-primary:hover {
+		background: #059669;
+		box-shadow: var(--shadow-md);
+		transform: translateY(-1px);
+	}
+
+	.btn-secondary {
+		background: transparent;
+		color: var(--primary);
+		border: 2px solid var(--primary);
+	}
+
+	.btn-secondary:hover {
+		background: var(--primary);
+		color: white;
 	}
 
 	@media (max-width: 768px) {
+		body {
+			padding-top: 70px;
+		}
+
 		h1 {
 			font-size: 2rem;
 		}

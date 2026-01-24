@@ -6,15 +6,27 @@ import { SITE_TITLE, SITE_DESCRIPTION, STUDIO_TAX_ID } from '../consts';
 <Layout title={SITE_TITLE} description={SITE_DESCRIPTION}>
 	<!-- Hero 區塊 -->
 	<section class="hero">
+		<div class="hero-overlay"></div>
 		<div class="container">
 			<div class="hero-content">
+				<div class="hero-badge">
+					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
+						<path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+					</svg>
+					<span>企業級風險評估服務</span>
+				</div>
 				<h1>系統交付風險分析與評估專家</h1>
 				<p class="hero-subtitle">
 					Doc Engine 是專為系統團隊設計的風險評估報告服務，協助您診斷交付風險、促進系統交接與評估現代化改寫的可行性。
 				</p>
 				<div class="hero-cta">
-					<a href="/get-started?source=hero-primary" class="btn btn-primary">立即試閱報告</a>
-					<a href="/get-started?source=hero-trial" class="btn btn-secondary">開始免費試用</a>
+					<a href="/get-started?source=hero-primary" class="btn btn-primary">
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="btn-icon">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+						</svg>
+						立即試用
+					</a>
+					<a href="/features" class="btn btn-secondary">了解詳情</a>
 				</div>
 			</div>
 		</div>
@@ -27,25 +39,45 @@ import { SITE_TITLE, SITE_DESCRIPTION, STUDIO_TAX_ID } from '../consts';
 			
 			<div class="process-grid">
 				<div class="process-step">
-					<div class="step-number">1</div>
+					<div class="step-icon">
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25zM6.75 12h.008v.008H6.75V12zm0 3h.008v.008H6.75V15zm0 3h.008v.008H6.75V18z" />
+						</svg>
+					</div>
+					<div class="step-number">01</div>
 					<h3>填寫評估問卷</h3>
 					<p>針對系統交付情境設計的結構化問卷，涵蓋技術債務、文件完整度、團隊成熟度等維度</p>
 				</div>
 
 				<div class="process-step">
-					<div class="step-number">2</div>
+					<div class="step-icon">
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
+						</svg>
+					</div>
+					<div class="step-number">02</div>
 					<h3>AI 智慧分析</h3>
 					<p>自動產生風險指紋與成熟度量化評分，識別潛在風險點與改善建議</p>
 				</div>
 
 				<div class="process-step">
-					<div class="step-number">3</div>
+					<div class="step-icon">
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+						</svg>
+					</div>
+					<div class="step-number">03</div>
 					<h3>產出專業報告</h3>
 					<p>風險雷達圖視覺化呈現，詳細分析說明與改善建議，PDF 格式可直接下載使用</p>
 				</div>
 
 				<div class="process-step">
-					<div class="step-number">4</div>
+					<div class="step-icon">
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008z" />
+						</svg>
+					</div>
+					<div class="step-number">04</div>
 					<h3>多元應用場景</h3>
 					<p>適用於內部檢討會議、系統交接文件、改寫評估提案、對外簡報或補助案佐證</p>
 				</div>
@@ -58,31 +90,68 @@ import { SITE_TITLE, SITE_DESCRIPTION, STUDIO_TAX_ID } from '../consts';
 		<div class="container">
 			<div class="cards-grid">
 				<div class="card">
-					<div class="card-icon">📋</div>
+					<div class="card-icon">
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+						</svg>
+					</div>
 					<h3>預覽範例報告</h3>
 					<p>查看實際產出的風險評估報告格式與內容</p>
-					<a href="/get-started?source=card-preview" class="card-link">立即預覽 →</a>
+					<a href="/get-started?source=card-preview" class="card-link">
+						立即預覽
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="arrow">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+						</svg>
+					</a>
 				</div>
 
 				<div class="card">
-					<div class="card-icon">💰</div>
+					<div class="card-icon">
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z" />
+						</svg>
+					</div>
 					<h3>查看服務方案</h3>
 					<p>透明的定價方案，符合不同階段需求</p>
-					<a href="/pricing" class="card-link">查看定價 →</a>
+					<a href="/pricing" class="card-link">
+						查看定價
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="arrow">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+						</svg>
+					</a>
 				</div>
 
 				<div class="card">
-					<div class="card-icon">⚙️</div>
+					<div class="card-icon">
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 .255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.281z" />
+							<path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+						</svg>
+					</div>
 					<h3>深入了解功能</h3>
 					<p>六大核心功能，完整解決系統風險評估需求</p>
-					<a href="/features" class="card-link">功能介紹 →</a>
+					<a href="/features" class="card-link">
+						功能介紹
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="arrow">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+						</svg>
+					</a>
 				</div>
 
 				<div class="card">
-					<div class="card-icon">❓</div>
+					<div class="card-icon">
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" />
+						</svg>
+					</div>
 					<h3>常見問題</h3>
 					<p>發票開立、付款方式、資料安全等常見疑問</p>
-					<a href="/pricing#faq" class="card-link">查看 FAQ →</a>
+					<a href="/pricing#faq" class="card-link">
+						查看 FAQ
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="arrow">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+						</svg>
+					</a>
 				</div>
 			</div>
 		</div>
@@ -95,19 +164,31 @@ import { SITE_TITLE, SITE_DESCRIPTION, STUDIO_TAX_ID } from '../consts';
 			
 			<div class="trust-grid">
 				<div class="trust-item">
-					<div class="trust-icon">✅</div>
+					<div class="trust-icon">
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
+						</svg>
+					</div>
 					<h3>可開立合法發票</h3>
 					<p>智序資訊工作室為正式登記商號<br>統一編號：{STUDIO_TAX_ID}<br>可開立電子發票 / 雲端發票<br>符合政府採購法規</p>
 				</div>
 
 				<div class="trust-item">
-					<div class="trust-icon">🔒</div>
+					<div class="trust-icon">
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z" />
+						</svg>
+					</div>
 					<h3>支援多元付款方式</h3>
 					<p>綠界金流（台灣主流）<br>PayPal（國際支付）<br>SSL 安全加密傳輸</p>
 				</div>
 
 				<div class="trust-item">
-					<div class="trust-icon">🛡️</div>
+					<div class="trust-icon">
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+						</svg>
+					</div>
 					<h3>資料隱私保護</h3>
 					<p>問卷資料安全儲存<br>不蒐集客戶系統原始碼<br>符合個資法與 GDPR 規範</p>
 				</div>
@@ -122,10 +203,16 @@ import { SITE_TITLE, SITE_DESCRIPTION, STUDIO_TAX_ID } from '../consts';
 				<h2>了解更多</h2>
 				<div class="cta-final-links">
 					<a href="/features" class="link-with-arrow">
-						深入了解 Doc Engine 功能特色 →
+						深入了解 Doc Engine 功能特色
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+						</svg>
 					</a>
 					<a href="/pricing" class="link-with-arrow">
-						查看完整定價方案與 FAQ →
+						查看完整定價方案與 FAQ
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+						</svg>
 					</a>
 				</div>
 			</div>
@@ -134,30 +221,69 @@ import { SITE_TITLE, SITE_DESCRIPTION, STUDIO_TAX_ID } from '../consts';
 </Layout>
 
 <style>
-	/* Hero 區塊 */
+	/* Hero 區塊 - Enterprise Grade */
 	.hero {
-		background: linear-gradient(135deg, #0ea5e9 0%, #334155 100%);
+		position: relative;
+		background: linear-gradient(135deg, var(--primary) 0%, #0F172A 100%);
 		color: white;
-		padding: 5rem 0;
+		padding: 8rem 0 6rem;
 		text-align: center;
+		overflow: hidden;
+	}
+
+	.hero-overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: 
+			radial-gradient(circle at 20% 50%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
+			radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
+		pointer-events: none;
 	}
 
 	.hero-content {
-		max-width: 800px;
+		position: relative;
+		max-width: 900px;
 		margin: 0 auto;
+		z-index: 1;
+	}
+
+	.hero-badge {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 0.5rem 1rem;
+		background: rgba(255, 255, 255, 0.1);
+		backdrop-filter: blur(10px);
+		border: 1px solid rgba(255, 255, 255, 0.2);
+		border-radius: var(--radius-lg);
+		margin-bottom: 2rem;
+		font-size: 0.875rem;
+		font-weight: 500;
+	}
+
+	.hero-badge .icon {
+		width: 1.25rem;
+		height: 1.25rem;
 	}
 
 	.hero h1 {
-		font-size: 3rem;
+		font-size: 3.5rem;
 		margin-bottom: 1.5rem;
 		font-weight: 700;
+		line-height: 1.1;
+		letter-spacing: -0.02em;
 	}
 
 	.hero-subtitle {
 		font-size: 1.25rem;
 		line-height: 1.75;
-		margin-bottom: 2.5rem;
-		opacity: 0.95;
+		margin-bottom: 3rem;
+		opacity: 0.9;
+		color: rgba(255, 255, 255, 0.95);
+		font-weight: 400;
 	}
 
 	.hero-cta {
@@ -167,34 +293,45 @@ import { SITE_TITLE, SITE_DESCRIPTION, STUDIO_TAX_ID } from '../consts';
 		flex-wrap: wrap;
 	}
 
-	.btn {
-		display: inline-block;
-		padding: 0.875rem 2rem;
-		border-radius: 0.5rem;
+	.hero .btn {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 1rem 2.5rem;
+		border-radius: var(--radius-md);
 		text-decoration: none;
 		font-weight: 600;
 		transition: all 0.2s ease;
-		font-size: 1.0625rem;
+		font-size: 1rem;
 	}
 
-	.btn-primary {
-		background: white;
-		color: #0ea5e9;
+	.hero .btn-icon {
+		width: 1.25rem;
+		height: 1.25rem;
 	}
 
-	.btn-primary:hover {
+	.hero .btn-primary {
+		background: var(--accent);
+		color: white;
+		box-shadow: var(--shadow-lg);
+	}
+
+	.hero .btn-primary:hover {
+		background: #059669;
 		transform: translateY(-2px);
-		box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+		box-shadow: 0 12px 40px rgba(16, 185, 129, 0.3);
 	}
 
-	.btn-secondary {
+	.hero .btn-secondary {
 		background: transparent;
 		color: white;
-		border: 2px solid white;
+		border: 2px solid rgba(255, 255, 255, 0.3);
+		backdrop-filter: blur(10px);
 	}
 
-	.btn-secondary:hover {
+	.hero .btn-secondary:hover {
 		background: rgba(255, 255, 255, 0.1);
+		border-color: rgba(255, 255, 255, 0.5);
 	}
 
 	/* 通用 Section 樣式 */
@@ -209,169 +346,287 @@ import { SITE_TITLE, SITE_DESCRIPTION, STUDIO_TAX_ID } from '../consts';
 		color: var(--gray-dark);
 	}
 
-	/* 四步驟流程 */
+	/* 四步驟流程 - Glassmorphism */
 	.process {
-		background: #f9fafb;
+		background: var(--bg-light);
 	}
 
 	.process-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-		gap: 2rem;
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		gap: 1.5rem;
 	}
 
 	.process-step {
-		background: white;
-		padding: 2rem;
-		border-radius: 1rem;
-		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-		transition: all 0.2s ease;
+		position: relative;
+		background: rgba(255, 255, 255, 0.8);
+		backdrop-filter: blur(10px);
+		padding: 2.5rem;
+		border-radius: var(--radius-lg);
+		border: 1px solid rgba(255, 255, 255, 0.5);
+		box-shadow: var(--shadow-md);
+		transition: all 0.3s ease;
 	}
 
 	.process-step:hover {
 		transform: translateY(-4px);
-		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+		box-shadow: var(--shadow-lg);
+		border-color: var(--accent);
 	}
 
-	.step-number {
+	.step-icon {
 		width: 3rem;
 		height: 3rem;
-		background: linear-gradient(135deg, #0ea5e9 0%, #334155 100%);
-		color: white;
-		border-radius: 50%;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		font-size: 1.5rem;
+		background: linear-gradient(135deg, var(--accent) 0%, #059669 100%);
+		border-radius: var(--radius-md);
+		margin-bottom: 1.5rem;
+		color: white;
+	}
+
+	.step-icon svg {
+		width: 1.75rem;
+		height: 1.75rem;
+	}
+
+	.step-number {
+		position: absolute;
+		top: 1.5rem;
+		right: 1.5rem;
+		font-size: 2rem;
 		font-weight: 700;
-		margin-bottom: 1rem;
+		color: var(--primary);
+		opacity: 0.1;
+		line-height: 1;
 	}
 
 	.process-step h3 {
 		font-size: 1.25rem;
 		margin-bottom: 0.75rem;
 		color: var(--gray-dark);
+		font-weight: 600;
 	}
 
 	.process-step p {
 		color: var(--gray-medium);
 		line-height: 1.6;
+		font-size: 0.9375rem;
 	}
 
-	/* CTA 卡片區 */
+	/* CTA 卡片區 - Glassmorphism */
+	.cta-cards {
+		background: white;
+	}
+
 	.cards-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 		gap: 1.5rem;
 	}
 
 	.card {
-		background: white;
-		padding: 2rem;
-		border-radius: 1rem;
-		border: 1px solid #e5e7eb;
-		transition: all 0.2s ease;
+		background: rgba(255, 255, 255, 0.8);
+		backdrop-filter: blur(10px);
+		padding: 2.5rem;
+		border-radius: var(--radius-lg);
+		border: 1px solid rgba(30, 58, 138, 0.1);
+		box-shadow: var(--shadow-sm);
+		transition: all 0.3s ease;
 		display: flex;
 		flex-direction: column;
 	}
 
 	.card:hover {
-		border-color: var(--primary);
-		box-shadow: 0 4px 12px rgba(14, 165, 233, 0.15);
-		transform: translateY(-2px);
+		border-color: var(--accent);
+		box-shadow: var(--shadow-lg);
+		transform: translateY(-4px);
 	}
 
 	.card-icon {
-		font-size: 2.5rem;
-		margin-bottom: 1rem;
+		width: 3rem;
+		height: 3rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+		border-radius: var(--radius-md);
+		margin-bottom: 1.5rem;
+		color: white;
+	}
+
+	.card-icon svg {
+		width: 1.75rem;
+		height: 1.75rem;
 	}
 
 	.card h3 {
-		font-size: 1.125rem;
-		margin-bottom: 0.5rem;
+		font-size: 1.25rem;
+		margin-bottom: 0.75rem;
 		color: var(--gray-dark);
+		font-weight: 600;
 	}
 
 	.card p {
 		color: var(--gray-medium);
 		margin-bottom: 1.5rem;
 		flex: 1;
+		line-height: 1.6;
+		font-size: 0.9375rem;
 	}
 
 	.card-link {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
 		color: var(--primary);
 		text-decoration: none;
 		font-weight: 600;
-		transition: color 0.2s ease;
+		font-size: 0.9375rem;
+		transition: all 0.2s ease;
+	}
+
+	.card-link .arrow {
+		width: 1.25rem;
+		height: 1.25rem;
+		transition: transform 0.2s ease;
 	}
 
 	.card-link:hover {
-		color: var(--secondary);
+		color: var(--accent);
 	}
 
-	/* 信任標示區 */
+	.card-link:hover .arrow {
+		transform: translateX(4px);
+	}
+
+	/* 信任標示區 - Professional */
 	.trust {
-		background: #f9fafb;
+		background: var(--bg-light);
 	}
 
 	.trust-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 		gap: 2rem;
 	}
 
 	.trust-item {
 		text-align: center;
-		padding: 2rem;
+		padding: 2.5rem;
+		background: white;
+		border-radius: var(--radius-lg);
+		border: 1px solid rgba(30, 58, 138, 0.1);
+		box-shadow: var(--shadow-sm);
+		transition: all 0.3s ease;
+	}
+
+	.trust-item:hover {
+		box-shadow: var(--shadow-md);
+		transform: translateY(-2px);
 	}
 
 	.trust-icon {
-		font-size: 3rem;
-		margin-bottom: 1rem;
+		width: 4rem;
+		height: 4rem;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		background: linear-gradient(135deg, var(--accent) 0%, #059669 100%);
+		border-radius: 50%;
+		margin-bottom: 1.5rem;
+		color: white;
+	}
+
+	.trust-icon svg {
+		width: 2rem;
+		height: 2rem;
 	}
 
 	.trust-item h3 {
 		font-size: 1.25rem;
 		margin-bottom: 1rem;
 		color: var(--gray-dark);
+		font-weight: 600;
 	}
 
 	.trust-item p {
 		color: var(--gray-medium);
 		line-height: 1.75;
+		font-size: 0.9375rem;
 	}
 
-	/* 引導導流區 */
+	/* 引導導流區 - Enterprise CTA */
 	.cta-final {
-		background: linear-gradient(135deg, #0ea5e9 0%, #334155 100%);
+		background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
 		color: white;
 		text-align: center;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.cta-final::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: 
+			radial-gradient(circle at 30% 50%, rgba(16, 185, 129, 0.15) 0%, transparent 50%),
+			radial-gradient(circle at 70% 80%, rgba(59, 130, 246, 0.15) 0%, transparent 50%);
+		pointer-events: none;
+	}
+
+	.cta-final-content {
+		position: relative;
+		z-index: 1;
 	}
 
 	.cta-final-content h2 {
 		color: white;
-		margin-bottom: 2rem;
+		margin-bottom: 2.5rem;
+		font-weight: 700;
 	}
 
 	.cta-final-links {
 		display: flex;
 		flex-direction: column;
-		gap: 1rem;
+		gap: 1.5rem;
 		align-items: center;
 	}
 
 	.link-with-arrow {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.75rem;
 		color: white;
 		text-decoration: none;
 		font-size: 1.125rem;
-		font-weight: 500;
+		font-weight: 600;
 		transition: all 0.2s ease;
-		padding: 0.5rem 0;
+		padding: 0.75rem 1.5rem;
+		border-radius: var(--radius-md);
+		background: rgba(255, 255, 255, 0.1);
+		backdrop-filter: blur(10px);
+		border: 1px solid rgba(255, 255, 255, 0.2);
+	}
+
+	.link-with-arrow svg {
+		width: 1.25rem;
+		height: 1.25rem;
+		transition: transform 0.2s ease;
 	}
 
 	.link-with-arrow:hover {
+		background: rgba(255, 255, 255, 0.15);
+		border-color: rgba(255, 255, 255, 0.3);
+		transform: translateY(-2px);
+	}
+
+	.link-with-arrow:hover svg {
 		transform: translateX(4px);
-		opacity: 0.9;
 	}
 
 	/* 響應式設計 */
