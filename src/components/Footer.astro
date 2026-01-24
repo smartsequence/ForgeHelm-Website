@@ -3,6 +3,7 @@ import {
 	STUDIO_NAME, 
 	STUDIO_NAME_EN, 
 	STUDIO_TAX_ID,
+	SUPPORT_EMAIL,
 	SOCIAL_LINKEDIN,
 	SOCIAL_YOUTUBE,
 	SOCIAL_GITHUB
@@ -13,24 +14,40 @@ const today = new Date();
 
 <footer>
 	<div class="container">
-		<!-- 上方區域：品牌 + 導航 + 社群 -->
-		<div class="footer-top">
-			<!-- 品牌資訊 -->
+		<!-- 主要內容區 -->
+		<div class="footer-main">
+			<!-- 左側：品牌資訊 -->
 			<div class="footer-brand">
-				<h3>{STUDIO_NAME}</h3>
-				<p class="brand-subtitle">{STUDIO_NAME_EN}</p>
-				<p class="tagline">讓複雜說得清楚，讓系統更能被交接</p>
-				<p class="tax-id">統一編號：{STUDIO_TAX_ID}</p>
+				<div class="brand-header">
+					<h3>{STUDIO_NAME}</h3>
+					<p class="brand-subtitle">{STUDIO_NAME_EN}</p>
+				</div>
+				<p class="tagline">讓資訊架構更穩、系統交付更安心<br/>專業風險評估，讓複雜說得清楚</p>
+				<div class="contact-info">
+					<p class="info-item">
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008z" />
+						</svg>
+						統一編號：{STUDIO_TAX_ID}
+					</p>
+					<p class="info-item">
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+						</svg>
+						{SUPPORT_EMAIL}
+					</p>
+				</div>
 			</div>
 
-			<!-- 快速導航 -->
+			<!-- 中間：快速導航 -->
 			<div class="footer-nav">
 				<div class="nav-column">
 					<h4>產品</h4>
 					<ul>
 						<li><a href="/features">Doc Engine 介紹</a></li>
-						<li><a href="/features">功能特色</a></li>
-						<li><a href="/get-started?source=footer-demo">範例報告</a></li>
+						<li><a href="/features#modules">功能特色</a></li>
+						<li><a href="/get-started?source=footer">範例報告</a></li>
+						<li><a href="/pricing#faq">常見問題</a></li>
 					</ul>
 				</div>
 
@@ -40,6 +57,7 @@ const today = new Date();
 						<li><a href="/pricing">定價方案</a></li>
 						<li><a href="/get-started">開始使用</a></li>
 						<li><a href="/contact?type=enterprise">企業方案</a></li>
+						<li><a href="/contact?type=support">技術支援</a></li>
 					</ul>
 				</div>
 
@@ -48,256 +66,317 @@ const today = new Date();
 					<ul>
 						<li><a href="/about">關於我們</a></li>
 						<li><a href="/contact">聯絡我們</a></li>
-						<li><a href="/pricing#faq">常見問題</a></li>
+						<li><a href="/terms">使用條款</a></li>
+						<li><a href="/privacy">隱私權政策</a></li>
 					</ul>
 				</div>
 			</div>
 
-			<!-- 社群連結 -->
+			<!-- 右側：社群連結 -->
 			<div class="footer-social">
 				<h4>追蹤我們</h4>
 				<div class="social-links">
-					<a href={SOCIAL_LINKEDIN} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-						<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+					<a href={SOCIAL_LINKEDIN} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+						<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
 							<path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
 						</svg>
 					</a>
-					<a href={SOCIAL_YOUTUBE} target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-						<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+					<a href={SOCIAL_YOUTUBE} target="_blank" rel="noopener noreferrer" aria-label="YouTube" title="YouTube">
+						<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
 							<path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
 						</svg>
 					</a>
-					<a href={SOCIAL_GITHUB} target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-						<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+					<a href={SOCIAL_GITHUB} target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
+						<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
 							<path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
 						</svg>
 					</a>
 				</div>
+				<p class="powered-by">Powered by Doc Engine</p>
 			</div>
 		</div>
 
 		<!-- 分隔線 -->
 		<div class="footer-divider"></div>
 
-		<!-- 下方區域：版權 + 法律 -->
+		<!-- 版權資訊 -->
 		<div class="footer-bottom">
-			<div class="copyright">
-				<p>&copy; {today.getFullYear()} {STUDIO_NAME}. All rights reserved.</p>
-				<p class="powered-by">Powered by Doc Engine</p>
-			</div>
-			<div class="legal-links">
-				<a href="/terms">使用條款</a>
-				<span class="separator">|</span>
-				<a href="/privacy">隱私權政策</a>
-			</div>
+			<p class="copyright">&copy; {today.getFullYear()} {STUDIO_NAME}. All rights reserved.</p>
 		</div>
 	</div>
 </footer>
 
 <style>
 	footer {
-		background: linear-gradient(to bottom, #f9fafb, #f3f4f6);
-		border-top: 1px solid #e5e7eb;
-		padding: 3rem 0 1.5rem;
-		margin-top: 4rem;
+		background: linear-gradient(180deg, #0D1A2D 0%, #1F2937 100%);
+		border-top: 2px solid rgba(59, 130, 246, 0.3);
+		padding: 4rem 0 2rem;
+		margin-top: 6rem;
+		color: white;
+		position: relative;
+	}
+
+	footer::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 1px;
+		background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.5), transparent);
 	}
 
 	.container {
-		max-width: 1280px;
+		max-width: 1400px;
 		margin: 0 auto;
-		padding: 0 1.5rem;
+		padding: 0 2rem;
 	}
 
-	/* 上方區域 */
-	.footer-top {
+	/* 主要內容區 */
+	.footer-main {
 		display: grid;
-		grid-template-columns: 2fr 3fr 1fr;
-		gap: 3rem;
-		margin-bottom: 2.5rem;
+		grid-template-columns: 2fr 2.5fr 1.5fr;
+		gap: 4rem;
+		margin-bottom: 3rem;
 	}
 
-	/* 品牌資訊 */
-	.footer-brand h3 {
-		font-size: 1.25rem;
-		font-weight: 600;
-		color: #0ea5e9;
-		margin: 0 0 0.5rem 0;
+	/* 品牌資訊 - 左側加重 */
+	.footer-brand {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+	}
+
+	.brand-header h3 {
+		font-size: 1.5rem;
+		font-weight: 700;
+		color: white;
+		margin: 0 0 0.25rem 0;
+		letter-spacing: -0.02em;
 	}
 
 	.brand-subtitle {
 		font-size: 0.875rem;
-		color: #6b7280;
-		margin: 0 0 0.75rem 0;
+		color: #9CA3AF;
+		margin: 0;
+		font-weight: 400;
 	}
 
 	.tagline {
-		font-size: 0.875rem;
-		color: #4b5563;
-		margin: 0 0 1rem 0;
-		line-height: 1.5;
+		font-size: 0.9375rem;
+		color: #D1D5DB;
+		line-height: 1.7;
+		margin: 0;
+		font-weight: 400;
 	}
 
-	.tax-id {
+	.contact-info {
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+	}
+
+	.info-item {
+		display: flex;
+		align-items: center;
+		gap: 0.625rem;
 		font-size: 0.875rem;
-		color: #6b7280;
+		color: #D1D5DB;
 		margin: 0;
 	}
 
-	/* 快速導航 */
+	.info-item svg {
+		width: 1.125rem;
+		height: 1.125rem;
+		color: #3B82F6;
+		flex-shrink: 0;
+	}
+
+	/* 快速導航 - 中間 */
 	.footer-nav {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
-		gap: 2rem;
+		gap: 2.5rem;
 	}
 
 	.nav-column h4 {
-		font-size: 0.875rem;
+		font-size: 0.8125rem;
 		font-weight: 600;
-		color: #1f2937;
-		margin: 0 0 1rem 0;
+		color: white;
+		margin: 0 0 1.25rem 0;
 		text-transform: uppercase;
-		letter-spacing: 0.05em;
+		letter-spacing: 0.1em;
 	}
 
 	.nav-column ul {
 		list-style: none;
 		padding: 0;
 		margin: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 0.625rem;
 	}
 
 	.nav-column li {
-		margin-bottom: 0.5rem;
+		margin: 0;
 	}
 
 	.nav-column a {
-		color: #6b7280;
+		color: #9CA3AF;
 		text-decoration: none;
-		font-size: 0.875rem;
-		transition: color 0.2s ease;
+		font-size: 0.9375rem;
+		transition: all 0.2s ease;
+		display: inline-block;
+		font-weight: 400;
 	}
 
 	.nav-column a:hover {
-		color: #0ea5e9;
+		color: #3B82F6;
+		transform: translateX(4px);
 	}
 
-	/* 社群連結 */
+	/* 社群連結 - 右側 */
+	.footer-social {
+		display: flex;
+		flex-direction: column;
+		gap: 1.25rem;
+	}
+
 	.footer-social h4 {
-		font-size: 0.875rem;
+		font-size: 0.8125rem;
 		font-weight: 600;
-		color: #1f2937;
-		margin: 0 0 1rem 0;
+		color: white;
+		margin: 0;
 		text-transform: uppercase;
-		letter-spacing: 0.05em;
+		letter-spacing: 0.1em;
 	}
 
 	.social-links {
 		display: flex;
-		gap: 1rem;
+		gap: 0.75rem;
+		flex-wrap: wrap;
 	}
 
 	.social-links a {
-		width: 40px;
-		height: 40px;
+		width: 44px;
+		height: 44px;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		background: white;
+		background: rgba(255, 255, 255, 0.05);
 		border-radius: 0.5rem;
-		color: #6b7280;
-		transition: all 0.2s ease;
-		border: 1px solid #e5e7eb;
+		color: #9CA3AF;
+		transition: all 0.3s ease;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		backdrop-filter: blur(10px);
 	}
 
 	.social-links a:hover {
-		color: #0ea5e9;
-		border-color: #0ea5e9;
-		transform: translateY(-2px);
+		background: #3B82F6;
+		color: white;
+		border-color: #3B82F6;
+		transform: translateY(-4px) rotate(5deg);
+		box-shadow: 0 8px 16px rgba(59, 130, 246, 0.4);
+	}
+
+	.powered-by {
+		font-size: 0.75rem;
+		color: #6B7280;
+		margin: 0.5rem 0 0 0;
+		font-weight: 400;
+		font-style: italic;
 	}
 
 	/* 分隔線 */
 	.footer-divider {
 		height: 1px;
-		background: #e5e7eb;
-		margin: 2rem 0;
+		background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+		margin: 3rem 0 2rem;
 	}
 
-	/* 下方區域 */
+	/* 版權資訊 */
 	.footer-bottom {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		flex-wrap: wrap;
-		gap: 1rem;
+		text-align: center;
 	}
 
 	.copyright {
-		display: flex;
-		flex-direction: column;
-		gap: 0.25rem;
-	}
-
-	.copyright p {
+		font-size: 0.875rem;
+		color: #6B7280;
 		margin: 0;
-		font-size: 0.875rem;
-		color: #6b7280;
-	}
-
-	.powered-by {
-		font-size: 0.75rem !important;
-		color: #9ca3af !important;
-	}
-
-	.legal-links {
-		display: flex;
-		align-items: center;
-		gap: 0.75rem;
-		font-size: 0.875rem;
-	}
-
-	.legal-links a {
-		color: #6b7280;
-		text-decoration: none;
-		transition: color 0.2s ease;
-	}
-
-	.legal-links a:hover {
-		color: #0ea5e9;
-	}
-
-	.separator {
-		color: #d1d5db;
+		font-weight: 400;
 	}
 
 	/* 響應式設計 */
 	@media (max-width: 1024px) {
-		.footer-top {
+		.footer-main {
 			grid-template-columns: 1fr;
-			gap: 2.5rem;
+			gap: 3rem;
 		}
 
 		.footer-nav {
 			grid-template-columns: repeat(3, 1fr);
-		}
-	}
-
-	@media (max-width: 640px) {
-		footer {
-			padding: 2rem 0 1rem;
+			gap: 2rem;
 		}
 
-		.footer-nav {
-			grid-template-columns: 1fr;
-			gap: 1.5rem;
-		}
-
-		.footer-bottom {
-			flex-direction: column;
+		.footer-social {
+			align-items: center;
 			text-align: center;
-			gap: 1.5rem;
 		}
 
 		.social-links {
 			justify-content: center;
+		}
+	}
+
+	@media (max-width: 768px) {
+		footer {
+			padding: 3rem 0 1.5rem;
+			margin-top: 4rem;
+		}
+
+		.footer-main {
+			gap: 2.5rem;
+		}
+
+		.footer-nav {
+			grid-template-columns: 1fr;
+			gap: 2rem;
+		}
+
+		.nav-column {
+			text-align: center;
+		}
+
+		.nav-column a:hover {
+			transform: translateX(0) scale(1.05);
+		}
+
+		.footer-brand {
+			text-align: center;
+			align-items: center;
+		}
+
+		.contact-info {
+			align-items: center;
+		}
+	}
+
+	@media (max-width: 640px) {
+		.container {
+			padding: 0 1.5rem;
+		}
+
+		.brand-header h3 {
+			font-size: 1.25rem;
+		}
+
+		.tagline {
+			font-size: 0.875rem;
+		}
+
+		.social-links a {
+			width: 40px;
+			height: 40px;
 		}
 	}
 </style>
