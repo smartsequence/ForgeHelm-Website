@@ -1,19 +1,19 @@
-# DocEngine 官方網站
+# 智序資訊工作室官網
 
-DocEngine 官方網站專案，使用 Astro 框架建立，部署在 Azure Static Web Apps。
+智序資訊工作室（SmartSequence Tech Studio）官方網站，使用 Astro 框架建立，部署在 Vercel。
 
 ## 🌐 網站架構
 
-- **官網**: https://www.docengine.com
-- **SaaS 平台**: https://app.docengine.com
-- **API 服務**: https://api.docengine.com
+- **官網**: https://smartsequence.tech
+- **DocEngine SaaS**: https://app.docengine.com
+- **DocEngine API**: https://api.docengine.com
 
 ## 🚀 技術棧
 
 - **框架**: [Astro](https://astro.build/) - 現代化靜態網站生成器
 - **樣式**: [Tailwind CSS](https://tailwindcss.com/) - 實用優先的 CSS 框架
-- **部署**: [Azure Static Web Apps](https://azure.microsoft.com/services/app-service/static/) - 全球 CDN + 自動 CI/CD
-- **CI/CD**: GitHub Actions - 自動化部署流程
+- **部署**: [Vercel](https://vercel.com/) - 極速部署 + 全球 CDN
+- **表單**: Web3Forms - 免費表單服務
 
 ## 📁 專案結構
 
@@ -84,19 +84,19 @@ npm run preview
 
 ## 🚢 部署流程
 
-### 自動部署
+### 自動部署（Vercel）
 
-每次推送到 `main` 分支時，GitHub Actions 會自動：
+每次推送到 `main` 分支時，Vercel 會自動：
 
-1. ✅ 安裝依賴 (`npm ci`)
-2. ✅ 建置專案 (`npm run build`)
-3. ✅ 部署到 Azure Static Web Apps
-4. ✅ 全球 CDN 更新
+1. ✅ 檢測變更
+2. ✅ 建置專案
+3. ✅ 部署到全球 Edge Network
+4. ✅ 更新生產環境（< 1 分鐘）
 
 ### Pull Request 預覽
 
 每個 Pull Request 會自動建立預覽環境：
-- 預覽 URL: `https://xxx-preview.azurestaticapps.net`
+- 預覽 URL: `https://xxx-preview.vercel.app`
 - PR 合併或關閉後自動清理
 
 ## 🌍 相關專案
@@ -108,7 +108,9 @@ npm run preview
 ## 📝 文檔
 
 詳細的架構規劃請參考：
-- [官網架構與部署規劃](../DocEngine-SaaS/docs/WEBSITE_ARCHITECTURE_PLAN.md)
+- [網站架構規劃](./SITE_ARCHITECTURE.md) - 完整頁面架構與內容規劃
+- [部署方案比較](./DEPLOYMENT_RECOMMENDATION.md) - Azure vs Vercel 比較
+- [GitHub 設定指南](./GITHUB_SETUP_GUIDE.md) - Repository 建立步驟
 
 ## 🔒 安全性
 

@@ -8,7 +8,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://www.docengine.com',
+  site: 'https://smartsequence.tech',
   integrations: [mdx(), sitemap()],
 
   vite: {
