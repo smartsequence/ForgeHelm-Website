@@ -18,7 +18,7 @@
   - 配置 MDX 和 Sitemap
   
 - ✅ 更新 `src/consts.ts`
-  - 網站標題：DocEngine - AI 智能文件生成系統
+  - 網站標題：DocEngine - AI 智慧文件生成系統
   - 網站描述
   - 相關 URL 常數（APP_URL, API_URL）
 
@@ -48,7 +48,7 @@
   - 允許所有搜尋引擎
   - Sitemap 連結
 
-### 7. 文檔
+### 7. 文件
 - ✅ `README.md` - 專案說明文件
   - 專案結構
   - 開發指令
@@ -230,7 +230,7 @@ git push -u origin main
 - [DocEngine-Agent](https://github.com/smartsequence/DocEngine-Agent)
 - [DocEngine-Contracts](https://github.com/smartsequence/DocEngine-Contracts)
 
-### 文檔
+### 文件
 - [官網架構規劃](../DocEngine-SaaS/docs/WEBSITE_ARCHITECTURE_PLAN.md)
 - [部署指南](./DEPLOYMENT.md)
 - [專案 README](./README.md)
@@ -250,7 +250,7 @@ git push -u origin main
 4. 效能優化
 
 ### 長期（3 個月）
-1. 建立獨立文檔站（docs.docengine.com）
+1. 建立獨立文件站（docs.docengine.com）
 2. 建立部落格系統（blog.docengine.com）
 3. 多語言支援（英文版）
 4. 整合線上聊天支援
@@ -264,7 +264,7 @@ DocEngine-Website 專案已成功建立並配置完成！
 - ✅ Tailwind CSS 整合
 - ✅ Azure Static Web Apps 配置
 - ✅ CI/CD 自動部署設定
-- ✅ 基礎頁面和文檔
+- ✅ 基礎頁面和文件
 - ✅ 安全性配置
 - ✅ SEO 基礎設定
 

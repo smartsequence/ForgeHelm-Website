@@ -105,7 +105,7 @@ npm run preview
 - [DocEngine-Agent](https://github.com/smartsequence/DocEngine-Agent) - 客戶端 Agent
 - [DocEngine-Contracts](https://github.com/smartsequence/DocEngine-Contracts) - 通訊協議
 
-## 📝 文檔
+## 📝 文件
 
 詳細的架構規劃請參考：
 - [網站架構規劃](./SITE_ARCHITECTURE.md) - 完整頁面架構與內容規劃

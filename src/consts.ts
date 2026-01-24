@@ -3,7 +3,7 @@
 
 // 網站基本資訊
 export const SITE_TITLE = '智序資訊工作室 | SmartSequence Tech Studio';
-export const SITE_DESCRIPTION = '專注於 AI 智能文件生成解決方案的技術工作室。旗艦產品 DocEngine 支援 C#、VB.NET、ASPX 程式碼分析，使用 AI 技術自動產生高品質技術文件，節省 80% 文件撰寫時間。';
+export const SITE_DESCRIPTION = '專注於 AI 智慧文件生成解決方案的技術工作室。旗艦產品 DocEngine 支援 C#、VB.NET、ASPX 程式碼分析，使用 AI 技術自動產生高品質技術文件，節省 80% 文件撰寫時間。';
 export const SITE_URL = 'https://smartsequence.tech';
 
 // 工作室資訊

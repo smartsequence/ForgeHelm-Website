@@ -2,7 +2,7 @@
 
 ## 🌐 網站定位
 **智序資訊工作室 (SmartSequence Tech Studio)**  
-專注於 AI 智能文件生成解決方案的技術工作室
+專注於 AI 智慧文件生成解決方案的技術工作室
 
 **主域名**: smartsequence.tech  
 **產品線**: Doc Engine（首個旗艦產品）
@@ -41,7 +41,7 @@ smartsequence.tech
 │  │  └─ 核心問題解決
 │  │
 │  ├─ 功能特色
-│  │  ├─ 🤖 AI 智能分析（OpenAI/Azure OpenAI）
+│  │  ├─ 🤖 AI 智慧分析（OpenAI/Azure OpenAI）
 │  │  ├─ 📊 多語言支援（C#/VB.NET/ASPX）
 │  │  ├─ 🗄️ 資料庫分析（Oracle 等）
 │  │  ├─ 🌐 Agent 架構（企業防火牆友善）
@@ -286,7 +286,7 @@ api.docengine.com    → API 端點（SignalR Hub）
 - 舊系統文件重建
 
 ### 頁面 SEO
-- **Title**: 智序資訊工作室 | AI 智能文件生成解決方案
+- **Title**: 智序資訊工作室 | AI 智慧文件生成解決方案
 - **Description**: 專業的 .NET 系統文件自動生成服務，節省 80% 文件撰寫時間，支援 C#/VB.NET/ASPX，提供完整商業登記與發票服務
 - **Keywords**: 智序資訊, DocEngine, AI文件生成, .NET文件, 程式碼分析
 
