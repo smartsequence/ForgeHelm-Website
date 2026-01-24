@@ -7,71 +7,26 @@ import { SITE_TITLE, SITE_DESCRIPTION, STUDIO_TAX_ID } from '../consts';
 	<!-- Hero 區塊 -->
 	<section class="hero">
 		<div class="hero-overlay"></div>
-		<div class="hero-container">
-			<div class="hero-grid">
-				<div class="hero-content">
-					<div class="hero-badge">
-						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
-							<path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
-						</svg>
-						<span>企業級風險評估服務</span>
-					</div>
-					<h1>系統交付風險分析與評估專家</h1>
-					<p class="hero-subtitle">
-						Doc Engine 是專為系統團隊設計的風險評估報告服務，協助您診斷交付風險、促進系統交接與評估現代化改寫的可行性。
-					</p>
-					<div class="hero-cta">
-						<a href="/get-started?source=hero-primary" class="btn btn-primary">
-							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="btn-icon">
-								<path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-							</svg>
-							立即試用
-						</a>
-						<a href="/features" class="btn btn-secondary">了解詳情</a>
-					</div>
+		<div class="container">
+			<div class="hero-content">
+				<div class="hero-badge">
+					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
+						<path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+					</svg>
+					<span>企業級風險評估服務</span>
 				</div>
-
-				<div class="hero-visual">
-					<div class="risk-card">
-						<div class="card-header">
-							<div class="window-controls">
-								<span></span><span></span><span></span>
-							</div>
-							<span class="card-title">Risk Assessment Report</span>
-						</div>
-						<div class="card-content">
-							<div class="metric">
-								<div class="metric-label">
-									<span>技術債務評估</span>
-									<span class="badge high">High</span>
-								</div>
-								<div class="progress-bar"><div class="fill high" style="width: 82%"></div></div>
-							</div>
-							<div class="metric">
-								<div class="metric-label">
-									<span>文件完整度</span>
-									<span class="badge medium">Medium</span>
-								</div>
-								<div class="progress-bar"><div class="fill medium" style="width: 48%"></div></div>
-							</div>
-							<div class="metric">
-								<div class="metric-label">
-									<span>維護成熟度</span>
-									<span class="badge low">Low</span>
-								</div>
-								<div class="progress-bar"><div class="fill low" style="width: 15%"></div></div>
-							</div>
-							<div class="card-footer">
-								<div class="ai-tag">
-									<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-										<path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" />
-									</svg>
-									AI Powered Analysis
-								</div>
-								<span class="timestamp">Generated 2m ago</span>
-							</div>
-						</div>
-					</div>
+				<h1>系統交付風險分析與評估專家</h1>
+				<p class="hero-subtitle">
+					Doc Engine 是專為系統團隊設計的風險評估報告服務，協助您診斷交付風險、促進系統交接與評估現代化改寫的可行性。
+				</p>
+				<div class="hero-cta">
+					<a href="/get-started?source=hero-primary" class="btn btn-primary">
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="btn-icon">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+						</svg>
+						立即試用
+					</a>
+					<a href="/features" class="btn btn-secondary">了解詳情</a>
 				</div>
 			</div>
 		</div>
@@ -266,12 +221,13 @@ import { SITE_TITLE, SITE_DESCRIPTION, STUDIO_TAX_ID } from '../consts';
 </Layout>
 
 <style>
-	/* Hero 區塊 - Full Width Layout */
+	/* Hero 區塊 - Dark Professional */
 	.hero {
 		position: relative;
 		background: var(--bg-main);
 		color: var(--text-primary);
 		padding: 4rem 0;
+		text-align: center;
 		overflow: hidden;
 		border-bottom: 1px solid var(--border-light);
 	}
@@ -288,32 +244,11 @@ import { SITE_TITLE, SITE_DESCRIPTION, STUDIO_TAX_ID } from '../consts';
 		pointer-events: none;
 	}
 
-	.hero-container {
-		width: 100%;
-		max-width: 100%;
-		padding: 0 5%; /* 左右各 5% padding，讓內容有呼吸空間 */
-	}
-
-	.hero-grid {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		gap: 6rem;
-		position: relative;
-		z-index: 1;
-	}
-
 	.hero-content {
-		flex: 1;
-		max-width: 750px; /* 從 650px 放寬到 750px，讓文字更舒展 */
-		text-align: left;
-	}
-
-	.hero-visual {
-		flex: 1;
-		display: flex;
-		justify-content: flex-end;
-		perspective: 1200px;
+		position: relative;
+		max-width: 900px;
+		margin: 0 auto;
+		z-index: 1;
 	}
 
 	.hero-badge {
@@ -356,185 +291,8 @@ import { SITE_TITLE, SITE_DESCRIPTION, STUDIO_TAX_ID } from '../consts';
 	.hero-cta {
 		display: flex;
 		gap: 1.25rem;
-		justify-content: flex-start;
+		justify-content: center;
 		flex-wrap: wrap;
-	}
-
-	/* 視覺卡片 */
-	.risk-card {
-		width: 100%;
-		max-width: 520px;
-		background: var(--bg-card);
-		border: 1px solid var(--border-color);
-		border-radius: var(--radius-lg);
-		box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
-		overflow: hidden;
-		transform: rotateY(-8deg) rotateX(4deg);
-		transition: transform 0.5s ease;
-	}
-
-	.risk-card:hover {
-		transform: rotateY(0deg) rotateX(0deg);
-	}
-
-	.card-header {
-		background: var(--bg-footer);
-		padding: 0.75rem 1rem;
-		display: flex;
-		align-items: center;
-		gap: 0.75rem;
-		border-bottom: 1px solid var(--border-light);
-	}
-
-	.window-controls {
-		display: flex;
-		gap: 0.4rem;
-	}
-
-	.window-controls span {
-		width: 10px;
-		height: 10px;
-		border-radius: 50%;
-		background: rgba(255, 255, 255, 0.2);
-	}
-
-	.card-title {
-		font-size: 0.75rem;
-		font-family: monospace;
-		color: var(--text-secondary);
-	}
-
-	.card-content {
-		padding: 2rem;
-	}
-
-	.metric {
-		margin-bottom: 1.5rem;
-	}
-
-	.metric:last-of-type {
-		margin-bottom: 0;
-	}
-
-	.metric-label {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		margin-bottom: 0.5rem;
-		font-size: 0.875rem;
-	}
-
-	.metric-label span:first-child {
-		color: var(--text-secondary);
-	}
-
-	.badge {
-		padding: 0.125rem 0.5rem;
-		border-radius: 4px;
-		font-size: 0.75rem;
-		font-weight: 600;
-	}
-
-	.badge.high {
-		background: rgba(239, 68, 68, 0.15);
-		color: #ef4444;
-	}
-
-	.badge.medium {
-		background: rgba(245, 158, 11, 0.15);
-		color: #f59e0b;
-	}
-
-	.badge.low {
-		background: rgba(16, 185, 129, 0.15);
-		color: #10b981;
-	}
-
-	.progress-bar {
-		height: 8px;
-		background: rgba(255, 255, 255, 0.05);
-		border-radius: 4px;
-		overflow: hidden;
-	}
-
-	.fill {
-		height: 100%;
-		border-radius: 4px;
-		transition: width 1s ease;
-	}
-
-	.fill.high {
-		background: linear-gradient(90deg, #ef4444, #f87171);
-	}
-
-	.fill.medium {
-		background: linear-gradient(90deg, #f59e0b, #fbbf24);
-	}
-
-	.fill.low {
-		background: linear-gradient(90deg, #10b981, #34d399);
-	}
-
-	.card-footer {
-		margin-top: 2rem;
-		padding-top: 1.5rem;
-		border-top: 1px solid var(--border-light);
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-	}
-
-	.ai-tag {
-		display: inline-flex;
-		align-items: center;
-		gap: 0.5rem;
-		font-size: 0.75rem;
-		color: var(--cta-primary);
-		background: rgba(59, 130, 246, 0.1);
-		padding: 0.25rem 0.75rem;
-		border-radius: 100px;
-		border: 1px solid rgba(59, 130, 246, 0.2);
-	}
-
-	.ai-tag svg {
-		width: 0.875rem;
-		height: 0.875rem;
-	}
-
-	.timestamp {
-		font-size: 0.7rem;
-		color: var(--text-light);
-	}
-
-	/* 響應式 */
-	@media (max-width: 1200px) {
-		.hero-grid {
-			gap: 4rem;
-		}
-		.hero-container {
-			padding: 0 3%;
-		}
-	}
-
-	@media (max-width: 1024px) {
-		.hero-grid {
-			flex-direction: column;
-			text-align: center;
-			gap: 3rem;
-		}
-		.hero-content {
-			text-align: center;
-			max-width: 100%;
-		}
-		.hero-cta {
-			justify-content: center;
-		}
-		.hero-visual {
-			justify-content: center;
-		}
-		.risk-card {
-			transform: none;
-		}
 	}
 
 	.hero .btn {
@@ -600,32 +358,16 @@ import { SITE_TITLE, SITE_DESCRIPTION, STUDIO_TAX_ID } from '../consts';
 
 	.process-grid {
 		display: grid;
-		/* 大螢幕直接顯示 4 欄，填滿容器 */
-		grid-template-columns: repeat(4, 1fr);
-		gap: 2rem;
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		gap: 1.5rem;
 		width: 100%;
-	}
-
-	/* 平板響應式 */
-	@media (max-width: 1024px) {
-		.process-grid {
-			grid-template-columns: repeat(2, 1fr);
-			gap: 1.5rem;
-		}
-	}
-
-	/* 手機響應式 */
-	@media (max-width: 640px) {
-		.process-grid {
-			grid-template-columns: 1fr;
-		}
 	}
 
 	.process-step {
 		position: relative;
 		background: var(--bg-card);
 		backdrop-filter: blur(10px);
-		padding: 1.5rem;
+		padding: 2rem;
 		border-radius: var(--radius-lg);
 		border: 1px solid var(--border-color);
 		box-shadow: var(--shadow-md);
@@ -639,8 +381,8 @@ import { SITE_TITLE, SITE_DESCRIPTION, STUDIO_TAX_ID } from '../consts';
 	}
 
 	.step-icon {
-		width: 3rem;
-		height: 3rem;
+		width: 3.5rem;
+		height: 3.5rem;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -652,8 +394,8 @@ import { SITE_TITLE, SITE_DESCRIPTION, STUDIO_TAX_ID } from '../consts';
 	}
 
 	.step-icon svg {
-		width: 1.75rem;
-		height: 1.75rem;
+		width: 2rem;
+		height: 2rem;
 	}
 
 	.step-number {
@@ -687,31 +429,15 @@ import { SITE_TITLE, SITE_DESCRIPTION, STUDIO_TAX_ID } from '../consts';
 
 	.cards-grid {
 		display: grid;
-		/* 大螢幕直接顯示 4 欄，填滿容器 */
-		grid-template-columns: repeat(4, 1fr);
-		gap: 2rem;
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		gap: 1.5rem;
 		width: 100%;
-	}
-
-	/* 平板響應式 */
-	@media (max-width: 1024px) {
-		.cards-grid {
-			grid-template-columns: repeat(2, 1fr);
-			gap: 1.5rem;
-		}
-	}
-
-	/* 手機響應式 */
-	@media (max-width: 640px) {
-		.cards-grid {
-			grid-template-columns: 1fr;
-		}
 	}
 
 	.card {
 		background: var(--bg-card);
 		backdrop-filter: blur(10px);
-		padding: 1.5rem;
+		padding: 2rem;
 		border-radius: var(--radius-lg);
 		border: 1px solid var(--border-color);
 		box-shadow: var(--shadow-sm);
@@ -727,8 +453,8 @@ import { SITE_TITLE, SITE_DESCRIPTION, STUDIO_TAX_ID } from '../consts';
 	}
 
 	.card-icon {
-		width: 3rem;
-		height: 3rem;
+		width: 3.5rem;
+		height: 3.5rem;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -740,8 +466,8 @@ import { SITE_TITLE, SITE_DESCRIPTION, STUDIO_TAX_ID } from '../consts';
 	}
 
 	.card-icon svg {
-		width: 1.75rem;
-		height: 1.75rem;
+		width: 2rem;
+		height: 2rem;
 	}
 
 	.card h3 {
@@ -793,33 +519,24 @@ import { SITE_TITLE, SITE_DESCRIPTION, STUDIO_TAX_ID } from '../consts';
 
 	.trust-grid {
 		display: grid;
-		/* 大螢幕直接顯示 3 欄（3 個信任項目） */
-		grid-template-columns: repeat(3, 1fr);
-		gap: 2rem;
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		gap: 1.5rem;
 		width: 100%;
-	}
-
-	/* 平板響應式 */
-	@media (max-width: 900px) {
-		.trust-grid {
-			grid-template-columns: 1fr;
-			gap: 1.5rem;
-		}
 	}
 
 	.trust-item {
 		text-align: center;
-		padding: 1.5rem;
+		padding: 2rem;
 		background: var(--bg-card);
 		border-radius: var(--radius-lg);
 		border: 1px solid var(--border-color);
-		box-shadow: var(--shadow-sm);
+		box-shadow: var(--shadow-md);
 		transition: all 0.3s ease;
 	}
 
 	.trust-item:hover {
-		box-shadow: var(--shadow-md);
-		transform: translateY(-2px);
+		box-shadow: var(--shadow-lg);
+		transform: translateY(-4px);
 		border-color: var(--cta-success);
 	}
 
@@ -830,15 +547,15 @@ import { SITE_TITLE, SITE_DESCRIPTION, STUDIO_TAX_ID } from '../consts';
 		align-items: center;
 		justify-content: center;
 		background: var(--cta-success);
-		border-radius: 50%;
+		border-radius: var(--radius-md);
 		margin-bottom: 1rem;
 		color: white;
 		box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
 	}
 
 	.trust-icon svg {
-		width: 2rem;
-		height: 2rem;
+		width: 2.5rem;
+		height: 2.5rem;
 	}
 
 	.trust-item h3 {
