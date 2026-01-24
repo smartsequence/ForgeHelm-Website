@@ -7,8 +7,8 @@ import { SITE_TITLE, SITE_DESCRIPTION, STUDIO_TAX_ID } from '../consts';
 	<!-- Hero 區塊 -->
 	<section class="hero">
 		<div class="hero-overlay"></div>
-		<div class="container">
-			<div class="hero-wrapper">
+		<div class="hero-container">
+			<div class="hero-grid">
 				<div class="hero-content">
 					<div class="hero-badge">
 						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
@@ -16,7 +16,7 @@ import { SITE_TITLE, SITE_DESCRIPTION, STUDIO_TAX_ID } from '../consts';
 						</svg>
 						<span>企業級風險評估服務</span>
 					</div>
-					<h1>讓老系統說人話<br/>讓風險一目了然</h1>
+					<h1>系統交付風險分析與評估專家</h1>
 					<p class="hero-subtitle">
 						Doc Engine 是專為系統團隊設計的風險評估報告服務，協助您診斷交付風險、促進系統交接與評估現代化改寫的可行性。
 					</p>
@@ -32,38 +32,43 @@ import { SITE_TITLE, SITE_DESCRIPTION, STUDIO_TAX_ID } from '../consts';
 				</div>
 
 				<div class="hero-visual">
-					<div class="visual-card">
+					<div class="risk-card">
 						<div class="card-header">
-							<div class="dots"><span></span><span></span><span></span></div>
-							<div class="title">System Risk Analytics - v1.2</div>
-						</div>
-						<div class="card-body">
-							<div class="risk-stats">
-								<div class="stat-item">
-									<div class="stat-info">
-										<span class="label">技術債務評估</span>
-										<span class="value high">High Risk</span>
-									</div>
-									<div class="bar-bg"><div class="bar high" style="width: 82%"></div></div>
-								</div>
-								<div class="stat-item">
-									<div class="stat-info">
-										<span class="label">文件完整度</span>
-										<span class="value medium">Moderate</span>
-									</div>
-									<div class="bar-bg"><div class="bar medium" style="width: 45%"></div></div>
-								</div>
-								<div class="stat-item">
-									<div class="stat-info">
-										<span class="label">交接可靠性</span>
-										<span class="value low">Stable</span>
-									</div>
-									<div class="bar-bg"><div class="bar low" style="width: 12%"></div></div>
-								</div>
+							<div class="window-controls">
+								<span></span><span></span><span></span>
 							</div>
-							<div class="visual-footer">
-								<div class="ai-badge">AI Powered Analysis</div>
-								<div class="timestamp">Just generated</div>
+							<span class="card-title">Risk Assessment Report</span>
+						</div>
+						<div class="card-content">
+							<div class="metric">
+								<div class="metric-label">
+									<span>技術債務評估</span>
+									<span class="badge high">High</span>
+								</div>
+								<div class="progress-bar"><div class="fill high" style="width: 82%"></div></div>
+							</div>
+							<div class="metric">
+								<div class="metric-label">
+									<span>文件完整度</span>
+									<span class="badge medium">Medium</span>
+								</div>
+								<div class="progress-bar"><div class="fill medium" style="width: 48%"></div></div>
+							</div>
+							<div class="metric">
+								<div class="metric-label">
+									<span>維護成熟度</span>
+									<span class="badge low">Low</span>
+								</div>
+								<div class="progress-bar"><div class="fill low" style="width: 15%"></div></div>
+							</div>
+							<div class="card-footer">
+								<div class="ai-tag">
+									<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+										<path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" />
+									</svg>
+									AI Powered Analysis
+								</div>
+								<span class="timestamp">Generated 2m ago</span>
 							</div>
 						</div>
 					</div>
@@ -261,140 +266,54 @@ import { SITE_TITLE, SITE_DESCRIPTION, STUDIO_TAX_ID } from '../consts';
 </Layout>
 
 <style>
-	/* Hero 區塊 - Dark Professional */
+	/* Hero 區塊 - Full Width Layout */
 	.hero {
 		position: relative;
 		background: var(--bg-main);
 		color: var(--text-primary);
 		padding: 4rem 0;
-		text-align: left; /* 改為左對齊 */
 		overflow: hidden;
 		border-bottom: 1px solid var(--border-light);
 	}
 
-	.hero-wrapper {
+	.hero-overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: 
+			radial-gradient(circle at 20% 50%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
+			radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
+		pointer-events: none;
+	}
+
+	.hero-container {
+		width: 100%;
+		max-width: 100%;
+		padding: 0 5%; /* 左右各 5% padding，讓內容有呼吸空間 */
+	}
+
+	.hero-grid {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		gap: 4rem;
-		width: 100%;
+		gap: 6rem;
+		position: relative;
+		z-index: 1;
 	}
 
 	.hero-content {
-		position: relative;
 		flex: 1;
-		max-width: 700px;
-		z-index: 1;
+		max-width: 650px;
+		text-align: left;
 	}
 
 	.hero-visual {
 		flex: 1;
 		display: flex;
 		justify-content: flex-end;
-		perspective: 1000px;
-		z-index: 1;
-	}
-
-	.visual-card {
-		width: 100%;
-		max-width: 550px;
-		background: var(--bg-card);
-		border-radius: var(--radius-lg);
-		border: 1px solid var(--glass-border);
-		box-shadow: var(--shadow-lg), 0 20px 50px rgba(0,0,0,0.5);
-		transform: rotateY(-10deg) rotateX(5deg);
-		transition: transform 0.5s ease;
-		overflow: hidden;
-	}
-
-	.visual-card:hover {
-		transform: rotateY(0deg) rotateX(0deg);
-	}
-
-	.card-header {
-		background: var(--bg-footer);
-		padding: 0.75rem 1rem;
-		display: flex;
-		align-items: center;
-		gap: 1rem;
-		border-bottom: 1px solid var(--border-light);
-	}
-
-	.card-header .dots {
-		display: flex;
-		gap: 0.4rem;
-	}
-
-	.card-header .dots span {
-		width: 8px;
-		height: 8px;
-		border-radius: 50%;
-		background: rgba(255,255,255,0.2);
-	}
-
-	.card-header .title {
-		font-size: 0.75rem;
-		color: var(--text-muted);
-		font-family: monospace;
-	}
-
-	.card-body {
-		padding: 2rem;
-	}
-
-	.stat-item {
-		margin-bottom: 1.5rem;
-	}
-
-	.stat-info {
-		display: flex;
-		justify-content: space-between;
-		margin-bottom: 0.5rem;
-		font-size: 0.875rem;
-	}
-
-	.stat-info .label { color: var(--text-secondary); }
-	.stat-info .value.high { color: #ef4444; font-weight: 600; }
-	.stat-info .value.medium { color: #f59e0b; font-weight: 600; }
-	.stat-info .value.low { color: #10b981; font-weight: 600; }
-
-	.bar-bg {
-		height: 8px;
-		background: rgba(255,255,255,0.05);
-		border-radius: 4px;
-		overflow: hidden;
-	}
-
-	.bar {
-		height: 100%;
-		border-radius: 4px;
-	}
-
-	.bar.high { background: linear-gradient(90deg, #ef4444, #f87171); }
-	.bar.medium { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
-	.bar.low { background: linear-gradient(90deg, #10b981, #34d399); }
-
-	.visual-footer {
-		margin-top: 2rem;
-		padding-top: 1.5rem;
-		border-top: 1px solid var(--border-light);
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-	}
-
-	.ai-badge {
-		font-size: 0.75rem;
-		color: var(--cta-primary);
-		background: rgba(59, 130, 246, 0.1);
-		padding: 0.25rem 0.75rem;
-		border-radius: 100px;
-		border: 1px solid rgba(59, 130, 246, 0.2);
-	}
-
-	.timestamp {
-		font-size: 0.7rem;
-		color: var(--text-muted);
+		perspective: 1200px;
 	}
 
 	.hero-badge {
@@ -441,16 +360,170 @@ import { SITE_TITLE, SITE_DESCRIPTION, STUDIO_TAX_ID } from '../consts';
 		flex-wrap: wrap;
 	}
 
-	@media (max-width: 1024px) {
-		.hero {
-			text-align: center;
-			padding: 3rem 0;
+	/* 視覺卡片 */
+	.risk-card {
+		width: 100%;
+		max-width: 520px;
+		background: var(--bg-card);
+		border: 1px solid var(--border-color);
+		border-radius: var(--radius-lg);
+		box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+		overflow: hidden;
+		transform: rotateY(-8deg) rotateX(4deg);
+		transition: transform 0.5s ease;
+	}
+
+	.risk-card:hover {
+		transform: rotateY(0deg) rotateX(0deg);
+	}
+
+	.card-header {
+		background: var(--bg-footer);
+		padding: 0.75rem 1rem;
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		border-bottom: 1px solid var(--border-light);
+	}
+
+	.window-controls {
+		display: flex;
+		gap: 0.4rem;
+	}
+
+	.window-controls span {
+		width: 10px;
+		height: 10px;
+		border-radius: 50%;
+		background: rgba(255, 255, 255, 0.2);
+	}
+
+	.card-title {
+		font-size: 0.75rem;
+		font-family: monospace;
+		color: var(--text-secondary);
+	}
+
+	.card-content {
+		padding: 2rem;
+	}
+
+	.metric {
+		margin-bottom: 1.5rem;
+	}
+
+	.metric:last-of-type {
+		margin-bottom: 0;
+	}
+
+	.metric-label {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 0.5rem;
+		font-size: 0.875rem;
+	}
+
+	.metric-label span:first-child {
+		color: var(--text-secondary);
+	}
+
+	.badge {
+		padding: 0.125rem 0.5rem;
+		border-radius: 4px;
+		font-size: 0.75rem;
+		font-weight: 600;
+	}
+
+	.badge.high {
+		background: rgba(239, 68, 68, 0.15);
+		color: #ef4444;
+	}
+
+	.badge.medium {
+		background: rgba(245, 158, 11, 0.15);
+		color: #f59e0b;
+	}
+
+	.badge.low {
+		background: rgba(16, 185, 129, 0.15);
+		color: #10b981;
+	}
+
+	.progress-bar {
+		height: 8px;
+		background: rgba(255, 255, 255, 0.05);
+		border-radius: 4px;
+		overflow: hidden;
+	}
+
+	.fill {
+		height: 100%;
+		border-radius: 4px;
+		transition: width 1s ease;
+	}
+
+	.fill.high {
+		background: linear-gradient(90deg, #ef4444, #f87171);
+	}
+
+	.fill.medium {
+		background: linear-gradient(90deg, #f59e0b, #fbbf24);
+	}
+
+	.fill.low {
+		background: linear-gradient(90deg, #10b981, #34d399);
+	}
+
+	.card-footer {
+		margin-top: 2rem;
+		padding-top: 1.5rem;
+		border-top: 1px solid var(--border-light);
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.ai-tag {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		font-size: 0.75rem;
+		color: var(--cta-primary);
+		background: rgba(59, 130, 246, 0.1);
+		padding: 0.25rem 0.75rem;
+		border-radius: 100px;
+		border: 1px solid rgba(59, 130, 246, 0.2);
+	}
+
+	.ai-tag svg {
+		width: 0.875rem;
+		height: 0.875rem;
+	}
+
+	.timestamp {
+		font-size: 0.7rem;
+		color: var(--text-light);
+	}
+
+	/* 響應式 */
+	@media (max-width: 1200px) {
+		.hero-grid {
+			gap: 4rem;
 		}
-		.hero-wrapper {
+		.hero-container {
+			padding: 0 3%;
+		}
+	}
+
+	@media (max-width: 1024px) {
+		.hero-grid {
 			flex-direction: column;
+			text-align: center;
 			gap: 3rem;
 		}
 		.hero-content {
+			text-align: center;
 			max-width: 100%;
 		}
 		.hero-cta {
@@ -459,7 +532,7 @@ import { SITE_TITLE, SITE_DESCRIPTION, STUDIO_TAX_ID } from '../consts';
 		.hero-visual {
 			justify-content: center;
 		}
-		.visual-card {
+		.risk-card {
 			transform: none;
 		}
 	}
