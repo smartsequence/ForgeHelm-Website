@@ -1,0 +1,312 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// 獲取 source 參數（用於追蹤來源）
+const source = Astro.url.searchParams.get('source') || 'direct';
+const plan = Astro.url.searchParams.get('plan') || '';
+---
+
+<Layout 
+	title="開始使用 Doc Engine | 智序資訊工作室" 
+	description="選擇適合您的方案，立即開始系統風險評估服務。"
+>
+	<!-- Hero 區塊 -->
+	<section class="hero">
+		<div class="container">
+			<h1>開始使用 Doc Engine</h1>
+			<p class="hero-subtitle">
+				選擇適合您的方案，立即體驗系統風險評估服務
+			</p>
+		</div>
+	</section>
+
+	<!-- 選項卡片 -->
+	<section class="section options">
+		<div class="container">
+			<div class="options-grid">
+				<!-- 免費試用 -->
+				<div class="option-card">
+					<div class="card-badge free">免費</div>
+					<h2>免費試用</h2>
+					<p class="card-description">
+						填寫評估問卷，預覽報告內容，體驗完整流程（不包含 PDF 下載）
+					</p>
+					<ul class="card-features">
+						<li>✓ 體驗完整問卷流程</li>
+						<li>✓ 預覽風險雷達圖</li>
+						<li>✓ 查看成熟度評分</li>
+						<li>✓ 零風險嘗試</li>
+					</ul>
+					<a href="https://app.docengine.com/trial?source={source}" class="card-btn">開始免費試用</a>
+					<p class="card-note">適合初次體驗的使用者</p>
+				</div>
+
+				<!-- 直接購買 -->
+				<div class="option-card featured">
+					<div class="card-badge popular">最受歡迎</div>
+					<h2>查看定價方案</h2>
+					<p class="card-description">
+						了解完整的服務方案與計費方式，選擇最適合您的方案
+					</p>
+					<ul class="card-features">
+						<li>✓ 單次購買 NT$ 990</li>
+						<li>✓ 月度方案 NT$ 2,490</li>
+						<li>✓ 年度方案 NT$ 24,900</li>
+						<li>✓ 所有方案可開發票</li>
+					</ul>
+					<a href="/pricing?source={source}" class="card-btn primary">查看定價方案</a>
+					<p class="card-note">提供多種彈性方案</p>
+				</div>
+
+				<!-- 企業諮詢 -->
+				<div class="option-card">
+					<div class="card-badge enterprise">企業</div>
+					<h2>企業客製化</h2>
+					<p class="card-description">
+						需要大量報告、客製化分析或教育訓練？我們提供專屬企業方案
+					</p>
+					<ul class="card-features">
+						<li>✓ 客製化分析維度</li>
+						<li>✓ 專屬技術支援</li>
+						<li>✓ 教育訓練服務</li>
+						<li>✓ 彈性計費方式</li>
+					</ul>
+					<a href="/contact?type=enterprise&source={source}" class="card-btn">聯絡我們諮詢</a>
+					<p class="card-note">適合大型企業</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- 快速連結 -->
+	<section class="section quick-links">
+		<div class="container">
+			<h2 class="section-title">還有問題？</h2>
+			
+			<div class="links-grid">
+				<a href="/features" class="link-card">
+					<div class="link-icon">⚙️</div>
+					<h3>了解功能特色</h3>
+					<p>查看 Doc Engine 的六大核心功能</p>
+				</a>
+
+				<a href="/pricing#faq" class="link-card">
+					<div class="link-icon">❓</div>
+					<h3>常見問題</h3>
+					<p>發票、付款、資料安全等疑問</p>
+				</a>
+
+				<a href="/contact" class="link-card">
+					<div class="link-icon">📧</div>
+					<h3>聯絡我們</h3>
+					<p>有任何問題都歡迎詢問</p>
+				</a>
+			</div>
+		</div>
+	</section>
+</Layout>
+
+<style>
+	/* Hero */
+	.hero {
+		background: linear-gradient(135deg, #1e40af 0%, #7c3aed 100%);
+		color: white;
+		padding: 4rem 0 3rem;
+		text-align: center;
+	}
+
+	.hero h1 {
+		font-size: 2.5rem;
+		margin-bottom: 1rem;
+	}
+
+	.hero-subtitle {
+		font-size: 1.125rem;
+		opacity: 0.95;
+	}
+
+	/* 選項卡片 */
+	.options-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 2rem;
+		margin-top: 2rem;
+	}
+
+	.option-card {
+		background: white;
+		border: 2px solid #e5e7eb;
+		border-radius: 1rem;
+		padding: 2.5rem 2rem;
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		transition: all 0.2s ease;
+	}
+
+	.option-card:hover {
+		transform: translateY(-4px);
+		box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+	}
+
+	.option-card.featured {
+		border-color: var(--primary);
+		box-shadow: 0 4px 16px rgba(30, 64, 175, 0.2);
+	}
+
+	.card-badge {
+		position: absolute;
+		top: -12px;
+		left: 50%;
+		transform: translateX(-50%);
+		padding: 0.375rem 1rem;
+		border-radius: 1rem;
+		font-size: 0.875rem;
+		font-weight: 600;
+		color: white;
+	}
+
+	.card-badge.free {
+		background: var(--success);
+	}
+
+	.card-badge.popular {
+		background: linear-gradient(135deg, #1e40af 0%, #7c3aed 100%);
+	}
+
+	.card-badge.enterprise {
+		background: var(--gray-dark);
+	}
+
+	.option-card h2 {
+		font-size: 1.5rem;
+		margin: 1rem 0;
+		color: var(--gray-dark);
+	}
+
+	.card-description {
+		color: var(--gray-medium);
+		margin-bottom: 1.5rem;
+		line-height: 1.75;
+	}
+
+	.card-features {
+		list-style: none;
+		padding: 0;
+		margin: 0 0 2rem 0;
+		flex: 1;
+	}
+
+	.card-features li {
+		padding: 0.5rem 0;
+		color: var(--gray-medium);
+	}
+
+	.card-btn {
+		display: block;
+		text-align: center;
+		padding: 0.875rem;
+		background: white;
+		border: 2px solid var(--primary);
+		color: var(--primary);
+		text-decoration: none;
+		border-radius: 0.5rem;
+		font-weight: 600;
+		transition: all 0.2s ease;
+		margin-bottom: 1rem;
+	}
+
+	.card-btn:hover {
+		background: var(--primary);
+		color: white;
+	}
+
+	.card-btn.primary {
+		background: linear-gradient(135deg, #1e40af 0%, #7c3aed 100%);
+		border-color: transparent;
+		color: white;
+	}
+
+	.card-btn.primary:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 4px 12px rgba(30, 64, 175, 0.3);
+	}
+
+	.card-note {
+		text-align: center;
+		font-size: 0.875rem;
+		color: var(--gray-medium);
+		margin: 0;
+	}
+
+	/* 快速連結 */
+	.quick-links {
+		background: #f9fafb;
+	}
+
+	.links-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		gap: 1.5rem;
+	}
+
+	.link-card {
+		background: white;
+		padding: 2rem;
+		border-radius: 1rem;
+		border: 1px solid #e5e7eb;
+		text-decoration: none;
+		transition: all 0.2s ease;
+		display: block;
+	}
+
+	.link-card:hover {
+		border-color: var(--primary);
+		transform: translateY(-2px);
+		box-shadow: 0 4px 12px rgba(30, 64, 175, 0.15);
+	}
+
+	.link-icon {
+		font-size: 2.5rem;
+		margin-bottom: 1rem;
+	}
+
+	.link-card h3 {
+		font-size: 1.125rem;
+		margin-bottom: 0.5rem;
+		color: var(--gray-dark);
+	}
+
+	.link-card p {
+		color: var(--gray-medium);
+		margin: 0;
+	}
+
+	/* 通用 */
+	.section {
+		padding: 5rem 0;
+	}
+
+	.section-title {
+		text-align: center;
+		font-size: 2.25rem;
+		margin-bottom: 3rem;
+		color: var(--gray-dark);
+	}
+
+	/* 響應式 */
+	@media (max-width: 768px) {
+		.hero h1 {
+			font-size: 2rem;
+		}
+
+		.section {
+			padding: 3rem 0;
+		}
+
+		.options-grid,
+		.links-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

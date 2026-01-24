@@ -1,0 +1,449 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { CONTACT_EMAIL } from '../consts';
+
+// 獲取 URL 參數
+const type = Astro.url.searchParams.get('type') || '';
+const source = Astro.url.searchParams.get('source') || '';
+---
+
+<Layout 
+	title="聯絡我們 | 智序資訊工作室" 
+	description="歡迎洽詢合作提案、報告試閱、付款與發票相關問題。"
+>
+	<!-- Hero 區塊 -->
+	<section class="hero">
+		<div class="container">
+			<h1>聯絡我們</h1>
+			<p class="hero-subtitle">
+				歡迎洽詢合作提案、報告試閱、付款與發票相關問題。<br>
+				我們將於 1-2 個工作天內回覆您。
+			</p>
+		</div>
+	</section>
+
+	<!-- 聯絡表單與資訊 -->
+	<section class="section contact-main">
+		<div class="container">
+			<div class="contact-grid">
+				<!-- 聯絡表單 -->
+				<div class="form-section">
+					<h2>諮詢表單</h2>
+					<p class="form-desc">請填寫以下資訊，我們會盡快與您聯繫</p>
+					
+					<form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+						<!-- Web3Forms Access Key（需要替換為實際的 key） -->
+						<input type="hidden" name="access_key" value="YOUR_WEB3FORMS_KEY">
+						
+						<!-- 隱藏欄位：來源追蹤 -->
+						<input type="hidden" name="from_page" value={type ? `contact-${type}` : 'contact'}>
+						<input type="hidden" name="source" value={source}>
+						
+						<div class="form-group">
+							<label for="name">姓名 <span class="required">*</span></label>
+							<input 
+								type="text" 
+								id="name" 
+								name="name" 
+								required 
+								placeholder="請輸入您的姓名"
+							>
+						</div>
+
+						<div class="form-group">
+							<label for="email">Email <span class="required">*</span></label>
+							<input 
+								type="email" 
+								id="email" 
+								name="email" 
+								required 
+								placeholder="your.email@example.com"
+							>
+						</div>
+
+						<div class="form-group">
+							<label for="company">公司／單位 <span class="optional">(選填)</span></label>
+							<input 
+								type="text" 
+								id="company" 
+								name="company" 
+								placeholder="如為企業洽詢，請填寫公司名稱"
+							>
+						</div>
+
+						<div class="form-group">
+							<label for="subject">詢問主題 <span class="required">*</span></label>
+							<select id="subject" name="subject" required>
+								<option value="">請選擇...</option>
+								<option value="trial" {type === 'trial' ? 'selected' : ''}>報告試閱與產品諮詢</option>
+								<option value="enterprise" {type === 'enterprise' ? 'selected' : ''}>企業合作與客製化需求</option>
+								<option value="payment">付款方式與發票開立</option>
+								<option value="support">技術支援</option>
+								<option value="other">其他</option>
+							</select>
+						</div>
+
+						<div class="form-group">
+							<label for="message">留言內容 <span class="required">*</span></label>
+							<textarea 
+								id="message" 
+								name="message" 
+								required 
+								rows="6"
+								placeholder="請描述您的需求或問題，我們會盡快回覆"
+							></textarea>
+						</div>
+
+						<button type="submit" class="submit-btn">送出諮詢</button>
+						
+						<p class="form-note">* 為必填欄位</p>
+					</form>
+				</div>
+
+				<!-- 聯絡資訊 -->
+				<div class="info-section">
+					<h2>其他聯絡方式</h2>
+					
+					<div class="contact-method">
+						<div class="method-icon">📧</div>
+						<div class="method-content">
+							<h3>Email 直接聯絡</h3>
+							<p><a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a></p>
+							<p class="method-note">回覆時間：1-2 個工作天</p>
+						</div>
+					</div>
+
+					<div class="contact-method">
+						<div class="method-icon">💬</div>
+						<div class="method-content">
+							<h3>LINE 官方帳號</h3>
+							<p>LINE ID: @smartsequence <span class="note-small">（請更新實際 ID）</span></p>
+							<p class="method-note">即時諮詢：週一至週五 10:00-18:00</p>
+							<div class="qr-placeholder">
+								<p>📱 QR Code</p>
+								<p class="small">（準備中）</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="contact-method">
+						<div class="method-icon">📍</div>
+						<div class="method-content">
+							<h3>實體地址</h3>
+							<p class="note-small">新竹市（實際地址待補充）</p>
+							<p class="method-note">如有實體辦公室可提供地址</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- 快速連結 -->
+	<section class="section quick-links">
+		<div class="container">
+			<h2 class="section-title">常見需求快速導航</h2>
+			
+			<div class="links-grid">
+				<a href="/pricing" class="link-card">
+					<div class="link-icon">💰</div>
+					<h3>查看定價方案</h3>
+					<p>了解費用與方案內容</p>
+				</a>
+
+				<a href="/get-started?source=contact-demo" class="link-card">
+					<div class="link-icon">📋</div>
+					<h3>預覽範例報告</h3>
+					<p>看實際報告品質</p>
+				</a>
+
+				<a href="/pricing#faq" class="link-card">
+					<div class="link-icon">❓</div>
+					<h3>常見問題 FAQ</h3>
+					<p>發票、付款、資料安全</p>
+				</a>
+
+				<a href="/get-started?source=contact-trial" class="link-card">
+					<div class="link-icon">🚀</div>
+					<h3>立即開始使用</h3>
+					<p>免費試用 Doc Engine</p>
+				</a>
+			</div>
+		</div>
+	</section>
+</Layout>
+
+<style>
+	/* Hero */
+	.hero {
+		background: linear-gradient(135deg, #1e40af 0%, #7c3aed 100%);
+		color: white;
+		padding: 4rem 0 3rem;
+		text-align: center;
+	}
+
+	.hero h1 {
+		font-size: 2.5rem;
+		margin-bottom: 1rem;
+	}
+
+	.hero-subtitle {
+		font-size: 1.125rem;
+		opacity: 0.95;
+		line-height: 1.75;
+	}
+
+	/* 主要內容 */
+	.contact-grid {
+		display: grid;
+		grid-template-columns: 2fr 1fr;
+		gap: 3rem;
+	}
+
+	/* 表單區 */
+	.form-section h2 {
+		font-size: 1.75rem;
+		margin-bottom: 0.5rem;
+		color: var(--gray-dark);
+	}
+
+	.form-desc {
+		color: var(--gray-medium);
+		margin-bottom: 2rem;
+	}
+
+	.contact-form {
+		background: white;
+		padding: 2.5rem;
+		border-radius: 1rem;
+		border: 1px solid #e5e7eb;
+	}
+
+	.form-group {
+		margin-bottom: 1.5rem;
+	}
+
+	.form-group label {
+		display: block;
+		margin-bottom: 0.5rem;
+		font-weight: 600;
+		color: var(--gray-dark);
+	}
+
+	.required {
+		color: var(--error);
+	}
+
+	.optional {
+		font-weight: 400;
+		color: var(--gray-medium);
+		font-size: 0.875rem;
+	}
+
+	.form-group input,
+	.form-group select,
+	.form-group textarea {
+		width: 100%;
+		padding: 0.75rem;
+		border: 1px solid #d1d5db;
+		border-radius: 0.5rem;
+		font-family: inherit;
+		font-size: 1rem;
+		transition: border-color 0.2s ease;
+	}
+
+	.form-group input:focus,
+	.form-group select:focus,
+	.form-group textarea:focus {
+		outline: none;
+		border-color: var(--primary);
+	}
+
+	.form-group textarea {
+		resize: vertical;
+		min-height: 150px;
+	}
+
+	.submit-btn {
+		width: 100%;
+		padding: 0.875rem;
+		background: linear-gradient(135deg, #1e40af 0%, #7c3aed 100%);
+		color: white;
+		border: none;
+		border-radius: 0.5rem;
+		font-size: 1rem;
+		font-weight: 600;
+		cursor: pointer;
+		transition: all 0.2s ease;
+	}
+
+	.submit-btn:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 4px 12px rgba(30, 64, 175, 0.3);
+	}
+
+	.form-note {
+		margin-top: 1rem;
+		font-size: 0.875rem;
+		color: var(--gray-medium);
+		text-align: center;
+	}
+
+	/* 聯絡資訊區 */
+	.info-section h2 {
+		font-size: 1.75rem;
+		margin-bottom: 2rem;
+		color: var(--gray-dark);
+	}
+
+	.contact-method {
+		background: white;
+		padding: 1.5rem;
+		border-radius: 1rem;
+		border: 1px solid #e5e7eb;
+		margin-bottom: 1.5rem;
+		display: flex;
+		gap: 1rem;
+	}
+
+	.method-icon {
+		font-size: 2rem;
+		flex-shrink: 0;
+	}
+
+	.method-content h3 {
+		font-size: 1.125rem;
+		margin-bottom: 0.5rem;
+		color: var(--gray-dark);
+	}
+
+	.method-content p {
+		color: var(--gray-medium);
+		margin-bottom: 0.25rem;
+	}
+
+	.method-content a {
+		color: var(--primary);
+		text-decoration: none;
+	}
+
+	.method-content a:hover {
+		text-decoration: underline;
+	}
+
+	.method-note {
+		font-size: 0.875rem;
+		color: var(--gray-medium);
+		margin-top: 0.5rem;
+	}
+
+	.note-small {
+		font-size: 0.75rem;
+		color: var(--gray-medium);
+	}
+
+	.qr-placeholder {
+		margin-top: 1rem;
+		padding: 2rem;
+		background: #f9fafb;
+		border: 2px dashed #d1d5db;
+		border-radius: 0.5rem;
+		text-align: center;
+	}
+
+	.qr-placeholder p {
+		margin: 0;
+	}
+
+	.qr-placeholder .small {
+		font-size: 0.875rem;
+		color: var(--gray-medium);
+		margin-top: 0.5rem;
+	}
+
+	/* 快速連結 */
+	.quick-links {
+		background: #f9fafb;
+	}
+
+	.links-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+		gap: 1.5rem;
+	}
+
+	.link-card {
+		background: white;
+		padding: 2rem;
+		border-radius: 1rem;
+		border: 1px solid #e5e7eb;
+		text-decoration: none;
+		transition: all 0.2s ease;
+		display: block;
+		text-align: center;
+	}
+
+	.link-card:hover {
+		border-color: var(--primary);
+		transform: translateY(-2px);
+		box-shadow: 0 4px 12px rgba(30, 64, 175, 0.15);
+	}
+
+	.link-icon {
+		font-size: 2.5rem;
+		margin-bottom: 1rem;
+	}
+
+	.link-card h3 {
+		font-size: 1.125rem;
+		margin-bottom: 0.5rem;
+		color: var(--gray-dark);
+	}
+
+	.link-card p {
+		color: var(--gray-medium);
+		margin: 0;
+	}
+
+	/* 通用 */
+	.section {
+		padding: 5rem 0;
+	}
+
+	.section-title {
+		text-align: center;
+		font-size: 2.25rem;
+		margin-bottom: 3rem;
+		color: var(--gray-dark);
+	}
+
+	/* 響應式 */
+	@media (max-width: 968px) {
+		.contact-grid {
+			grid-template-columns: 1fr;
+			gap: 3rem;
+		}
+	}
+
+	@media (max-width: 768px) {
+		.hero h1 {
+			font-size: 2rem;
+		}
+
+		.section {
+			padding: 3rem 0;
+		}
+
+		.section-title {
+			font-size: 1.75rem;
+		}
+
+		.contact-form {
+			padding: 1.5rem;
+		}
+
+		.links-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

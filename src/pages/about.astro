@@ -1,63 +1,444 @@
 ---
-import AboutHeroImage from '../assets/blog-placeholder-about.jpg';
-import Layout from '../layouts/BlogPost.astro';
+import Layout from '../layouts/Layout.astro';
+import { 
+	STUDIO_NAME, 
+	STUDIO_NAME_EN, 
+	STUDIO_TAX_ID,
+	SOCIAL_LINKEDIN,
+	SOCIAL_YOUTUBE,
+	SOCIAL_GITHUB 
+} from '../consts';
 ---
 
-<Layout
-	title="About Me"
-	description="Lorem ipsum dolor sit amet"
-	pubDate={new Date('August 08 2021')}
-	heroImage={AboutHeroImage}
+<Layout 
+	title="關於我們 | 智序資訊工作室" 
+	description="智序資訊工作室專注於系統分析、文件治理與 AI 應用的技術服務團隊。"
 >
-	<p>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-		labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo
-		viverra. Adipiscing enim eu turpis egestas pretium. Euismod elementum nisi quis eleifend quam
-		adipiscing. In hac habitasse platea dictumst vestibulum. Sagittis purus sit amet volutpat. Netus
-		et malesuada fames ac turpis egestas. Eget magna fermentum iaculis eu non diam phasellus
-		vestibulum lorem. Varius sit amet mattis vulputate enim. Habitasse platea dictumst quisque
-		sagittis. Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet.
-	</p>
+	<!-- Hero 區塊 -->
+	<section class="hero">
+		<div class="container">
+			<h1>{STUDIO_NAME}</h1>
+			<p class="subtitle">{STUDIO_NAME_EN}</p>
+			<p class="tagline">讓複雜說得清楚，讓系統更能被交接</p>
+		</div>
+	</section>
 
-	<p>
-		Morbi tristique senectus et netus. Id semper risus in hendrerit gravida rutrum quisque non
-		tellus. Habitasse platea dictumst quisque sagittis purus sit amet. Tellus molestie nunc non
-		blandit massa. Cursus vitae congue mauris rhoncus. Accumsan tortor posuere ac ut. Fringilla urna
-		porttitor rhoncus dolor. Elit ullamcorper dignissim cras tincidunt lobortis. In cursus turpis
-		massa tincidunt dui ut ornare lectus. Integer feugiat scelerisque varius morbi enim nunc.
-		Bibendum neque egestas congue quisque egestas diam. Cras ornare arcu dui vivamus arcu felis
-		bibendum. Dignissim suspendisse in est ante in nibh mauris. Sed tempus urna et pharetra pharetra
-		massa massa ultricies mi.
-	</p>
+	<!-- 工作室介紹 -->
+	<section class="section intro">
+		<div class="container">
+			<div class="intro-content">
+				<h2>關於我們</h2>
+				<p>
+					我們是一個專注於系統分析、文件治理與 AI 應用的技術服務團隊。我們相信，複雜的系統應該能被清楚說明，風險應該能被量化呈現，交接應該能更順利進行。
+				</p>
+				<p>
+					Doc Engine 是我們的第一個產品，源自於多年系統維護與交接的實戰經驗。我們致力於開發實用、誠實、真正幫助團隊降低風險的工具。
+				</p>
+			</div>
+		</div>
+	</section>
 
-	<p>
-		Mollis nunc sed id semper risus in. Convallis a cras semper auctor neque. Diam sit amet nisl
-		suscipit. Lacus viverra vitae congue eu consequat ac felis donec. Egestas integer eget aliquet
-		nibh praesent tristique magna sit amet. Eget magna fermentum iaculis eu non diam. In vitae
-		turpis massa sed elementum. Tristique et egestas quis ipsum suspendisse ultrices. Eget lorem
-		dolor sed viverra ipsum. Vel turpis nunc eget lorem dolor sed viverra. Posuere ac ut consequat
-		semper viverra nam. Laoreet suspendisse interdum consectetur libero id faucibus. Diam phasellus
-		vestibulum lorem sed risus ultricies tristique. Rhoncus dolor purus non enim praesent elementum
-		facilisis. Ultrices tincidunt arcu non sodales neque. Tempus egestas sed sed risus pretium quam
-		vulputate. Viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare. Fringilla
-		urna porttitor rhoncus dolor purus non. Amet dictum sit amet justo donec enim.
-	</p>
+	<!-- 商業登記資訊 -->
+	<section class="section registration">
+		<div class="container">
+			<h2 class="section-title">商業登記資訊</h2>
+			
+			<div class="info-card">
+				<div class="info-row">
+					<span class="info-label">工作室名稱</span>
+					<span class="info-value">{STUDIO_NAME}</span>
+				</div>
+				<div class="info-row">
+					<span class="info-label">英文名稱</span>
+					<span class="info-value">{STUDIO_NAME_EN}</span>
+				</div>
+				<div class="info-row">
+					<span class="info-label">統一編號</span>
+					<span class="info-value">{STUDIO_TAX_ID}</span>
+				</div>
+				<div class="info-row">
+					<span class="info-label">營業項目</span>
+					<span class="info-value">
+						軟體設計服務業<br>
+						資訊系統顧問業<br>
+						資料處理服務業
+					</span>
+				</div>
+			</div>
+		</div>
+	</section>
 
-	<p>
-		Mattis ullamcorper velit sed ullamcorper morbi tincidunt. Tortor posuere ac ut consequat semper
-		viverra. Tellus mauris a diam maecenas sed enim ut sem viverra. Venenatis urna cursus eget nunc
-		scelerisque viverra mauris in. Arcu ac tortor dignissim convallis aenean et tortor at. Curabitur
-		gravida arcu ac tortor dignissim convallis aenean et tortor. Egestas tellus rutrum tellus
-		pellentesque eu. Fusce ut placerat orci nulla pellentesque dignissim enim sit amet. Ut enim
-		blandit volutpat maecenas volutpat blandit aliquam etiam. Id donec ultrices tincidunt arcu. Id
-		cursus metus aliquam eleifend mi.
-	</p>
+	<!-- 創辦人介紹 -->
+	<section class="section founder">
+		<div class="container">
+			<h2 class="section-title">創辦人介紹</h2>
+			
+			<div class="founder-card">
+				<div class="founder-photo">
+					<div class="photo-placeholder">👤</div>
+					<p class="photo-note">* 創辦人照片準備中</p>
+				</div>
+				<div class="founder-info">
+					<h3>邱瓊瑩</h3>
+					<p class="founder-title">系統分析顧問</p>
+					
+					<div class="founder-details">
+						<p>🎓 資訊工程背景，10+ 年系統開發與維護經驗</p>
+						<p>💼 曾參與多項政府大型系統改善與現代化專案</p>
+						<p>🏆 專長：.NET 技術棧、遺留系統分析、技術文件治理</p>
+						<p>💡 創業動機：解決系統交接與風險評估的實際痛點</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
-	<p>
-		Tempus quam pellentesque nec nam aliquam sem. Risus at ultrices mi tempus imperdiet. Id porta
-		nibh venenatis cras sed felis eget velit. Ipsum a arcu cursus vitae. Facilisis magna etiam
-		tempor orci eu lobortis elementum. Tincidunt dui ut ornare lectus sit. Quisque non tellus orci
-		ac. Blandit libero volutpat sed cras. Nec tincidunt praesent semper feugiat nibh sed pulvinar
-		proin gravida. Egestas integer eget aliquet nibh praesent tristique magna.
-	</p>
+	<!-- 品牌理念 -->
+	<section class="section philosophy">
+		<div class="container">
+			<h2 class="section-title">品牌理念</h2>
+			
+			<div class="philosophy-content">
+				<div class="belief-card">
+					<h3>我們相信</h3>
+					<ul>
+						<li>系統的風險應該被量化與可視化</li>
+						<li>專業的評估應該有結構化的方法</li>
+						<li>好的工具應該降低溝通成本</li>
+						<li>技術服務應該誠實且實用</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- 社群連結 -->
+	<section class="section social">
+		<div class="container">
+			<h2 class="section-title">追蹤我們</h2>
+			
+			<div class="social-links">
+				<a href={SOCIAL_LINKEDIN} target="_blank" rel="noopener noreferrer" class="social-card">
+					<div class="social-icon">🔗</div>
+					<h3>LinkedIn</h3>
+					<p>專業技術分享與交流</p>
+				</a>
+
+				<a href={SOCIAL_YOUTUBE} target="_blank" rel="noopener noreferrer" class="social-card">
+					<div class="social-icon">🎥</div>
+					<h3>YouTube</h3>
+					<p>技術教學影片頻道</p>
+				</a>
+
+				<a href={SOCIAL_GITHUB} target="_blank" rel="noopener noreferrer" class="social-card">
+					<div class="social-icon">💻</div>
+					<h3>GitHub</h3>
+					<p>開源專案與程式碼</p>
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA -->
+	<section class="section cta">
+		<div class="container">
+			<div class="cta-content">
+				<h2>準備開始使用 Doc Engine？</h2>
+				<a href="/get-started?source=about" class="btn-primary">立即開始</a>
+			</div>
+		</div>
+	</section>
 </Layout>
+
+<style>
+	/* Hero */
+	.hero {
+		background: linear-gradient(135deg, #1e40af 0%, #7c3aed 100%);
+		color: white;
+		padding: 4rem 0 3rem;
+		text-align: center;
+	}
+
+	.hero h1 {
+		font-size: 2.5rem;
+		margin-bottom: 0.5rem;
+	}
+
+	.subtitle {
+		font-size: 1.25rem;
+		opacity: 0.9;
+		margin-bottom: 1rem;
+	}
+
+	.tagline {
+		font-size: 1.125rem;
+		opacity: 0.85;
+		font-style: italic;
+	}
+
+	/* 工作室介紹 */
+	.intro-content {
+		max-width: 800px;
+		margin: 0 auto;
+		text-align: center;
+	}
+
+	.intro-content h2 {
+		font-size: 2rem;
+		margin-bottom: 1.5rem;
+		color: var(--gray-dark);
+	}
+
+	.intro-content p {
+		font-size: 1.125rem;
+		line-height: 1.875;
+		color: var(--gray-medium);
+		margin-bottom: 1.5rem;
+	}
+
+	/* 商業登記 */
+	.registration {
+		background: #f9fafb;
+	}
+
+	.info-card {
+		max-width: 700px;
+		margin: 0 auto;
+		background: white;
+		padding: 2.5rem;
+		border-radius: 1rem;
+		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+	}
+
+	.info-row {
+		display: grid;
+		grid-template-columns: 150px 1fr;
+		gap: 2rem;
+		padding: 1.25rem 0;
+		border-bottom: 1px solid #e5e7eb;
+	}
+
+	.info-row:last-child {
+		border-bottom: none;
+	}
+
+	.info-label {
+		font-weight: 600;
+		color: var(--gray-dark);
+	}
+
+	.info-value {
+		color: var(--gray-medium);
+		line-height: 1.75;
+	}
+
+	/* 創辦人 */
+	.founder-card {
+		max-width: 900px;
+		margin: 0 auto;
+		background: white;
+		padding: 3rem;
+		border-radius: 1rem;
+		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+		display: grid;
+		grid-template-columns: 200px 1fr;
+		gap: 3rem;
+		align-items: start;
+	}
+
+	.founder-photo {
+		text-align: center;
+	}
+
+	.photo-placeholder {
+		width: 180px;
+		height: 180px;
+		background: #f3f4f6;
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 5rem;
+		margin-bottom: 1rem;
+	}
+
+	.photo-note {
+		font-size: 0.75rem;
+		color: var(--gray-medium);
+		font-style: italic;
+	}
+
+	.founder-info h3 {
+		font-size: 1.75rem;
+		margin-bottom: 0.5rem;
+		color: var(--gray-dark);
+	}
+
+	.founder-title {
+		color: var(--primary);
+		font-size: 1.125rem;
+		margin-bottom: 1.5rem;
+	}
+
+	.founder-details p {
+		color: var(--gray-medium);
+		margin-bottom: 0.75rem;
+		line-height: 1.75;
+	}
+
+	/* 品牌理念 */
+	.philosophy {
+		background: #f9fafb;
+	}
+
+	.philosophy-content {
+		max-width: 700px;
+		margin: 0 auto;
+	}
+
+	.belief-card {
+		background: white;
+		padding: 2.5rem;
+		border-radius: 1rem;
+		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+	}
+
+	.belief-card h3 {
+		font-size: 1.5rem;
+		margin-bottom: 1.5rem;
+		color: var(--gray-dark);
+	}
+
+	.belief-card ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.belief-card li {
+		padding: 0.75rem 0;
+		color: var(--gray-medium);
+		line-height: 1.75;
+		position: relative;
+		padding-left: 2rem;
+	}
+
+	.belief-card li::before {
+		content: "✓";
+		position: absolute;
+		left: 0;
+		color: var(--primary);
+		font-weight: bold;
+		font-size: 1.25rem;
+	}
+
+	/* 社群連結 */
+	.social-links {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		gap: 2rem;
+	}
+
+	.social-card {
+		background: white;
+		padding: 2.5rem 2rem;
+		border-radius: 1rem;
+		border: 2px solid #e5e7eb;
+		text-decoration: none;
+		transition: all 0.2s ease;
+		text-align: center;
+		display: block;
+	}
+
+	.social-card:hover {
+		border-color: var(--primary);
+		transform: translateY(-4px);
+		box-shadow: 0 4px 12px rgba(30, 64, 175, 0.15);
+	}
+
+	.social-icon {
+		font-size: 3rem;
+		margin-bottom: 1rem;
+	}
+
+	.social-card h3 {
+		font-size: 1.25rem;
+		margin-bottom: 0.5rem;
+		color: var(--gray-dark);
+	}
+
+	.social-card p {
+		color: var(--gray-medium);
+		margin: 0;
+	}
+
+	/* CTA */
+	.cta {
+		background: linear-gradient(135deg, #1e40af 0%, #7c3aed 100%);
+		color: white;
+		text-align: center;
+	}
+
+	.cta-content h2 {
+		color: white;
+		margin-bottom: 2rem;
+	}
+
+	.btn-primary {
+		display: inline-block;
+		padding: 0.875rem 2.5rem;
+		background: white;
+		color: var(--primary);
+		text-decoration: none;
+		border-radius: 0.5rem;
+		font-weight: 600;
+		transition: all 0.2s ease;
+	}
+
+	.btn-primary:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+	}
+
+	/* 通用 */
+	.section {
+		padding: 5rem 0;
+	}
+
+	.section-title {
+		text-align: center;
+		font-size: 2.25rem;
+		margin-bottom: 3rem;
+		color: var(--gray-dark);
+	}
+
+	/* 響應式 */
+	@media (max-width: 768px) {
+		.hero h1 {
+			font-size: 2rem;
+		}
+
+		.section {
+			padding: 3rem 0;
+		}
+
+		.section-title {
+			font-size: 1.75rem;
+		}
+
+		.info-row {
+			grid-template-columns: 1fr;
+			gap: 0.5rem;
+		}
+
+		.founder-card {
+			grid-template-columns: 1fr;
+			gap: 2rem;
+			padding: 2rem;
+		}
+
+		.photo-placeholder {
+			margin: 0 auto 1rem;
+		}
+	}
+</style>

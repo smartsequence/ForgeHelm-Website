@@ -1,0 +1,521 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+	title="功能介紹 | Doc Engine - 智序資訊工作室" 
+	description="Doc Engine 六大核心功能：問卷量化評估、AI 智慧分析、視覺化報告、多語言支援、資料庫整合、即時協作。"
+>
+	<!-- Hero 區塊 -->
+	<section class="hero">
+		<div class="container">
+			<h1>Doc Engine 服務說明</h1>
+			<p class="hero-subtitle">
+				Doc Engine 是一套系統風險評估與報告產出服務，結合問卷量化、AI 分析與視覺化報告，<br>
+				協助團隊有效識別潛在風險與評估改寫成本。
+			</p>
+		</div>
+	</section>
+
+	<!-- 適用對象 -->
+	<section class="section target-audience">
+		<div class="container">
+			<h2 class="section-title">誰需要 Doc Engine？</h2>
+			
+			<div class="audience-grid">
+				<div class="audience-card">
+					<div class="card-icon">👔</div>
+					<h3>系統專案經理（PM）</h3>
+					<ul>
+						<li>系統交接前需要完整的風險總覽</li>
+						<li>對外簡報或向主管報告時需要數據支撐</li>
+						<li>評估是否需要投入改寫資源</li>
+					</ul>
+				</div>
+
+				<div class="audience-card">
+					<div class="card-icon">🔍</div>
+					<h3>系統分析師（SA）</h3>
+					<ul>
+						<li>快速診斷遺留系統的健康狀況</li>
+						<li>產出結構化的系統評估報告</li>
+						<li>協助制定改善優先順序</li>
+					</ul>
+				</div>
+
+				<div class="audience-card">
+					<div class="card-icon">⚙️</div>
+					<h3>技術主管 / 架構師</h3>
+					<ul>
+						<li>準備改寫的舊系統評估</li>
+						<li>技術債務量化與可視化</li>
+						<li>提供給利害關係人的風險說明</li>
+					</ul>
+				</div>
+
+				<div class="audience-card">
+					<div class="card-icon">🏢</div>
+					<h3>政府機關 / 企業採購</h3>
+					<ul>
+						<li>符合採購規範的正式報告</li>
+						<li>可開立發票與合約</li>
+						<li>專業的風險評估文件</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- 六大核心功能 -->
+	<section class="section core-features">
+		<div class="container">
+			<h2 class="section-title">六大核心功能</h2>
+			
+			<div class="features-grid">
+				<div class="feature-card">
+					<div class="feature-icon">✅</div>
+					<h3>問卷量化評估</h3>
+					<p>結構化評估問卷設計，涵蓋技術、流程、團隊三大維度，自動計算成熟度分數</p>
+				</div>
+
+				<div class="feature-card">
+					<div class="feature-icon">🤖</div>
+					<h3>AI 智慧分析</h3>
+					<p>依據不同角色需求產生分析摘要，識別關鍵風險點，提供改善建議</p>
+				</div>
+
+				<div class="feature-card">
+					<div class="feature-icon">📊</div>
+					<h3>視覺化報告</h3>
+					<p>風險雷達圖（多維度視覺呈現）、成熟度評分表、專業的文字說明、PDF 格式下載</p>
+				</div>
+
+				<div class="feature-card">
+					<div class="feature-icon">🌐</div>
+					<h3>多語言支援</h3>
+					<p>中文報告（繁體中文）、英文報告（國際團隊適用）、可依需求客製化</p>
+				</div>
+
+				<div class="feature-card">
+					<div class="feature-icon">🗄️</div>
+					<h3>資料庫整合<span class="badge">規劃中</span></h3>
+					<p>未來可串接企業內部資料庫，自動分析資料表結構，產出資料庫健檢報告</p>
+				</div>
+
+				<div class="feature-card">
+					<div class="feature-icon">⚡</div>
+					<h3>即時協作</h3>
+					<p>SignalR 即時通訊技術，報告產生進度即時更新，Agent 架構支援企業防火牆</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- 應用場景 -->
+	<section class="section use-cases">
+		<div class="container">
+			<h2 class="section-title">實際應用場景</h2>
+			
+			<div class="cases-grid">
+				<div class="case-card">
+					<h3>場景 1：系統交接</h3>
+					<div class="case-content">
+						<div class="case-problem">
+							<strong>問題：</strong>舊系統要交給新團隊，但風險不明
+						</div>
+						<div class="case-solution">
+							<strong>解決：</strong>填寫問卷 → 產出風險報告 → 交接會議使用
+						</div>
+					</div>
+				</div>
+
+				<div class="case-card">
+					<h3>場景 2：改寫評估</h3>
+					<div class="case-content">
+						<div class="case-problem">
+							<strong>問題：</strong>老系統該不該改寫？成本如何？
+						</div>
+						<div class="case-solution">
+							<strong>解決：</strong>量化現況 → 評估技術債 → 提供決策依據
+						</div>
+					</div>
+				</div>
+
+				<div class="case-card">
+					<h3>場景 3：專案報告</h3>
+					<div class="case-content">
+						<div class="case-problem">
+							<strong>問題：</strong>需要向主管或客戶說明系統現況
+						</div>
+						<div class="case-solution">
+							<strong>解決：</strong>專業報告 → 視覺化呈現 → 提升信賴度
+						</div>
+					</div>
+				</div>
+
+				<div class="case-card">
+					<h3>場景 4：補助案申請</h3>
+					<div class="case-content">
+						<div class="case-problem">
+							<strong>問題：</strong>申請政府補助需要現況佐證
+						</div>
+						<div class="case-solution">
+							<strong>解決：</strong>正式報告 → 附發票證明 → 符合審查要求
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Demo 展示區 -->
+	<section class="section demo">
+		<div class="container">
+			<h2 class="section-title">實際操作展示</h2>
+			
+			<div class="demo-content">
+				<div class="demo-placeholder">
+					<p>📷 產品截圖</p>
+					<ul>
+						<li>風險雷達圖範例</li>
+						<li>成熟度評分表</li>
+						<li>報告文字區塊</li>
+						<li>PDF 下載介面</li>
+					</ul>
+				</div>
+
+				<div class="demo-placeholder">
+					<p>🎥 操作流程影片</p>
+					<ul>
+						<li>如何填寫問卷</li>
+						<li>報告產生過程</li>
+						<li>下載與使用</li>
+					</ul>
+				</div>
+
+				<div class="demo-placeholder">
+					<p>📄 範例報告下載</p>
+					<p class="note">提供 PDF 範本供預覽，展示實際報告品質</p>
+				</div>
+			</div>
+
+			<p class="demo-note">* 實際產品截圖與 Demo 影片準備中</p>
+		</div>
+	</section>
+
+	<!-- CTA 區塊 -->
+	<section class="section cta-final">
+		<div class="container">
+			<div class="cta-content">
+				<h2>準備開始使用 Doc Engine？</h2>
+				<p>立即體驗系統風險評估服務</p>
+				<div class="cta-buttons">
+					<a href="/get-started?source=features" class="btn btn-primary">開始使用 Doc Engine</a>
+					<a href="/pricing" class="btn btn-secondary">查看定價方案</a>
+				</div>
+			</div>
+		</div>
+	</section>
+</Layout>
+
+<style>
+	/* Hero */
+	.hero {
+		background: linear-gradient(135deg, #1e40af 0%, #7c3aed 100%);
+		color: white;
+		padding: 4rem 0 3rem;
+		text-align: center;
+	}
+
+	.hero h1 {
+		font-size: 2.5rem;
+		margin-bottom: 1rem;
+	}
+
+	.hero-subtitle {
+		font-size: 1.125rem;
+		opacity: 0.95;
+		line-height: 1.75;
+	}
+
+	/* 適用對象 */
+	.target-audience {
+		background: #f9fafb;
+	}
+
+	.audience-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		gap: 2rem;
+	}
+
+	.audience-card {
+		background: white;
+		padding: 2rem;
+		border-radius: 1rem;
+		border: 1px solid #e5e7eb;
+	}
+
+	.card-icon {
+		font-size: 3rem;
+		margin-bottom: 1rem;
+	}
+
+	.audience-card h3 {
+		font-size: 1.25rem;
+		margin-bottom: 1rem;
+		color: var(--gray-dark);
+	}
+
+	.audience-card ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.audience-card li {
+		padding: 0.5rem 0;
+		color: var(--gray-medium);
+		position: relative;
+		padding-left: 1.5rem;
+	}
+
+	.audience-card li::before {
+		content: "•";
+		position: absolute;
+		left: 0;
+		color: var(--primary);
+		font-weight: bold;
+	}
+
+	/* 核心功能 */
+	.features-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 2rem;
+	}
+
+	.feature-card {
+		background: white;
+		padding: 2rem;
+		border-radius: 1rem;
+		border: 2px solid #e5e7eb;
+		transition: all 0.2s ease;
+	}
+
+	.feature-card:hover {
+		border-color: var(--primary);
+		transform: translateY(-4px);
+		box-shadow: 0 4px 12px rgba(30, 64, 175, 0.15);
+	}
+
+	.feature-icon {
+		font-size: 2.5rem;
+		margin-bottom: 1rem;
+	}
+
+	.feature-card h3 {
+		font-size: 1.25rem;
+		margin-bottom: 1rem;
+		color: var(--gray-dark);
+	}
+
+	.feature-card p {
+		color: var(--gray-medium);
+		line-height: 1.75;
+	}
+
+	.badge {
+		display: inline-block;
+		background: #f59e0b;
+		color: white;
+		font-size: 0.75rem;
+		padding: 0.25rem 0.5rem;
+		border-radius: 0.25rem;
+		margin-left: 0.5rem;
+		vertical-align: middle;
+	}
+
+	/* 應用場景 */
+	.use-cases {
+		background: #f9fafb;
+	}
+
+	.cases-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		gap: 2rem;
+	}
+
+	.case-card {
+		background: white;
+		padding: 2rem;
+		border-radius: 1rem;
+		border-left: 4px solid var(--primary);
+	}
+
+	.case-card h3 {
+		font-size: 1.125rem;
+		margin-bottom: 1.5rem;
+		color: var(--primary);
+	}
+
+	.case-content {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.case-problem,
+	.case-solution {
+		line-height: 1.75;
+		color: var(--gray-medium);
+	}
+
+	.case-problem strong,
+	.case-solution strong {
+		color: var(--gray-dark);
+	}
+
+	/* Demo 展示 */
+	.demo-content {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 2rem;
+		margin-bottom: 2rem;
+	}
+
+	.demo-placeholder {
+		background: #f9fafb;
+		border: 2px dashed #d1d5db;
+		border-radius: 1rem;
+		padding: 3rem 2rem;
+		text-align: center;
+		color: var(--gray-medium);
+	}
+
+	.demo-placeholder p {
+		font-size: 1.5rem;
+		margin-bottom: 1.5rem;
+		color: var(--gray-dark);
+	}
+
+	.demo-placeholder ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.demo-placeholder li {
+		padding: 0.5rem 0;
+	}
+
+	.demo-placeholder .note {
+		font-size: 1rem;
+		margin: 0;
+	}
+
+	.demo-note {
+		text-align: center;
+		color: var(--gray-medium);
+		font-size: 0.875rem;
+		font-style: italic;
+	}
+
+	/* CTA */
+	.cta-final {
+		background: linear-gradient(135deg, #1e40af 0%, #7c3aed 100%);
+		color: white;
+		text-align: center;
+	}
+
+	.cta-content h2 {
+		color: white;
+		margin-bottom: 1rem;
+	}
+
+	.cta-content p {
+		font-size: 1.125rem;
+		opacity: 0.95;
+		margin-bottom: 2rem;
+	}
+
+	.cta-buttons {
+		display: flex;
+		gap: 1rem;
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+
+	.btn {
+		display: inline-block;
+		padding: 0.875rem 2rem;
+		border-radius: 0.5rem;
+		text-decoration: none;
+		font-weight: 600;
+		transition: all 0.2s ease;
+	}
+
+	.btn-primary {
+		background: white;
+		color: var(--primary);
+	}
+
+	.btn-primary:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+	}
+
+	.btn-secondary {
+		background: transparent;
+		color: white;
+		border: 2px solid white;
+	}
+
+	.btn-secondary:hover {
+		background: rgba(255, 255, 255, 0.1);
+	}
+
+	/* 通用 */
+	.section {
+		padding: 5rem 0;
+	}
+
+	.section-title {
+		text-align: center;
+		font-size: 2.25rem;
+		margin-bottom: 3rem;
+		color: var(--gray-dark);
+	}
+
+	/* 響應式 */
+	@media (max-width: 768px) {
+		.hero h1 {
+			font-size: 2rem;
+		}
+
+		.section {
+			padding: 3rem 0;
+		}
+
+		.section-title {
+			font-size: 1.75rem;
+		}
+
+		.audience-grid,
+		.features-grid,
+		.cases-grid,
+		.demo-content {
+			grid-template-columns: 1fr;
+		}
+
+		.cta-buttons {
+			flex-direction: column;
+			align-items: stretch;
+		}
+
+		.btn {
+			width: 100%;
+		}
+	}
+</style>
