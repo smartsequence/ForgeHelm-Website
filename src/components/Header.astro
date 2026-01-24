@@ -31,9 +31,10 @@ import HeaderLink from './HeaderLink.astro';
 		left: 0;
 		right: 0;
 		z-index: 1000;
-		background: var(--primary);
+		background: var(--bg-footer);
 		backdrop-filter: blur(10px);
 		box-shadow: var(--shadow-md);
+		border-bottom: 1px solid var(--border-light);
 	}
 
 	.container {
@@ -88,7 +89,7 @@ import HeaderLink from './HeaderLink.astro';
 	.cta-button .btn-primary {
 		display: inline-block;
 		padding: 0.75rem 1.75rem;
-		background: var(--accent);
+		background: var(--cta-primary);
 		color: white;
 		border-radius: var(--radius-md);
 		text-decoration: none;
@@ -100,7 +101,7 @@ import HeaderLink from './HeaderLink.astro';
 	}
 
 	.cta-button .btn-primary:hover {
-		background: #059669;
+		background: var(--cta-hover);
 		transform: translateY(-1px);
 		box-shadow: var(--shadow-md);
 	}

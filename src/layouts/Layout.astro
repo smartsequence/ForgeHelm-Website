@@ -12,12 +12,19 @@ const { title, description } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="zh-TW">
+<html lang="zh-TW" data-theme="dark">
 	<head>
 		<BaseHead title={title} description={description} />
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
+		<script is:inline>
+			// 自動偵測使用者偏好並應用主題
+			(function() {
+				const theme = localStorage.getItem('theme') || 'dark';
+				document.documentElement.setAttribute('data-theme', theme);
+			})();
+		</script>
 	</head>
 	<body>
 		<Header />
@@ -25,38 +32,88 @@ const { title, description } = Astro.props;
 			<slot />
 		</main>
 		<Footer />
+		<script is:inline>
+			// Theme Toggle Function
+			window.toggleTheme = function() {
+				const html = document.documentElement;
+				const currentTheme = html.getAttribute('data-theme');
+				const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+				html.setAttribute('data-theme', newTheme);
+				localStorage.setItem('theme', newTheme);
+			};
+
+			// Auto detect system preference
+			window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+				if (!localStorage.getItem('theme')) {
+					document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+				}
+			});
+		</script>
 	</body>
 </html>
 
 <style is:global>
 	:root {
-		/* Enterprise B2B Color Scheme */
-		--primary: #1E3A8A;        /* 深企業藍 blue-900 */
-		--primary-light: #3B82F6;  /* 淺藍 hover */
-		--secondary: #0F172A;      /* 近黑 slate-900 */
-		--accent: #10B981;         /* 成功綠 emerald-500 */
-		--gold: #F59E0B;           /* 金色徽章 amber-500 */
+		/* Dark Professional Theme - 與風險報告一致 */
+		--bg-main: #0C1E3C;        /* 深藍墨底 */
+		--bg-section: #1E293B;     /* 鉛灰藍區塊 */
+		--bg-card: #374151;        /* 深灰卡片 */
+		--bg-footer: #0F172A;      /* 深藍灰 Footer */
 		
-		/* Neutral Colors */
-		--bg-light: #F8FAFC;       /* 冷灰白 slate-50 */
-		--gray-dark: #0F172A;      /* 近黑 */
-		--gray-medium: #64748B;    /* 中灰 slate-500 */
-		--gray-light: #F1F5F9;     /* 淺灰 slate-100 */
+		/* Text Colors */
+		--text-primary: #FFFFFF;   /* 白色主標題 */
+		--text-secondary: #D1D5DB; /* 亮灰說明文字 */
+		--text-muted: #9CA3AF;     /* 次要文字 */
 		
-		/* Semantic Colors */
-		--success: #10B981;
-		--warning: #F59E0B;
-		--error: #EF4444;
+		/* Interactive Colors */
+		--link-color: #60A5FA;     /* 淺亮藍連結 */
+		--link-hover: #93C5FD;     /* 更亮藍 hover */
 		
-		/* Shadows - Subtle & Professional */
-		--shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
-		--shadow-md: 0 4px 20px rgba(0, 0, 0, 0.08);
-		--shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
+		/* CTA Colors */
+		--cta-primary: #3B82F6;    /* 藍主色 blue-500 */
+		--cta-hover: #60A5FA;      /* 較亮藍 blue-400 */
+		--cta-success: #10B981;    /* 成功綠 emerald-500 */
+		--cta-gold: #F59E0B;       /* 金色徽章 amber-500 */
 		
-		/* Border Radius - Max 8px */
+		/* Border & Divider */
+		--border-color: rgba(148, 163, 184, 0.2); /* 半透明邊框 */
+		--border-light: rgba(148, 163, 184, 0.1);
+		
+		/* Shadows - Dark Mode */
+		--shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+		--shadow-md: 0 4px 20px rgba(0, 0, 0, 0.4);
+		--shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
+		
+		/* Border Radius */
 		--radius-sm: 4px;
 		--radius-md: 6px;
 		--radius-lg: 8px;
+		
+		/* Glassmorphism */
+		--glass-bg: rgba(55, 65, 81, 0.5);
+		--glass-border: rgba(148, 163, 184, 0.2);
+	}
+
+	/* Light Mode Override (Optional) */
+	@media (prefers-color-scheme: light) {
+		:root[data-theme="auto"] {
+			--bg-main: #F8FAFC;
+			--bg-section: #FFFFFF;
+			--bg-card: #FFFFFF;
+			--bg-footer: #1E293B;
+			
+			--text-primary: #0F172A;
+			--text-secondary: #475569;
+			--text-muted: #64748B;
+			
+			--link-color: #3B82F6;
+			--link-hover: #2563EB;
+			
+			--border-color: rgba(148, 163, 184, 0.2);
+			--shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+			--shadow-md: 0 4px 20px rgba(0, 0, 0, 0.08);
+			--shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
+		}
 	}
 
 	* {
@@ -77,10 +134,11 @@ const { title, description } = Astro.props;
 		min-height: 100vh;
 		display: flex;
 		flex-direction: column;
-		color: var(--gray-dark);
-		background: var(--bg-light);
+		color: var(--text-secondary);
+		background: var(--bg-main);
 		font-weight: 400;
 		letter-spacing: -0.01em;
+		transition: background-color 0.3s ease, color 0.3s ease;
 	}
 
 	main {
@@ -92,7 +150,7 @@ const { title, description } = Astro.props;
 		font-weight: 700;
 		line-height: 1.2;
 		letter-spacing: -0.02em;
-		color: var(--gray-dark);
+		color: var(--text-primary);
 	}
 
 	h1 {
@@ -117,13 +175,13 @@ const { title, description } = Astro.props;
 	}
 
 	a {
-		color: var(--primary);
+		color: var(--link-color);
 		text-decoration: none;
 		transition: all 0.2s ease;
 	}
 
 	a:hover {
-		color: var(--primary-light);
+		color: var(--link-hover);
 	}
 
 	.container {
@@ -153,26 +211,27 @@ const { title, description } = Astro.props;
 	}
 
 	.btn-primary {
-		background: var(--accent);
+		background: var(--cta-primary);
 		color: white;
 		box-shadow: var(--shadow-sm);
 	}
 
 	.btn-primary:hover {
-		background: #059669;
+		background: var(--cta-hover);
 		box-shadow: var(--shadow-md);
 		transform: translateY(-1px);
 	}
 
 	.btn-secondary {
 		background: transparent;
-		color: var(--primary);
-		border: 2px solid var(--primary);
+		color: var(--text-primary);
+		border: 2px solid var(--border-color);
 	}
 
 	.btn-secondary:hover {
-		background: var(--primary);
-		color: white;
+		background: var(--glass-bg);
+		border-color: var(--link-color);
+		color: var(--link-color);
 	}
 
 	@media (max-width: 768px) {
