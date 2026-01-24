@@ -185,9 +185,16 @@ const { title, description } = Astro.props;
 	}
 
 	.container {
-		max-width: 1600px;
+		max-width: 1800px;
 		margin: 0 auto;
-		padding: 0 2rem;
+		padding: 0 1.5rem;
+	}
+	
+	@media (min-width: 1400px) {
+		.container {
+			max-width: 1920px;
+			padding: 0 2rem;
+		}
 	}
 
 	.section {

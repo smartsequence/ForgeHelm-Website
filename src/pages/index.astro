@@ -358,29 +358,15 @@ import { SITE_TITLE, SITE_DESCRIPTION, STUDIO_TAX_ID } from '../consts';
 
 	.process-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-		gap: 1rem;
-		max-width: 1200px;
-		margin: 0 auto;
-	}
-	
-	@media (min-width: 768px) {
-		.process-grid {
-			grid-template-columns: repeat(2, 1fr);
-		}
-	}
-	
-	@media (min-width: 1024px) {
-		.process-grid {
-			grid-template-columns: repeat(4, 1fr);
-		}
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		gap: 1.25rem;
 	}
 
 	.process-step {
 		position: relative;
 		background: var(--bg-card);
 		backdrop-filter: blur(10px);
-		padding: 1.25rem;
+		padding: 1.5rem;
 		border-radius: var(--radius-lg);
 		border: 1px solid var(--border-color);
 		box-shadow: var(--shadow-md);
@@ -423,16 +409,16 @@ import { SITE_TITLE, SITE_DESCRIPTION, STUDIO_TAX_ID } from '../consts';
 	}
 
 	.process-step h3 {
-		font-size: 1.125rem;
-		margin-bottom: 0.5rem;
+		font-size: 1.25rem;
+		margin-bottom: 0.75rem;
 		color: var(--text-primary);
 		font-weight: 600;
 	}
 
 	.process-step p {
 		color: var(--text-secondary);
-		line-height: 1.5;
-		font-size: 0.875rem;
+		line-height: 1.6;
+		font-size: 0.9375rem;
 	}
 
 	/* CTA 卡片區 - Dark Glassmorphism */
@@ -442,28 +428,14 @@ import { SITE_TITLE, SITE_DESCRIPTION, STUDIO_TAX_ID } from '../consts';
 
 	.cards-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-		gap: 1rem;
-		max-width: 1200px;
-		margin: 0 auto;
-	}
-	
-	@media (min-width: 768px) {
-		.cards-grid {
-			grid-template-columns: repeat(2, 1fr);
-		}
-	}
-	
-	@media (min-width: 1024px) {
-		.cards-grid {
-			grid-template-columns: repeat(4, 1fr);
-		}
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		gap: 1.25rem;
 	}
 
 	.card {
 		background: var(--bg-card);
 		backdrop-filter: blur(10px);
-		padding: 1.25rem;
+		padding: 1.5rem;
 		border-radius: var(--radius-lg);
 		border: 1px solid var(--border-color);
 		box-shadow: var(--shadow-sm);
@@ -497,18 +469,18 @@ import { SITE_TITLE, SITE_DESCRIPTION, STUDIO_TAX_ID } from '../consts';
 	}
 
 	.card h3 {
-		font-size: 1.125rem;
-		margin-bottom: 0.5rem;
+		font-size: 1.25rem;
+		margin-bottom: 0.75rem;
 		color: var(--text-primary);
 		font-weight: 600;
 	}
 
 	.card p {
 		color: var(--text-secondary);
-		margin-bottom: 1rem;
+		margin-bottom: 1.5rem;
 		flex: 1;
-		line-height: 1.5;
-		font-size: 0.875rem;
+		line-height: 1.6;
+		font-size: 0.9375rem;
 	}
 
 	.card-link {
@@ -545,16 +517,8 @@ import { SITE_TITLE, SITE_DESCRIPTION, STUDIO_TAX_ID } from '../consts';
 
 	.trust-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-		gap: 1rem;
-		max-width: 1000px;
-		margin: 0 auto;
-	}
-	
-	@media (min-width: 768px) {
-		.trust-grid {
-			grid-template-columns: repeat(3, 1fr);
-		}
+		grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+		gap: 1.25rem;
 	}
 
 	.trust-item {
