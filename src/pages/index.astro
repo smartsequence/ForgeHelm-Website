@@ -248,6 +248,14 @@ import { SITE_TITLE, SITE_DESCRIPTION, STUDIO_TAX_ID } from '../consts';
 		opacity: 0.6;
 	}
 
+	/* Light Theme - 淺色背景光暈 */
+	html[data-theme='light'] .hero-overlay {
+		background: 
+			radial-gradient(circle at 20% 50%, rgba(16, 185, 129, 0.12) 0%, transparent 60%),
+			radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.12) 0%, transparent 60%);
+		opacity: 0.4;
+	}
+
 	/* 雷達掃描效果 - 更柔和的版本 */
 	.hero-overlay::before {
 		content: '';
@@ -275,6 +283,15 @@ import { SITE_TITLE, SITE_DESCRIPTION, STUDIO_TAX_ID } from '../consts';
 		border: 1px solid rgba(16, 185, 129, 0.06);
 		border-radius: 50%;
 		animation: radar-pulse 6s ease-in-out infinite 3s;
+	}
+
+	/* Light Theme - 雷達光圈適配 */
+	html[data-theme='light'] .hero-overlay::before {
+		border-color: rgba(59, 130, 246, 0.15);
+	}
+
+	html[data-theme='light'] .hero-overlay::after {
+		border-color: rgba(16, 185, 129, 0.15);
 	}
 
 	@keyframes radar-pulse {
@@ -334,6 +351,14 @@ import { SITE_TITLE, SITE_DESCRIPTION, STUDIO_TAX_ID } from '../consts';
 		-webkit-text-fill-color: transparent;
 		background-clip: text;
 		letter-spacing: 0.01em;
+	}
+
+	/* Light Theme - 加強副標語對比度 */
+	html[data-theme='light'] .hero-tagline {
+		background: linear-gradient(135deg, #059669, #2563EB);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
 	}
 
 	.hero-subtitle {
@@ -629,7 +654,7 @@ import { SITE_TITLE, SITE_DESCRIPTION, STUDIO_TAX_ID } from '../consts';
 		font-size: 0.9375rem;
 	}
 
-	/* 引導導流區 - Dark CTA */
+	/* 引導導流區 - Adaptive CTA */
 	.cta-final {
 		background: var(--bg-footer);
 		color: var(--text-primary);
@@ -637,6 +662,21 @@ import { SITE_TITLE, SITE_DESCRIPTION, STUDIO_TAX_ID } from '../consts';
 		position: relative;
 		overflow: hidden;
 		border-top: 1px solid var(--border-light);
+	}
+
+	/* Light Theme Override for CTA Final */
+	html[data-theme='light'] .cta-final {
+		background: linear-gradient(135deg, #3B82F6 0%, #1E40AF 100%);
+		color: white;
+	}
+
+	html[data-theme='light'] .cta-final h2,
+	html[data-theme='light'] .cta-final .link-with-arrow {
+		color: white;
+	}
+
+	html[data-theme='light'] .cta-final .link-with-arrow:hover {
+		color: rgba(255, 255, 255, 0.9);
 	}
 
 	.cta-final::before {
