@@ -176,10 +176,11 @@ const source = Astro.url.searchParams.get('source') || '';
 <style>
 	/* Hero */
 	.hero {
-		background: linear-gradient(135deg, #0ea5e9 0%, #334155 100%);
-		color: white;
-		padding: 2rem 0 3rem;
+		background: var(--bg-main);
+		color: var(--text-primary);
+		padding: 0.5rem 0 3rem;
 		text-align: center;
+		border-bottom: 1px solid var(--border-light);
 	}
 
 	.hero h1 {
@@ -213,7 +214,7 @@ const source = Astro.url.searchParams.get('source') || '';
 	}
 
 	.contact-form {
-		background: white;
+		background: var(--bg-card);
 		padding: 2.5rem;
 		border-radius: 1rem;
 		border: 1px solid #e5e7eb;
@@ -297,7 +298,7 @@ const source = Astro.url.searchParams.get('source') || '';
 	}
 
 	.contact-method {
-		background: white;
+		background: var(--bg-card);
 		padding: 1.5rem;
 		border-radius: 1rem;
 		border: 1px solid #e5e7eb;
@@ -373,7 +374,7 @@ const source = Astro.url.searchParams.get('source') || '';
 	}
 
 	.link-card {
-		background: white;
+		background: var(--bg-card);
 		padding: 2rem;
 		border-radius: 1rem;
 		border: 1px solid #e5e7eb;

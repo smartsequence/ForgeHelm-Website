@@ -601,10 +601,11 @@ import Layout from '../layouts/Layout.astro';
 <style>
 	/* Hero 區塊 - Enterprise Minimal */
 	.hero {
-		background: var(--primary);
-		color: white;
-		padding: 2rem 0 3rem;
+		background: var(--bg-main);
+		color: var(--text-primary);
+		padding: 0.5rem 0 3rem;
 		text-align: center;
+		border-bottom: 1px solid var(--border-light);
 	}
 
 	.hero h1 {
@@ -634,8 +635,8 @@ import Layout from '../layouts/Layout.astro';
 	}
 
 	.plan-card {
-		background: white;
-		border: 1px solid #E2E8F0;
+		background: var(--bg-card);
+		border: 1px solid var(--border-color);
 		border-radius: var(--radius-md);
 		padding: 2.5rem;
 		position: relative;
@@ -745,7 +746,7 @@ import Layout from '../layouts/Layout.astro';
 		display: block;
 		text-align: center;
 		padding: 1rem;
-		background: white;
+		background: var(--bg-card);
 		border: 2px solid var(--primary);
 		color: var(--primary);
 		text-decoration: none;
@@ -783,7 +784,7 @@ import Layout from '../layouts/Layout.astro';
 
 	/* 功能對照表 - Enterprise Table */
 	.comparison {
-		background: white;
+		background: var(--bg-card);
 	}
 
 	.comparison-table-wrapper {
@@ -796,8 +797,8 @@ import Layout from '../layouts/Layout.astro';
 		width: 100%;
 		border-collapse: separate;
 		border-spacing: 0;
-		background: white;
-		border: 1px solid #E2E8F0;
+		background: var(--bg-card);
+		border: 1px solid var(--border-color);
 		border-radius: var(--radius-lg);
 		overflow: hidden;
 	}
@@ -874,10 +875,10 @@ import Layout from '../layouts/Layout.astro';
 	}
 
 	.payment-method {
-		background: white;
+		background: var(--bg-card);
 		padding: 2.5rem;
 		border-radius: var(--radius-lg);
-		border: 1px solid #E2E8F0;
+		border: 1px solid var(--border-color);
 		transition: all 0.3s ease;
 	}
 
@@ -930,7 +931,7 @@ import Layout from '../layouts/Layout.astro';
 
 	/* FAQ - Enterprise Accordion */
 	.faq {
-		background: white;
+		background: var(--bg-card);
 	}
 
 	.faq-list {
@@ -940,7 +941,7 @@ import Layout from '../layouts/Layout.astro';
 
 	.faq-item {
 		background: var(--bg-light);
-		border: 1px solid #E2E8F0;
+		border: 1px solid var(--border-color);
 		border-radius: var(--radius-md);
 		margin-bottom: 1rem;
 		overflow: hidden;
@@ -952,8 +953,9 @@ import Layout from '../layouts/Layout.astro';
 	}
 
 	.faq-item[open] {
-		background: white;
+		background: var(--bg-card);
 		box-shadow: var(--shadow-sm);
+		border-color: var(--cta-primary);
 	}
 
 	.faq-item summary {
@@ -1074,7 +1076,7 @@ import Layout from '../layouts/Layout.astro';
 	}
 
 	.btn-secondary {
-		background: white;
+		background: var(--bg-card);
 		color: var(--primary);
 		border-color: white;
 	}
@@ -1112,7 +1114,7 @@ import Layout from '../layouts/Layout.astro';
 	/* 響應式設計 */
 	@media (max-width: 768px) {
 		.hero {
-			padding: 2rem 0 3rem;
+			padding: 0.5rem 0 2.5rem;
 		}
 
 		.hero h1 {

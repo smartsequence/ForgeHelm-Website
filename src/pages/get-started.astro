@@ -109,10 +109,11 @@ const plan = Astro.url.searchParams.get('plan') || '';
 <style>
 	/* Hero */
 	.hero {
-		background: linear-gradient(135deg, #0ea5e9 0%, #334155 100%);
-		color: white;
-		padding: 2rem 0 3rem;
+		background: var(--bg-main);
+		color: var(--text-primary);
+		padding: 0.5rem 0 3rem;
 		text-align: center;
+		border-bottom: 1px solid var(--border-light);
 	}
 
 	.hero h1 {
@@ -134,8 +135,8 @@ const plan = Astro.url.searchParams.get('plan') || '';
 	}
 
 	.option-card {
-		background: white;
-		border: 2px solid #e5e7eb;
+		background: var(--bg-card);
+		border: 2px solid var(--border-color);
 		border-radius: 1rem;
 		padding: 2.5rem 2rem;
 		position: relative;
@@ -206,7 +207,7 @@ const plan = Astro.url.searchParams.get('plan') || '';
 		display: block;
 		text-align: center;
 		padding: 0.875rem;
-		background: white;
+		background: var(--bg-card);
 		border: 2px solid var(--primary);
 		color: var(--primary);
 		text-decoration: none;
@@ -251,7 +252,7 @@ const plan = Astro.url.searchParams.get('plan') || '';
 	}
 
 	.link-card {
-		background: white;
+		background: var(--bg-card);
 		padding: 2rem;
 		border-radius: 1rem;
 		border: 1px solid #e5e7eb;
