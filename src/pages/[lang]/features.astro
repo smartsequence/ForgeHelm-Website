@@ -1,0 +1,290 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getTranslations, getLocalizedPath } from '../../i18n/utils';
+import { defaultLang, type Language, getAllLanguageCodes } from '../../i18n/languages';
+
+// 生成所有語言版本的靜態路徑
+export async function getStaticPaths() {
+	const allLangs = getAllLanguageCodes();
+	return allLangs
+		.filter((lang) => lang !== defaultLang)
+		.map((lang) => ({
+			params: { lang },
+		}));
+}
+
+// 從 URL 參數取得語言
+const lang = (Astro.params.lang || defaultLang) as Language;
+const translations = await getTranslations(lang);
+
+// 翻譯函式
+function t(key: string): string {
+	const keys = key.split('.');
+	let value: any = translations;
+	for (const k of keys) {
+		value = value?.[k];
+		if (value === undefined) return key;
+	}
+	return value || key;
+}
+---
+
+<Layout 
+	title={lang === 'en' ? 'Features | Doc Engine - Smart Sequence Tech' : '功能介紹 | Doc Engine - 智序資訊工作室'}
+	description={lang === 'en' ? 'Doc Engine six core features: questionnaire quantitative assessment, AI intelligent analysis, visualization reports, multi-language support, database integration, real-time collaboration.' : 'Doc Engine 六大核心功能：問卷量化評估、AI 智慧分析、視覺化報告、多語言支援、資料庫整合、即時協作。'}
+>
+	<!-- Hero 區塊 -->
+	<section class="hero">
+		<div class="container">
+			<h1>{lang === 'en' ? 'Doc Engine Service Overview' : 'Doc Engine 服務說明'}</h1>
+			<p class="hero-subtitle">
+				{lang === 'en' 
+					? 'Doc Engine is a system risk assessment and report generation service that combines questionnaire quantification, AI analysis, and visualization reports to help teams effectively identify potential risks and evaluate rewrite costs.'
+					: 'Doc Engine 是一套系統風險評估與報告產出服務，結合問卷量化、AI 分析與視覺化報告，協助團隊有效識別潛在風險與評估改寫成本。'}
+			</p>
+		</div>
+	</section>
+
+	<!-- 適用對象 -->
+	<section class="section target-audience">
+		<div class="container">
+			<h2 class="section-title">{lang === 'en' ? 'Who Needs Doc Engine?' : '誰需要 Doc Engine？'}</h2>
+			
+			<div class="audience-grid">
+				<div class="audience-card">
+					<div class="card-icon">👔</div>
+					<h3>{lang === 'en' ? 'System Project Manager (PM)' : '系統專案經理（PM）'}</h3>
+					<ul>
+						<li>{lang === 'en' ? 'Need a complete risk overview before system handover' : '系統交接前需要完整的風險總覽'}</li>
+						<li>{lang === 'en' ? 'Need data support for external presentations or reports to supervisors' : '對外簡報或向主管報告時需要數據支撐'}</li>
+						<li>{lang === 'en' ? 'Evaluate whether to invest in rewrite resources' : '評估是否需要投入改寫資源'}</li>
+					</ul>
+				</div>
+
+				<div class="audience-card">
+					<div class="card-icon">🔍</div>
+					<h3>{lang === 'en' ? 'System Analyst (SA)' : '系統分析師（SA）'}</h3>
+					<ul>
+						<li>{lang === 'en' ? 'Quickly diagnose the health status of legacy systems' : '快速診斷遺留系統的健康狀況'}</li>
+						<li>{lang === 'en' ? 'Generate structured system assessment reports' : '產出結構化的系統評估報告'}</li>
+						<li>{lang === 'en' ? 'Assist in establishing improvement priorities' : '協助制定改善優先順序'}</li>
+					</ul>
+				</div>
+
+				<div class="audience-card">
+					<div class="card-icon">⚙️</div>
+					<h3>{lang === 'en' ? 'Technical Lead / Architect' : '技術主管 / 架構師'}</h3>
+					<ul>
+						<li>{lang === 'en' ? 'Assessment of old systems preparing for rewrite' : '準備改寫的舊系統評估'}</li>
+						<li>{lang === 'en' ? 'Quantify technical debt and modernization costs' : '量化技術債務與現代化成本'}</li>
+						<li>{lang === 'en' ? 'Provide data support for architectural decisions' : '為架構決策提供數據支撐'}</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- 核心功能 -->
+	<section class="section features">
+		<div class="container">
+			<h2 class="section-title">{lang === 'en' ? 'Core Features' : '核心功能'}</h2>
+			
+			<div class="features-grid">
+				<div class="feature-card">
+					<div class="feature-icon">📋</div>
+					<h3>{lang === 'en' ? 'Questionnaire Quantitative Assessment' : '問卷量化評估'}</h3>
+					<p>{lang === 'en' ? 'Structured questionnaire covering technical debt, documentation completeness, team maturity, and other dimensions' : '結構化問卷，涵蓋技術債務、文件完整度、團隊成熟度等維度'}</p>
+				</div>
+
+				<div class="feature-card">
+					<div class="feature-icon">🤖</div>
+					<h3>{lang === 'en' ? 'AI Intelligent Analysis' : 'AI 智慧分析'}</h3>
+					<p>{lang === 'en' ? 'Automatically generate risk fingerprints and maturity quantitative scores' : '自動產生風險指紋與成熟度量化評分'}</p>
+				</div>
+
+				<div class="feature-card">
+					<div class="feature-icon">📊</div>
+					<h3>{lang === 'en' ? 'Visualization Reports' : '視覺化報告'}</h3>
+					<p>{lang === 'en' ? 'Risk radar chart visualization with detailed analysis and improvement suggestions' : '風險雷達圖視覺化呈現，詳細分析說明與改善建議'}</p>
+				</div>
+
+				<div class="feature-card">
+					<div class="feature-icon">🌐</div>
+					<h3>{lang === 'en' ? 'Multi-language Support' : '多語言支援'}</h3>
+					<p>{lang === 'en' ? 'Support for multiple languages in reports and interfaces' : '報告與介面支援多種語言'}</p>
+				</div>
+
+				<div class="feature-card">
+					<div class="feature-icon">💾</div>
+					<h3>{lang === 'en' ? 'Database Integration' : '資料庫整合'}</h3>
+					<p>{lang === 'en' ? 'Seamless integration with existing databases and systems' : '與現有資料庫與系統無縫整合'}</p>
+				</div>
+
+				<div class="feature-card">
+					<div class="feature-icon">👥</div>
+					<h3>{lang === 'en' ? 'Real-time Collaboration' : '即時協作'}</h3>
+					<p>{lang === 'en' ? 'Team members can collaborate in real-time on assessments' : '團隊成員可即時協作進行評估'}</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA -->
+	<section class="section cta">
+		<div class="container">
+			<div class="cta-content">
+				<h2>{lang === 'en' ? 'Ready to Get Started?' : '準備開始使用 Doc Engine？'}</h2>
+				<a href={getLocalizedPath('/get-started?source=features', lang)} class="btn-primary">
+					{lang === 'en' ? 'Get Started' : '立即開始'}
+				</a>
+			</div>
+		</div>
+	</section>
+</Layout>
+
+<style>
+	/* 複製 features.astro 的樣式 */
+	.hero {
+		background: var(--bg-main);
+		color: var(--text-primary);
+		padding: 0.25rem 0 3rem;
+		text-align: center;
+		border-bottom: 1px solid var(--border-light);
+	}
+
+	.hero h1 {
+		font-size: 2.5rem;
+		margin-bottom: 1rem;
+	}
+
+	.hero-subtitle {
+		font-size: 1.125rem;
+		line-height: 1.75;
+		opacity: 0.9;
+		max-width: 800px;
+		margin: 0 auto;
+	}
+
+	.section {
+		padding: 5rem 0;
+	}
+
+	.section-title {
+		text-align: center;
+		font-size: 2.25rem;
+		margin-bottom: 3rem;
+		color: var(--text-primary);
+	}
+
+	.audience-grid,
+	.features-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		gap: 2rem;
+	}
+
+	.audience-card,
+	.feature-card {
+		background: var(--bg-card);
+		padding: 2rem;
+		border-radius: 1rem;
+		border: 1px solid var(--border-color);
+		box-shadow: var(--shadow-sm);
+		transition: all 0.2s ease;
+	}
+
+	.audience-card:hover,
+	.feature-card:hover {
+		transform: translateY(-4px);
+		box-shadow: var(--shadow-md);
+		border-color: var(--cta-primary);
+	}
+
+	.card-icon,
+	.feature-icon {
+		font-size: 3rem;
+		margin-bottom: 1rem;
+	}
+
+	.audience-card h3,
+	.feature-card h3 {
+		font-size: 1.25rem;
+		margin-bottom: 1rem;
+		color: var(--text-primary);
+	}
+
+	.audience-card ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.audience-card li {
+		padding: 0.5rem 0;
+		color: var(--text-secondary);
+		line-height: 1.6;
+		position: relative;
+		padding-left: 1.5rem;
+	}
+
+	.audience-card li::before {
+		content: "•";
+		position: absolute;
+		left: 0;
+		color: var(--cta-primary);
+		font-weight: bold;
+	}
+
+	.feature-card p {
+		color: var(--text-secondary);
+		line-height: 1.6;
+		margin: 0;
+	}
+
+	.cta {
+		background: var(--bg-section);
+		text-align: center;
+		border-top: 1px solid var(--border-light);
+	}
+
+	.cta-content h2 {
+		color: var(--text-primary);
+		margin-bottom: 2rem;
+	}
+
+	.btn-primary {
+		display: inline-block;
+		padding: 0.875rem 2.5rem;
+		background: var(--cta-primary);
+		color: white;
+		text-decoration: none;
+		border-radius: 0.5rem;
+		font-weight: 600;
+		transition: all 0.2s ease;
+	}
+
+	.btn-primary:hover {
+		transform: translateY(-2px);
+		background: var(--cta-hover);
+		box-shadow: var(--shadow-md);
+	}
+
+	@media (max-width: 768px) {
+		.hero h1 {
+			font-size: 2rem;
+		}
+
+		.section {
+			padding: 3rem 0;
+		}
+
+		.section-title {
+			font-size: 1.75rem;
+		}
+
+		.audience-grid,
+		.features-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

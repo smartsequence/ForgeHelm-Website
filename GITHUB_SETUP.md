@@ -1,4 +1,7 @@
-# GitHub Repository 設定指南
+# GitHub Repository 設定指南（精簡版）
+
+> **說明**：本文件僅保留最精簡的說明。  
+> 完整、最新版的 GitHub 建立與推送步驟請參考 `GITHUB_SETUP_GUIDE.md`。
 
 ## 📋 在 GitHub 建立 Repository
 

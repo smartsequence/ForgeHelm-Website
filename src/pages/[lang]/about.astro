@@ -1,18 +1,30 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from '../../layouts/Layout.astro';
 import { 
 	STUDIO_NAME, 
 	STUDIO_NAME_EN, 
 	STUDIO_TAX_ID,
 	SOCIAL_LINKEDIN,
 	SOCIAL_YOUTUBE
-} from '../consts';
-import { getTranslations, getLocalizedPath, getLangFromUrl } from '../i18n/utils';
-import { defaultLang, type Language } from '../i18n/languages';
+} from '../../consts';
+import { getTranslations, getLocalizedPath } from '../../i18n/utils';
+import { defaultLang, type Language, getAllLanguageCodes } from '../../i18n/languages';
 
-const lang = (getLangFromUrl(Astro.url) as Language) ?? defaultLang;
+// 生成所有語言版本的靜態路徑
+export async function getStaticPaths() {
+	const allLangs = getAllLanguageCodes();
+	return allLangs
+		.filter((lang) => lang !== defaultLang)
+		.map((lang) => ({
+			params: { lang },
+		}));
+}
+
+// 從 URL 參數取得語言
+const lang = (Astro.params.lang || defaultLang) as Language;
 const translations = await getTranslations(lang);
 
+// 翻譯函式
 function t(key: string): string {
 	const keys = key.split('.');
 	let value: any = translations;
@@ -101,7 +113,7 @@ function t(key: string): string {
 		</div>
 	</section>
 
-	<!-- 社群連結（不含 GitHub） -->
+	<!-- 社群連結 -->
 	<section class="section social">
 		<div class="container">
 			<h2 class="section-title">{t('pages.about.socialTitle')}</h2>
@@ -216,9 +228,13 @@ function t(key: string): string {
 		line-height: 1.75;
 	}
 
-	/* 理念 */
+	/* 品牌理念 */
+	.philosophy {
+		background: var(--bg-section);
+	}
+
 	.philosophy-content {
-		max-width: 800px;
+		max-width: 700px;
 		margin: 0 auto;
 	}
 
@@ -242,129 +258,117 @@ function t(key: string): string {
 	}
 
 	.belief-card li {
-		position: relative;
-		padding-left: 1.5rem;
-		margin-bottom: 0.75rem;
+		padding: 0.75rem 0;
 		color: var(--text-secondary);
-		line-height: 1.6;
+		line-height: 1.75;
+		position: relative;
+		padding-left: 2rem;
 	}
 
 	.belief-card li::before {
-		content: '•';
+		content: "✓";
 		position: absolute;
 		left: 0;
 		color: var(--cta-primary);
+		font-weight: bold;
+		font-size: 1.25rem;
 	}
 
 	/* 社群連結 */
-	.social {
-		background: var(--bg-section);
-	}
-
 	.social-links {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-		gap: 1.5rem;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		gap: 2rem;
 	}
 
 	.social-card {
-		display: flex;
-		flex-direction: column;
-		gap: 0.75rem;
-		padding: 1.75rem;
 		background: var(--bg-card);
+		padding: 2.5rem 2rem;
 		border-radius: 1rem;
+		border: 2px solid var(--border-color);
 		text-decoration: none;
-		color: var(--text-primary);
-		box-shadow: var(--shadow-sm);
 		transition: all 0.2s ease;
+		text-align: center;
+		display: block;
 	}
 
 	.social-card:hover {
+		border-color: var(--cta-primary);
 		transform: translateY(-4px);
 		box-shadow: var(--shadow-md);
-		border-color: var(--cta-primary);
 	}
 
 	.social-icon {
-		font-size: 1.75rem;
+		font-size: 3rem;
+		margin-bottom: 1rem;
 	}
 
 	.social-card h3 {
-		font-size: 1.125rem;
-		margin: 0;
+		font-size: 1.25rem;
+		margin-bottom: 0.5rem;
+		color: var(--text-primary);
 	}
 
 	.social-card p {
-		margin: 0;
 		color: var(--text-secondary);
+		margin: 0;
 	}
 
 	/* CTA */
 	.cta {
-		background: var(--bg-main);
-	}
-
-	.cta-content {
-		max-width: 640px;
-		margin: 0 auto;
+		background: var(--bg-section);
+		color: var(--text-primary);
 		text-align: center;
+		border-top: 1px solid var(--border-light);
+		border-bottom: 1px solid var(--border-light);
 	}
 
 	.cta-content h2 {
-		font-size: 2rem;
-		margin-bottom: 1.5rem;
 		color: var(--text-primary);
+		margin-bottom: 2rem;
 	}
 
 	.btn-primary {
 		display: inline-block;
-		padding: 0.9rem 2.2rem;
+		padding: 0.875rem 2.5rem;
 		background: var(--cta-primary);
 		color: white;
-		border-radius: var(--radius-md);
 		text-decoration: none;
+		border-radius: 0.5rem;
 		font-weight: 600;
 		transition: all 0.2s ease;
 	}
 
 	.btn-primary:hover {
+		transform: translateY(-2px);
 		background: var(--cta-hover);
-		transform: translateY(-1px);
 		box-shadow: var(--shadow-md);
 	}
 
+	/* 通用 */
 	.section {
-		padding: 4.5rem 0;
+		padding: 5rem 0;
 	}
 
 	.section-title {
 		text-align: center;
-		font-size: 2rem;
-		margin-bottom: 2.5rem;
+		font-size: 2.25rem;
+		margin-bottom: 3rem;
 		color: var(--text-primary);
 	}
 
+	/* 響應式 */
 	@media (max-width: 768px) {
-		.hero {
-			padding: 0.75rem 0 2.5rem;
-		}
-
 		.hero h1 {
 			font-size: 2rem;
 		}
 
 		.section {
-			padding: 3.5rem 0;
+			padding: 3rem 0;
 		}
 
 		.section-title {
 			font-size: 1.75rem;
-			margin-bottom: 2rem;
-		}
-
-		.info-card {
-			padding: 2rem 1.5rem;
 		}
 
 		.info-row {
@@ -372,9 +376,14 @@ function t(key: string): string {
 			gap: 0.5rem;
 		}
 
-		.belief-card {
-			padding: 2rem 1.5rem;
+		.founder-card {
+			grid-template-columns: 1fr;
+			gap: 2rem;
+			padding: 2rem;
+		}
+
+		.photo-placeholder {
+			margin: 0 auto 1rem;
 		}
 	}
 </style>
-

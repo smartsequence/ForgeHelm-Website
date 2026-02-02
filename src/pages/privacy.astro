@@ -118,7 +118,7 @@ import { STUDIO_NAME, STUDIO_TAX_ID, CONTACT_EMAIL } from '../consts';
 <style>
 	.legal-page {
 		padding: 3rem 0;
-		background: #f9fafb;
+		background: var(--bg-main);
 	}
 
 	.container {
@@ -140,10 +140,11 @@ import { STUDIO_NAME, STUDIO_TAX_ID, CONTACT_EMAIL } from '../consts';
 	}
 
 	.content {
-		background: white;
+		background: var(--bg-card);
 		padding: 3rem;
 		border-radius: 1rem;
-		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+		border: 1px solid var(--border-color);
+		box-shadow: var(--shadow-sm);
 	}
 
 	section {

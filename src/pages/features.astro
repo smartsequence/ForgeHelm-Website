@@ -223,7 +223,7 @@ import Layout from '../layouts/Layout.astro';
 	.hero {
 		background: var(--bg-main);
 		color: var(--text-primary);
-		padding: 0.5rem 0 3rem;
+		padding: 0.25rem 0 3rem;
 		text-align: center;
 		border-bottom: 1px solid var(--border-light);
 	}
@@ -241,7 +241,7 @@ import Layout from '../layouts/Layout.astro';
 
 	/* 適用對象 */
 	.target-audience {
-		background: #f9fafb;
+		background: var(--bg-section);
 	}
 
 	.audience-grid {
@@ -254,7 +254,7 @@ import Layout from '../layouts/Layout.astro';
 		background: var(--bg-card);
 		padding: 2rem;
 		border-radius: 1rem;
-		border: 1px solid #e5e7eb;
+		border: 1px solid var(--border-color);
 	}
 
 	.card-icon {
@@ -328,7 +328,7 @@ import Layout from '../layouts/Layout.astro';
 
 	.badge {
 		display: inline-block;
-		background: #f59e0b;
+		background: var(--cta-gold);
 		color: white;
 		font-size: 0.75rem;
 		padding: 0.25rem 0.5rem;
@@ -339,7 +339,7 @@ import Layout from '../layouts/Layout.astro';
 
 	/* 應用場景 */
 	.use-cases {
-		background: #f9fafb;
+		background: var(--bg-section);
 	}
 
 	.cases-grid {
@@ -387,7 +387,7 @@ import Layout from '../layouts/Layout.astro';
 	}
 
 	.demo-placeholder {
-		background: #f9fafb;
+		background: var(--bg-section);
 		border: 2px dashed var(--border-color);
 		border-radius: 1rem;
 		padding: 3rem 2rem;
@@ -425,19 +425,21 @@ import Layout from '../layouts/Layout.astro';
 
 	/* CTA */
 	.cta-final {
-		background: linear-gradient(135deg, #0ea5e9 0%, #334155 100%);
-		color: white;
+		background: var(--bg-section);
+		color: var(--text-primary);
 		text-align: center;
+		border-top: 1px solid var(--border-light);
+		border-bottom: 1px solid var(--border-light);
 	}
 
 	.cta-content h2 {
-		color: white;
+		color: var(--text-primary);
 		margin-bottom: 1rem;
 	}
 
 	.cta-content p {
 		font-size: 1.125rem;
-		opacity: 0.95;
+		color: var(--text-secondary);
 		margin-bottom: 2rem;
 	}
 
@@ -458,23 +460,27 @@ import Layout from '../layouts/Layout.astro';
 	}
 
 	.btn-primary {
-		background: var(--bg-card);
-		color: var(--primary);
+		background: var(--cta-primary);
+		color: white;
+		box-shadow: var(--shadow-sm);
 	}
 
 	.btn-primary:hover {
 		transform: translateY(-2px);
-		box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+		background: var(--cta-hover);
+		box-shadow: var(--shadow-md);
 	}
 
 	.btn-secondary {
 		background: transparent;
-		color: white;
-		border: 2px solid white;
+		color: var(--text-primary);
+		border: 2px solid var(--border-color);
 	}
 
 	.btn-secondary:hover {
-		background: rgba(255, 255, 255, 0.1);
+		background: var(--glass-bg);
+		border-color: var(--link-color);
+		color: var(--link-color);
 	}
 
 	/* 通用 */

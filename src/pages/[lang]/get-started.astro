@@ -1,0 +1,342 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getTranslations, getLocalizedPath } from '../../i18n/utils';
+import { defaultLang, type Language, getAllLanguageCodes } from '../../i18n/languages';
+
+// 生成所有語言版本的靜態路徑
+export async function getStaticPaths() {
+	const allLangs = getAllLanguageCodes();
+	return allLangs
+		.filter((lang) => lang !== defaultLang)
+		.map((lang) => ({
+			params: { lang },
+		}));
+}
+
+// 從 URL 參數取得語言
+const lang = (Astro.params.lang || defaultLang) as Language;
+const translations = await getTranslations(lang);
+
+// 獲取 source 參數
+const source = Astro.url.searchParams.get('source') || 'direct';
+const plan = Astro.url.searchParams.get('plan') || '';
+
+// 翻譯函式
+function t(key: string): string {
+	const keys = key.split('.');
+	let value: any = translations;
+	for (const k of keys) {
+		value = value?.[k];
+		if (value === undefined) return key;
+	}
+	return value || key;
+}
+---
+
+<Layout 
+	title={t('pages.getStarted.title')}
+	description={t('pages.getStarted.description')}
+>
+	<!-- Hero 區塊 -->
+	<section class="hero">
+		<div class="container">
+			<h1>{t('pages.getStarted.heroTitle')}</h1>
+			<p class="hero-subtitle">
+				{t('pages.getStarted.heroSubtitle')}
+			</p>
+		</div>
+	</section>
+
+	<!-- 選項卡片 -->
+	<section class="section options">
+		<div class="container">
+			<div class="options-grid">
+				<!-- 免費試用 -->
+				<div class="option-card">
+					<div class="card-badge free">{lang === 'en' ? 'Free' : '免費'}</div>
+					<h2>{t('pages.getStarted.optionTrialTitle')}</h2>
+					<p class="card-description">
+						{t('pages.getStarted.optionTrialDesc')}
+					</p>
+					<ul class="card-features">
+						<li>✓ {t('pages.getStarted.optionTrialFeature1')}</li>
+						<li>✓ {t('pages.getStarted.optionTrialFeature2')}</li>
+						<li>✓ {t('pages.getStarted.optionTrialFeature3')}</li>
+						<li>✓ {t('pages.getStarted.optionTrialFeature4')}</li>
+					</ul>
+					<a href={`https://app.docengine.com/trial?source=${source}`} class="card-btn">{t('pages.getStarted.optionTrialButton')}</a>
+					<p class="card-note">{t('pages.getStarted.optionTrialNote')}</p>
+				</div>
+
+				<!-- 直接購買 -->
+				<div class="option-card featured">
+					<div class="card-badge popular">{lang === 'en' ? 'Most Popular' : '最受歡迎'}</div>
+					<h2>{t('pages.getStarted.optionPricingTitle')}</h2>
+					<p class="card-description">
+						{t('pages.getStarted.optionPricingDesc')}
+					</p>
+					<ul class="card-features">
+						<li>✓ {lang === 'en' ? 'Single purchase $29' : '單次購買 NT$ 990'}</li>
+						<li>✓ {lang === 'en' ? 'Monthly plan $79' : '月度方案 NT$ 2,490'}</li>
+						<li>✓ {lang === 'en' ? 'Annual plan $799' : '年度方案 NT$ 24,900'}</li>
+						<li>✓ {lang === 'en' ? 'All plans can issue invoices' : '所有方案可開發票'}</li>
+					</ul>
+					<a href={getLocalizedPath(`/pricing?source=${source}`, lang)} class="card-btn primary">{t('pages.getStarted.optionPricingButton')}</a>
+					<p class="card-note">{t('pages.getStarted.optionPricingNote')}</p>
+				</div>
+
+				<!-- 企業諮詢 -->
+				<div class="option-card">
+					<div class="card-badge enterprise">{lang === 'en' ? 'Enterprise' : '企業'}</div>
+					<h2>{lang === 'en' ? 'Enterprise Customization' : '企業客製化'}</h2>
+					<p class="card-description">
+						{lang === 'en' 
+							? 'Need large volumes of reports, customized analysis, or training? We offer dedicated enterprise plans'
+							: '需要大量報告、客製化分析或教育訓練？我們提供專屬企業方案'}
+					</p>
+					<ul class="card-features">
+						<li>✓ {lang === 'en' ? 'Customized analysis dimensions' : '客製化分析維度'}</li>
+						<li>✓ {lang === 'en' ? 'Dedicated technical support' : '專屬技術支援'}</li>
+						<li>✓ {lang === 'en' ? 'Training services' : '教育訓練服務'}</li>
+						<li>✓ {lang === 'en' ? 'Flexible pricing' : '彈性計費方式'}</li>
+					</ul>
+					<a href={getLocalizedPath(`/contact?type=enterprise&source=${source}`, lang)} class="card-btn">{lang === 'en' ? 'Contact Us' : '聯絡我們諮詢'}</a>
+					<p class="card-note">{lang === 'en' ? 'Suitable for large enterprises' : '適合大型企業'}</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- 快速連結 -->
+	<section class="section quick-links">
+		<div class="container">
+			<h2 class="section-title">{lang === 'en' ? 'Still Have Questions?' : '還有問題？'}</h2>
+			
+			<div class="links-grid">
+				<a href={getLocalizedPath('/features', lang)} class="link-card">
+					<div class="link-icon">⚙️</div>
+					<h3>{lang === 'en' ? 'Learn About Features' : '瞭解功能特色'}</h3>
+					<p>{lang === 'en' ? 'View Doc Engine\'s six core features' : '查看 Doc Engine 的六大核心功能'}</p>
+				</a>
+
+				<a href={getLocalizedPath('/pricing#faq', lang)} class="link-card">
+					<div class="link-icon">❓</div>
+					<h3>{lang === 'en' ? 'FAQ' : '常見問題'}</h3>
+					<p>{lang === 'en' ? 'Invoice, payment, data security questions' : '發票、付款、資料安全等疑問'}</p>
+				</a>
+
+				<a href={getLocalizedPath('/contact', lang)} class="link-card">
+					<div class="link-icon">📧</div>
+					<h3>{lang === 'en' ? 'Contact Us' : '聯絡我們'}</h3>
+					<p>{lang === 'en' ? 'Feel free to ask any questions' : '有任何問題都歡迎詢問'}</p>
+				</a>
+			</div>
+		</div>
+	</section>
+</Layout>
+
+<style>
+	/* 複製 get-started.astro 的樣式 */
+	.hero {
+		background: var(--bg-main);
+		color: var(--text-primary);
+		padding: 0.25rem 0 3rem;
+		text-align: center;
+		border-bottom: 1px solid var(--border-light);
+	}
+
+	.hero h1 {
+		font-size: 2.5rem;
+		margin-bottom: 1rem;
+	}
+
+	.hero-subtitle {
+		font-size: 1.125rem;
+		opacity: 0.95;
+	}
+
+	.options-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 2rem;
+		margin-top: 2rem;
+	}
+
+	.option-card {
+		background: var(--bg-card);
+		border: 2px solid var(--border-color);
+		border-radius: 1rem;
+		padding: 2.5rem 2rem;
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		transition: all 0.2s ease;
+	}
+
+	.option-card:hover {
+		transform: translateY(-4px);
+		box-shadow: var(--shadow-lg);
+	}
+
+	.option-card.featured {
+		border-color: var(--cta-primary);
+		box-shadow: var(--shadow-md);
+	}
+
+	.card-badge {
+		position: absolute;
+		top: -12px;
+		left: 50%;
+		transform: translateX(-50%);
+		padding: 0.375rem 1rem;
+		border-radius: 1rem;
+		font-size: 0.875rem;
+		font-weight: 600;
+		color: white;
+	}
+
+	.card-badge.free {
+		background: var(--cta-success);
+	}
+
+	.card-badge.popular {
+		background: var(--cta-primary);
+	}
+
+	.card-badge.enterprise {
+		background: var(--bg-section);
+		color: var(--text-primary);
+		border: 1px solid var(--border-color);
+	}
+
+	.option-card h2 {
+		font-size: 1.5rem;
+		margin: 1rem 0;
+		color: var(--text-primary);
+	}
+
+	.card-description {
+		color: var(--text-secondary);
+		margin-bottom: 1.5rem;
+		line-height: 1.75;
+	}
+
+	.card-features {
+		list-style: none;
+		padding: 0;
+		margin: 0 0 2rem 0;
+		flex: 1;
+	}
+
+	.card-features li {
+		padding: 0.5rem 0;
+		color: var(--text-secondary);
+	}
+
+	.card-btn {
+		display: block;
+		text-align: center;
+		padding: 0.875rem;
+		background: transparent;
+		border: 2px solid var(--border-color);
+		color: var(--text-primary);
+		text-decoration: none;
+		border-radius: 0.5rem;
+		font-weight: 600;
+		transition: all 0.2s ease;
+		margin-bottom: 1rem;
+	}
+
+	.card-btn:hover {
+		background: var(--cta-primary);
+		color: white;
+		border-color: var(--cta-primary);
+	}
+
+	.card-btn.primary {
+		background: var(--cta-primary);
+		border-color: transparent;
+		color: white;
+	}
+
+	.card-btn.primary:hover {
+		transform: translateY(-2px);
+		background: var(--cta-hover);
+		box-shadow: var(--shadow-md);
+	}
+
+	.card-note {
+		text-align: center;
+		font-size: 0.875rem;
+		color: var(--text-secondary);
+		margin: 0;
+	}
+
+	.quick-links {
+		background: var(--bg-section);
+	}
+
+	.section-title {
+		text-align: center;
+		font-size: 2.25rem;
+		margin-bottom: 3rem;
+		color: var(--text-primary);
+	}
+
+	.links-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		gap: 1.5rem;
+	}
+
+	.link-card {
+		background: var(--bg-card);
+		padding: 2rem;
+		border-radius: 1rem;
+		border: 1px solid var(--border-color);
+		text-decoration: none;
+		transition: all 0.2s ease;
+		display: block;
+	}
+
+	.link-card:hover {
+		border-color: var(--cta-primary);
+		transform: translateY(-2px);
+		box-shadow: var(--shadow-md);
+	}
+
+	.link-icon {
+		font-size: 2.5rem;
+		margin-bottom: 1rem;
+	}
+
+	.link-card h3 {
+		font-size: 1.125rem;
+		margin-bottom: 0.5rem;
+		color: var(--text-primary);
+	}
+
+	.link-card p {
+		color: var(--text-secondary);
+		margin: 0;
+	}
+
+	.section {
+		padding: 5rem 0;
+	}
+
+	@media (max-width: 768px) {
+		.hero h1 {
+			font-size: 2rem;
+		}
+
+		.section {
+			padding: 3rem 0;
+		}
+
+		.options-grid,
+		.links-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

@@ -1,9 +1,21 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import { SITE_TITLE, SITE_DESCRIPTION, STUDIO_TAX_ID } from '../consts';
-import { getLangFromUrl, getTranslations, getLocalizedPath } from '../i18n/utils';
+import Layout from '../../layouts/Layout.astro';
+import { SITE_TITLE, SITE_DESCRIPTION, STUDIO_TAX_ID } from '../../consts';
+import { getTranslations, getLocalizedPath } from '../../i18n/utils';
+import { defaultLang, type Language, getAllLanguageCodes } from '../../i18n/languages';
 
-const lang = getLangFromUrl(Astro.url);
+// 生成所有語言版本的靜態路徑
+export async function getStaticPaths() {
+	const allLangs = getAllLanguageCodes();
+	return allLangs
+		.filter((lang) => lang !== defaultLang) // 排除預設語言，因為它使用根路徑
+		.map((lang) => ({
+			params: { lang },
+		}));
+}
+
+// 從 URL 參數取得語言
+const lang = (Astro.params.lang || defaultLang) as Language;
 const translations = await getTranslations(lang);
 
 // 翻譯函式
@@ -260,7 +272,7 @@ function t(key: string): string {
 					</div>
 					<h3>{t('sections.explore.card2.title')}</h3>
 					<p>{t('sections.explore.card2.description')}</p>
-					<a href={getLocalizedPath('/pricing', lang)} class="explore-btn">
+					<a href={getLocalizedPath('/pricing', lang as any)} class="explore-btn">
 						{t('sections.explore.card2.button')}
 						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
 							<path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
@@ -289,6 +301,7 @@ function t(key: string): string {
 </Layout>
 
 <style>
+	/* 複製 index.astro 的所有樣式 */
 	/* Hero 區塊 - Dark Professional */
 	.hero {
 		position: relative;

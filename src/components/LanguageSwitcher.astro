@@ -1,0 +1,229 @@
+---
+import { languages, type Language, defaultLang } from '../i18n/languages';
+import { getLocalizedPath } from '../i18n/utils';
+
+interface Props {
+  currentLang: Language;
+  currentPath?: string;
+}
+
+const { currentLang, currentPath = Astro.url.pathname } = Astro.props;
+
+// 目前有翻譯檔案的語言（只顯示已翻譯的語言）
+// 當新增翻譯檔案時，請更新此列表
+const availableLangs: Language[] = ['zh-TW', 'en'];
+
+// 取得其他語言的 URL
+function getLocalizedUrl(locale: Language): string {
+  return getLocalizedPath(currentPath || Astro.url.pathname, locale);
+}
+---
+
+<div class="language-switcher">
+  <button 
+    class="language-switcher-trigger"
+    aria-label="選擇語言"
+    aria-expanded="false"
+    id="lang-switcher-btn"
+  >
+    <span class="flag">{languages[currentLang]?.flag || '🌐'}</span>
+    <span class="lang-name">{languages[currentLang]?.nativeName || currentLang}</span>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="chevron">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+    </svg>
+  </button>
+  
+  <div class="language-dropdown" id="lang-dropdown">
+    {availableLangs.map((code) => {
+      const lang = languages[code];
+      if (!lang) return null;
+      return (
+        <a
+          href={getLocalizedUrl(code)}
+          class:list={[
+            'lang-option',
+            { active: currentLang === code }
+          ]}
+          aria-label={`切換到 ${lang.name}`}
+        >
+          <span class="flag">{lang.flag}</span>
+          <span class="lang-name">{lang.nativeName}</span>
+          {currentLang === code && (
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="check">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+            </svg>
+          )}
+        </a>
+      );
+    })}
+  </div>
+</div>
+
+<script>
+  // 語言切換器互動邏輯
+  const trigger = document.getElementById('lang-switcher-btn');
+  const dropdown = document.getElementById('lang-dropdown');
+  
+  if (trigger && dropdown) {
+    let isOpen = false;
+    
+    trigger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      isOpen = !isOpen;
+      dropdown.classList.toggle('open', isOpen);
+      trigger.setAttribute('aria-expanded', isOpen.toString());
+    });
+    
+    // 點擊外部關閉
+    document.addEventListener('click', (e) => {
+      if (!trigger.contains(e.target as Node) && !dropdown.contains(e.target as Node)) {
+        isOpen = false;
+        dropdown.classList.remove('open');
+        trigger.setAttribute('aria-expanded', 'false');
+      }
+    });
+    
+    // ESC 鍵關閉
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && isOpen) {
+        isOpen = false;
+        dropdown.classList.remove('open');
+        trigger.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+</script>
+
+<style>
+  .language-switcher {
+    position: relative;
+    display: inline-block;
+  }
+
+  .language-switcher-trigger {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: var(--bg-card, rgba(255, 255, 255, 0.05));
+    border: 1px solid var(--border-color, rgba(255, 255, 255, 0.1));
+    border-radius: var(--radius-md, 0.5rem);
+    color: var(--text-primary, #ffffff);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.875rem;
+    backdrop-filter: blur(10px);
+  }
+
+  .language-switcher-trigger:hover {
+    background: var(--glass-bg, rgba(255, 255, 255, 0.1));
+    border-color: var(--link-color, #3b82f6);
+  }
+
+  .language-switcher-trigger .flag {
+    font-size: 1.25rem;
+    line-height: 1;
+  }
+
+  .language-switcher-trigger .lang-name {
+    font-weight: 500;
+  }
+
+  .language-switcher-trigger .chevron {
+    width: 1rem;
+    height: 1rem;
+    transition: transform 0.2s ease;
+  }
+
+  .language-dropdown.open ~ .language-switcher-trigger .chevron,
+  .language-switcher-trigger:has(~ .language-dropdown.open) .chevron {
+    transform: rotate(180deg);
+  }
+
+  .language-dropdown {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    right: 0;
+    min-width: 200px;
+    max-height: 400px;
+    overflow-y: auto;
+    background: var(--bg-card, rgba(30, 30, 30, 0.95));
+    border: 1px solid var(--border-color, rgba(255, 255, 255, 0.1));
+    border-radius: var(--radius-lg, 0.75rem);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.2s ease;
+    z-index: 1000;
+    backdrop-filter: blur(20px);
+  }
+
+  .language-dropdown.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .lang-option {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    color: var(--text-primary, #ffffff);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border-bottom: 1px solid var(--border-light, rgba(255, 255, 255, 0.05));
+  }
+
+  .lang-option:last-child {
+    border-bottom: none;
+  }
+
+  .lang-option:hover {
+    background: var(--glass-bg, rgba(255, 255, 255, 0.1));
+    color: var(--link-color, #3b82f6);
+  }
+
+  .lang-option.active {
+    background: var(--cta-primary, rgba(59, 130, 246, 0.1));
+    color: var(--cta-primary, #3b82f6);
+    font-weight: 600;
+  }
+
+  .lang-option .flag {
+    font-size: 1.25rem;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .lang-option .lang-name {
+    flex: 1;
+    font-size: 0.875rem;
+  }
+
+  .lang-option .check {
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+    color: var(--cta-primary, #3b82f6);
+  }
+
+  /* 響應式設計 */
+  @media (max-width: 768px) {
+    .language-dropdown {
+      right: auto;
+      left: 0;
+      min-width: 180px;
+    }
+
+    .language-switcher-trigger {
+      padding: 0.5rem 0.75rem;
+      font-size: 0.8125rem;
+    }
+
+    .language-switcher-trigger .lang-name {
+      display: none;
+    }
+  }
+</style>

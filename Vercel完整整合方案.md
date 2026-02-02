@@ -1,4 +1,8 @@
-# Vercel 完整整合方案（翻譯 API + RAG + AI 客服）
+# Vercel 完整整合方案（翻譯 API + RAG + AI 客服）【備選方案】
+
+> **狀態說明**：目前範例文件主要以「Azure Static Web Apps + Astro i18n」為預設示範架構，  
+> 但官網也可以選擇部署在 **Vercel**，成本級距與 Azure 免費額度同樣偏低。  
+> 若日後決定採用 Vercel，實作時可參考本文件；若使用 Azure，則以 `DEPLOYMENT.md` 與 `I18N_SETUP.md` 為主。
 
 **建立日期**: 2026-01-25  
 **版本**: v1.0  

@@ -1,4 +1,7 @@
-# Vercel + PostgreSQL 部署方案
+# Vercel + PostgreSQL 部署方案【已歸檔】
+
+> **狀態說明**：目前 DocEngine SaaS 與資料庫仍以 Azure 為主，  
+> 本文件為當時評估「官網 + 後端都放在 Vercel」的方案紀錄，實際架構請以各專案內的部署文件為準。
 
 **建立日期**: 2026-01-25  
 **版本**: v1.0  

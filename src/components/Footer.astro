@@ -8,6 +8,26 @@ import {
 	SOCIAL_YOUTUBE,
 	SOCIAL_GITHUB
 } from '../consts';
+import { getTranslations, getLocalizedPath } from '../i18n/utils';
+import type { Language } from '../i18n/languages';
+
+interface Props {
+	lang: Language;
+}
+
+const { lang } = Astro.props;
+const translations = await getTranslations(lang);
+
+// 翻譯函式
+function t(key: string): string {
+	const keys = key.split('.');
+	let value: any = translations;
+	for (const k of keys) {
+		value = value?.[k];
+		if (value === undefined) return key;
+	}
+	return value || key;
+}
 
 const today = new Date();
 ---
@@ -19,16 +39,16 @@ const today = new Date();
 			<!-- 左側：品牌資訊 -->
 			<div class="footer-brand">
 				<div class="brand-header">
-					<h3>{STUDIO_NAME}</h3>
-					<p class="brand-subtitle">{STUDIO_NAME_EN}</p>
+					<h3>{t('footer.studioName')}</h3>
+					<p class="brand-subtitle">{t('footer.studioNameEn')}</p>
 				</div>
-				<p class="tagline">讓資訊架構更穩、系統交付更安心<br/>專業風險評估，讓複雜說得清楚</p>
+				<p class="tagline" set:html={(t('footer.tagline') || t('footer.description')).replace(/\n/g, '<br>')}></p>
 				<div class="contact-info">
 					<p class="info-item">
 						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
 							<path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008z" />
 						</svg>
-						統一編號：{STUDIO_TAX_ID}
+						{t('footer.taxId')}：{STUDIO_TAX_ID}
 					</p>
 					<p class="info-item">
 						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -42,39 +62,39 @@ const today = new Date();
 			<!-- 中間：快速導航 -->
 			<div class="footer-nav">
 				<div class="nav-column">
-					<h4>產品</h4>
+					<h4>{t('footer.products')}</h4>
 					<ul>
-						<li><a href="/features">Doc Engine 介紹</a></li>
-						<li><a href="/features#modules">功能特色</a></li>
-						<li><a href="/get-started?source=footer">範例報告</a></li>
-						<li><a href="/pricing#faq">常見問題</a></li>
+						<li><a href={getLocalizedPath('/features', lang)}>{lang === 'en' ? 'Doc Engine Overview' : 'Doc Engine 介紹'}</a></li>
+						<li><a href={getLocalizedPath('/features#modules', lang)}>{lang === 'en' ? 'Features' : '功能特色'}</a></li>
+						<li><a href={getLocalizedPath('/get-started?source=footer', lang)}>{lang === 'en' ? 'Sample Report' : '範例報告'}</a></li>
+						<li><a href={getLocalizedPath('/pricing#faq', lang)}>{lang === 'en' ? 'FAQ' : '常見問題'}</a></li>
 					</ul>
 				</div>
 
 				<div class="nav-column">
-					<h4>服務</h4>
+					<h4>{t('footer.services')}</h4>
 					<ul>
-						<li><a href="/pricing">定價方案</a></li>
-						<li><a href="/get-started">開始使用</a></li>
-						<li><a href="/contact?type=enterprise">企業方案</a></li>
-						<li><a href="/contact?type=support">技術支援</a></li>
+						<li><a href={getLocalizedPath('/pricing', lang)}>{lang === 'en' ? 'Pricing Plans' : '定價方案'}</a></li>
+						<li><a href={getLocalizedPath('/get-started', lang)}>{lang === 'en' ? 'Get Started' : '開始使用'}</a></li>
+						<li><a href={getLocalizedPath('/contact?type=enterprise', lang)}>{lang === 'en' ? 'Enterprise Plan' : '企業方案'}</a></li>
+						<li><a href={getLocalizedPath('/contact?type=support', lang)}>{lang === 'en' ? 'Technical Support' : '技術支援'}</a></li>
 					</ul>
 				</div>
 
 				<div class="nav-column">
-					<h4>關於</h4>
+					<h4>{t('footer.about')}</h4>
 					<ul>
-						<li><a href="/about">關於我們</a></li>
-						<li><a href="/contact">聯絡我們</a></li>
-						<li><a href="/terms">使用條款</a></li>
-						<li><a href="/privacy">隱私權政策</a></li>
+						<li><a href={getLocalizedPath('/about', lang)}>{lang === 'en' ? 'About Us' : '關於我們'}</a></li>
+						<li><a href={getLocalizedPath('/contact', lang)}>{lang === 'en' ? 'Contact Us' : '聯絡我們'}</a></li>
+						<li><a href={getLocalizedPath('/terms', lang)}>{lang === 'en' ? 'Terms of Service' : '使用條款'}</a></li>
+						<li><a href={getLocalizedPath('/privacy', lang)}>{lang === 'en' ? 'Privacy Policy' : '隱私權政策'}</a></li>
 					</ul>
 				</div>
 			</div>
 
 			<!-- 右側：社群連結 -->
 			<div class="footer-social">
-				<h4>追蹤我們</h4>
+				<h4>{t('footer.followUs')}</h4>
 				<div class="social-links">
 					<a href={SOCIAL_LINKEDIN} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
 						<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -92,7 +112,7 @@ const today = new Date();
 						</svg>
 					</a>
 				</div>
-				<p class="powered-by">Powered by Doc Engine</p>
+				<p class="powered-by">{t('footer.poweredBy')}</p>
 			</div>
 		</div>
 
@@ -101,7 +121,7 @@ const today = new Date();
 
 		<!-- 版權資訊 -->
 		<div class="footer-bottom">
-			<p class="copyright">&copy; {today.getFullYear()} {STUDIO_NAME}. All rights reserved.</p>
+			<p class="copyright">{t('footer.copyright').replace('2026', today.getFullYear().toString())}</p>
 		</div>
 	</div>
 </footer>

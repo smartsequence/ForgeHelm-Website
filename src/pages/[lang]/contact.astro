@@ -1,24 +1,48 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import { CONTACT_EMAIL } from '../consts';
+import Layout from '../../layouts/Layout.astro';
+import { CONTACT_EMAIL } from '../../consts';
+import { getTranslations, getLocalizedPath } from '../../i18n/utils';
+import { defaultLang, type Language, getAllLanguageCodes } from '../../i18n/languages';
+
+// 生成所有語言版本的靜態路徑
+export async function getStaticPaths() {
+	const allLangs = getAllLanguageCodes();
+	return allLangs
+		.filter((lang) => lang !== defaultLang)
+		.map((lang) => ({
+			params: { lang },
+		}));
+}
+
+// 從 URL 參數取得語言
+const lang = (Astro.params.lang || defaultLang) as Language;
+const translations = await getTranslations(lang);
 
 // 獲取 URL 參數
 const type = Astro.url.searchParams.get('type') || '';
 const source = Astro.url.searchParams.get('source') || '';
+
+// 翻譯函式
+function t(key: string): string {
+	const keys = key.split('.');
+	let value: any = translations;
+	for (const k of keys) {
+		value = value?.[k];
+		if (value === undefined) return key;
+	}
+	return value || key;
+}
 ---
 
 <Layout 
-	title="聯絡我們 | 智序資訊工作室" 
-	description="歡迎洽詢合作提案、報告試閱、付款與發票相關問題。"
+	title={t('pages.contact.title')}
+	description={t('pages.contact.description')}
 >
 	<!-- Hero 區塊 -->
 	<section class="hero">
 		<div class="container">
-			<h1>聯絡我們</h1>
-			<p class="hero-subtitle">
-				歡迎洽詢合作提案、報告試閱、付款與發票相關問題。<br>
-				我們將於 1-2 個工作天內回覆您。
-			</p>
+			<h1>{t('pages.contact.heroTitle')}</h1>
+			<p class="hero-subtitle" set:html={t('pages.contact.heroSubtitle').replace(/\n/g, '<br>')}></p>
 		</div>
 	</section>
 
@@ -28,30 +52,27 @@ const source = Astro.url.searchParams.get('source') || '';
 			<div class="contact-grid">
 				<!-- 聯絡表單 -->
 				<div class="form-section">
-					<h2>諮詢表單</h2>
-					<p class="form-desc">請填寫以下資訊，我們會盡快與您聯繫</p>
+					<h2>{t('pages.contact.formTitle')}</h2>
+					<p class="form-desc">{t('pages.contact.formDesc')}</p>
 					
 					<form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
-						<!-- Web3Forms Access Key（需要替換為實際的 key） -->
 						<input type="hidden" name="access_key" value="YOUR_WEB3FORMS_KEY">
-						
-						<!-- 隱藏欄位：來源追蹤 -->
 						<input type="hidden" name="from_page" value={type ? `contact-${type}` : 'contact'}>
 						<input type="hidden" name="source" value={source}>
 						
 						<div class="form-group">
-							<label for="name">姓名 <span class="required">*</span></label>
+							<label for="name">{t('pages.contact.nameLabel')} <span class="required">*</span></label>
 							<input 
 								type="text" 
 								id="name" 
 								name="name" 
 								required 
-								placeholder="請輸入您的姓名"
+								placeholder={lang === 'en' ? 'Enter your name' : '請輸入您的姓名'}
 							>
 						</div>
 
 						<div class="form-group">
-							<label for="email">Email <span class="required">*</span></label>
+							<label for="email">{t('pages.contact.emailLabel')} <span class="required">*</span></label>
 							<input 
 								type="email" 
 								id="email" 
@@ -62,76 +83,63 @@ const source = Astro.url.searchParams.get('source') || '';
 						</div>
 
 						<div class="form-group">
-							<label for="company">公司／單位 <span class="optional">(選填)</span></label>
+							<label for="company">{t('pages.contact.companyLabel')} <span class="optional">({t('pages.contact.companyOptional')})</span></label>
 							<input 
 								type="text" 
 								id="company" 
 								name="company" 
-								placeholder="如為企業洽詢，請填寫公司名稱"
+								placeholder={lang === 'en' ? 'Company name (if enterprise inquiry)' : '如為企業洽詢，請填寫公司名稱'}
 							>
 						</div>
 
 						<div class="form-group">
-							<label for="subject">詢問主題 <span class="required">*</span></label>
+							<label for="subject">{t('pages.contact.subjectLabel')} <span class="required">*</span></label>
 							<select id="subject" name="subject" required>
-								<option value="">請選擇...</option>
-								<option value="trial" {type === 'trial' ? 'selected' : ''}>報告試閱與產品諮詢</option>
-								<option value="enterprise" {type === 'enterprise' ? 'selected' : ''}>企業合作與客製化需求</option>
-								<option value="payment">付款方式與發票開立</option>
-								<option value="support">技術支援</option>
-								<option value="other">其他</option>
+								<option value="">{t('pages.contact.subjectPlaceholder')}</option>
+								<option value="trial" {type === 'trial' ? 'selected' : ''}>{t('pages.contact.subjectTrial')}</option>
+								<option value="enterprise" {type === 'enterprise' ? 'selected' : ''}>{t('pages.contact.subjectEnterprise')}</option>
+								<option value="payment">{t('pages.contact.subjectPayment')}</option>
+								<option value="support">{t('pages.contact.subjectSupport')}</option>
+								<option value="other">{t('pages.contact.subjectOther')}</option>
 							</select>
 						</div>
 
 						<div class="form-group">
-							<label for="message">留言內容 <span class="required">*</span></label>
+							<label for="message">{t('pages.contact.messageLabel')} <span class="required">*</span></label>
 							<textarea 
 								id="message" 
 								name="message" 
 								required 
 								rows="6"
-								placeholder="請描述您的需求或問題，我們會盡快回覆"
+								placeholder={t('pages.contact.messagePlaceholder')}
 							></textarea>
 						</div>
 
-						<button type="submit" class="submit-btn">送出諮詢</button>
+						<button type="submit" class="submit-btn">{t('pages.contact.submitButton')}</button>
 						
-						<p class="form-note">* 為必填欄位</p>
+						<p class="form-note">{lang === 'en' ? '* Required fields' : '* 為必填欄位'}</p>
 					</form>
 				</div>
 
 				<!-- 聯絡資訊 -->
 				<div class="info-section">
-					<h2>其他聯絡方式</h2>
+					<h2>{lang === 'en' ? 'Other Contact Methods' : '其他聯絡方式'}</h2>
 					
 					<div class="contact-method">
 						<div class="method-icon">📧</div>
 						<div class="method-content">
-							<h3>Email 直接聯絡</h3>
+							<h3>{t('pages.contact.emailTitle')}</h3>
 							<p><a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a></p>
-							<p class="method-note">回覆時間：1-2 個工作天</p>
+							<p class="method-note">{t('pages.contact.responseTime')}</p>
 						</div>
 					</div>
 
 					<div class="contact-method">
 						<div class="method-icon">💬</div>
 						<div class="method-content">
-							<h3>LINE 官方帳號</h3>
-							<p>LINE ID: @smartsequence <span class="note-small">（請更新實際 ID）</span></p>
-							<p class="method-note">即時諮詢：週一至週五 10:00-18:00</p>
-							<div class="qr-placeholder">
-								<p>📱 QR Code</p>
-								<p class="small">（準備中）</p>
-							</div>
-						</div>
-					</div>
-
-					<div class="contact-method">
-						<div class="method-icon">📍</div>
-						<div class="method-content">
-							<h3>實體地址</h3>
-							<p class="note-small">新竹市（實際地址待補充）</p>
-							<p class="method-note">如有實體辦公室可提供地址</p>
+							<h3>{lang === 'en' ? 'LINE Official Account' : 'LINE 官方帳號'}</h3>
+							<p>{lang === 'en' ? 'LINE ID: @smartsequence' : 'LINE ID: @smartsequence'} <span class="note-small">({lang === 'en' ? 'Please update actual ID' : '請更新實際 ID'})</span></p>
+							<p class="method-note">{lang === 'en' ? 'Real-time consultation: Mon-Fri 10:00-18:00' : '即時諮詢：週一至週五 10:00-18:00'}</p>
 						</div>
 					</div>
 				</div>
@@ -142,31 +150,31 @@ const source = Astro.url.searchParams.get('source') || '';
 	<!-- 快速連結 -->
 	<section class="section quick-links">
 		<div class="container">
-			<h2 class="section-title">常見需求快速導航</h2>
+			<h2 class="section-title">{lang === 'en' ? 'Quick Navigation' : '常見需求快速導航'}</h2>
 			
 			<div class="links-grid">
-				<a href="/pricing" class="link-card">
+				<a href={getLocalizedPath('/pricing', lang)} class="link-card">
 					<div class="link-icon">💰</div>
-					<h3>查看定價方案</h3>
-					<p>瞭解費用與方案內容</p>
+					<h3>{lang === 'en' ? 'View Pricing Plans' : '查看定價方案'}</h3>
+					<p>{lang === 'en' ? 'Learn about fees and plan details' : '瞭解費用與方案內容'}</p>
 				</a>
 
-				<a href="/get-started?source=contact-demo" class="link-card">
+				<a href={getLocalizedPath('/get-started?source=contact-demo', lang)} class="link-card">
 					<div class="link-icon">📋</div>
-					<h3>預覽範例報告</h3>
-					<p>看實際報告品質</p>
+					<h3>{lang === 'en' ? 'Preview Sample Report' : '預覽範例報告'}</h3>
+					<p>{lang === 'en' ? 'See actual report quality' : '看實際報告品質'}</p>
 				</a>
 
-				<a href="/pricing#faq" class="link-card">
+				<a href={getLocalizedPath('/pricing#faq', lang)} class="link-card">
 					<div class="link-icon">❓</div>
-					<h3>常見問題 FAQ</h3>
-					<p>發票、付款、資料安全</p>
+					<h3>{lang === 'en' ? 'FAQ' : '常見問題 FAQ'}</h3>
+					<p>{lang === 'en' ? 'Invoice, payment, data security' : '發票、付款、資料安全'}</p>
 				</a>
 
-				<a href="/get-started?source=contact-trial" class="link-card">
+				<a href={getLocalizedPath('/get-started?source=contact-trial', lang)} class="link-card">
 					<div class="link-icon">🚀</div>
-					<h3>立即開始使用</h3>
-					<p>免費試用 Doc Engine</p>
+					<h3>{lang === 'en' ? 'Get Started Now' : '立即開始使用'}</h3>
+					<p>{lang === 'en' ? 'Free trial Doc Engine' : '免費試用 Doc Engine'}</p>
 				</a>
 			</div>
 		</div>
@@ -174,7 +182,7 @@ const source = Astro.url.searchParams.get('source') || '';
 </Layout>
 
 <style>
-	/* Hero */
+	/* 複製 contact.astro 的樣式 */
 	.hero {
 		background: var(--bg-main);
 		color: var(--text-primary);
@@ -194,7 +202,6 @@ const source = Astro.url.searchParams.get('source') || '';
 		line-height: 1.75;
 	}
 
-	/* 主要內容 */
 	.contact-grid {
 		display: grid;
 		grid-template-columns: minmax(520px, 1.6fr) minmax(320px, 1fr);
@@ -202,15 +209,14 @@ const source = Astro.url.searchParams.get('source') || '';
 		align-items: start;
 	}
 
-	/* 表單區 */
 	.form-section h2 {
 		font-size: 1.75rem;
 		margin-bottom: 0.5rem;
-		color: var(--gray-dark);
+		color: var(--text-primary);
 	}
 
 	.form-desc {
-		color: var(--gray-medium);
+		color: var(--text-secondary);
 		margin-bottom: 2rem;
 	}
 
@@ -230,16 +236,16 @@ const source = Astro.url.searchParams.get('source') || '';
 		display: block;
 		margin-bottom: 0.5rem;
 		font-weight: 600;
-		color: var(--gray-dark);
+		color: var(--text-primary);
 	}
 
 	.required {
-		color: var(--error);
+		color: var(--cta-danger);
 	}
 
 	.optional {
 		font-weight: 400;
-		color: var(--gray-medium);
+		color: var(--text-secondary);
 		font-size: 0.875rem;
 	}
 
@@ -257,16 +263,11 @@ const source = Astro.url.searchParams.get('source') || '';
 		color: var(--text-primary);
 	}
 
-	.form-group input::placeholder,
-	.form-group textarea::placeholder {
-		color: var(--text-muted);
-	}
-
 	.form-group input:focus,
 	.form-group select:focus,
 	.form-group textarea:focus {
 		outline: none;
-		border-color: var(--primary);
+		border-color: var(--cta-primary);
 	}
 
 	.form-group textarea {
@@ -296,15 +297,14 @@ const source = Astro.url.searchParams.get('source') || '';
 	.form-note {
 		margin-top: 1rem;
 		font-size: 0.875rem;
-		color: var(--gray-medium);
+		color: var(--text-secondary);
 		text-align: center;
 	}
 
-	/* 聯絡資訊區 */
 	.info-section h2 {
 		font-size: 1.75rem;
 		margin-bottom: 2rem;
-		color: var(--gray-dark);
+		color: var(--text-primary);
 	}
 
 	.contact-method {
@@ -325,25 +325,17 @@ const source = Astro.url.searchParams.get('source') || '';
 	.method-content h3 {
 		font-size: 1.125rem;
 		margin-bottom: 0.5rem;
-		color: var(--gray-dark);
-	}
-
-	.method-content {
-		min-width: 0;
+		color: var(--text-primary);
 	}
 
 	.method-content p {
-		color: var(--gray-medium);
+		color: var(--text-secondary);
 		margin-bottom: 0.25rem;
 	}
 
 	.method-content a {
-		color: var(--primary);
+		color: var(--cta-primary);
 		text-decoration: none;
-		overflow-wrap: anywhere;
-		word-break: break-word;
-		display: inline-block;
-		max-width: 100%;
 	}
 
 	.method-content a:hover {
@@ -352,37 +344,24 @@ const source = Astro.url.searchParams.get('source') || '';
 
 	.method-note {
 		font-size: 0.875rem;
-		color: var(--gray-medium);
+		color: var(--text-secondary);
 		margin-top: 0.5rem;
 	}
 
 	.note-small {
 		font-size: 0.75rem;
-		color: var(--gray-medium);
+		color: var(--text-secondary);
 	}
 
-	.qr-placeholder {
-		margin-top: 1rem;
-		padding: 2rem;
-		background: var(--bg-section);
-		border: 2px dashed var(--border-color);
-		border-radius: 0.5rem;
-		text-align: center;
-	}
-
-	.qr-placeholder p {
-		margin: 0;
-	}
-
-	.qr-placeholder .small {
-		font-size: 0.875rem;
-		color: var(--gray-medium);
-		margin-top: 0.5rem;
-	}
-
-	/* 快速連結 */
 	.quick-links {
 		background: var(--bg-section);
+	}
+
+	.section-title {
+		text-align: center;
+		font-size: 2.25rem;
+		margin-bottom: 3rem;
+		color: var(--text-primary);
 	}
 
 	.links-grid {
@@ -403,9 +382,9 @@ const source = Astro.url.searchParams.get('source') || '';
 	}
 
 	.link-card:hover {
-		border-color: var(--primary);
+		border-color: var(--cta-primary);
 		transform: translateY(-2px);
-		box-shadow: 0 4px 12px rgba(30, 64, 175, 0.15);
+		box-shadow: var(--shadow-md);
 	}
 
 	.link-icon {
@@ -416,27 +395,18 @@ const source = Astro.url.searchParams.get('source') || '';
 	.link-card h3 {
 		font-size: 1.125rem;
 		margin-bottom: 0.5rem;
-		color: var(--gray-dark);
+		color: var(--text-primary);
 	}
 
 	.link-card p {
-		color: var(--gray-medium);
+		color: var(--text-secondary);
 		margin: 0;
 	}
 
-	/* 通用 */
 	.section {
 		padding: 5rem 0;
 	}
 
-	.section-title {
-		text-align: center;
-		font-size: 2.25rem;
-		margin-bottom: 3rem;
-		color: var(--gray-dark);
-	}
-
-	/* 響應式 */
 	@media (max-width: 968px) {
 		.contact-grid {
 			grid-template-columns: 1fr;

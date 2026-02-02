@@ -8,7 +8,7 @@ export const SITE_URL = 'https://smartsequence.tech';
 
 // 工作室資訊
 export const STUDIO_NAME = '智序資訊工作室';
-export const STUDIO_NAME_EN = 'SmartSequence Tech Studio';
+export const STUDIO_NAME_EN = 'Smart Sequence Tech';
 export const STUDIO_TAX_ID = '12345678'; // 統一編號（請替換為實際編號）
 
 // 產品相關 URL
